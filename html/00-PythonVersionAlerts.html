@@ -13211,8 +13211,14 @@ div#notebook {
 </li>
 <li><p>In <strong>python3</strong> parentheses is part of <strong>print</strong> function</p>
 </li>
-<li>In <strong>python2</strong> parentheses is part of <strong>data that is being printed</strong> </li>
-<li>If a <strong>print</strong> is printing a single value, there will be no difference.</li>
+<li>In <strong>python2</strong> parentheses is part of <strong>data that is being printed</strong> <ul>
+<li>multiple values in parentheses is a <strong>tuple</strong></li>
+</ul>
+</li>
+<li>If a <strong>print</strong> is printing a single value, there will be no difference.<ul>
+<li>a single value in parentheses is same value</li>
+</ul>
+</li>
 <li>This difference is apparent only when we are tryng to print <strong>multiple items using a single print</strong></li>
 </ul>
 
@@ -13221,10 +13227,11 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>   <span class="c1"># print is printing a tuple</span>
+      
 </pre></div>
 
     </div>
@@ -13254,7 +13261,7 @@ div#notebook {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li>Here Python is printing a speical value rpresented by <strong>(1,2,3,4)</strong></li>
+<li>Here Python is printing a speical value rpresented by <strong>(1,2,3,4)</strong>  which is a <strong>tuple</strong></li>
 <li>In python 3 print will be trying to print 4 values put in print parentheses 1,2,3,4</li>
 </ul>
 
@@ -13633,6 +13640,213 @@ World		5 4 7
 <pre>0.0</pre>
 </div>
 
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="var-args-rule">var args rule<a class="anchor-link" href="#var-args-rule">&#182;</a></h2><ul>
+<li><p>In Python 2 It is mandatory that <strong>*args</strong> parameter <strong>must be the last parameter</strong></p>
+<ul>
+<li>Making <strong>*args</strong> non-last is a semantic error</li>
+</ul>
+</li>
+<li><p>In Python 3, It is permitted (although not recommended) to have <strong>*args</strong> as non-last parameter</p>
+</li>
+</ul>
+<h2 id="Why-var-arg-should-be-the-last-parameter">Why var arg should be the last parameter<a class="anchor-link" href="#Why-var-arg-should-be-the-last-parameter">&#182;</a></h2><ul>
+<li>say we have a function which takes <strong>*args</strong> as non-last parameter</li>
+</ul>
+<hr>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">call_me</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;x={}</span><span class="se">\t</span><span class="s1">args={}</span><span class="se">\t</span><span class="s1">y={}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">args</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+<hr>
+<ul>
+<li>How will the function be called?</li>
+</ul>
+<hr>
+<div class="highlight"><pre><span></span><span class="n">call_me</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>  <span class="c1"># x= 1, args=(2,3,4,5), y=???</span>
+
+<span class="n">call_me</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span> <span class="c1"># x=1 args(2,3,4,5,6,7,8,9,10) , y=???</span>
+</pre></div>
+<hr>
+<h3 id="How-will-you-pass-any-value-for-y???">How will you pass any value for y???<a class="anchor-link" href="#How-will-you-pass-any-value-for-y???">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">call_me</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;x={}</span><span class="se">\t</span><span class="s1">args={}</span><span class="se">\t</span><span class="s1">y={}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">args</span><span class="p">,</span><span class="n">y</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-cyan-intense-fg ansi-bold">  File </span><span class="ansi-green-intense-fg ansi-bold">&#34;&lt;ipython-input-5-97818585fa05&gt;&#34;</span><span class="ansi-cyan-intense-fg ansi-bold">, line </span><span class="ansi-green-intense-fg ansi-bold">1</span>
+<span class="ansi-yellow-intense-fg ansi-bold">    def call_me(x, *args, y):</span>
+<span class="ansi-white-intense-fg ansi-bold">                          ^</span>
+<span class="ansi-red-intense-fg ansi-bold">SyntaxError</span><span class="ansi-red-intense-fg ansi-bold">:</span> invalid syntax
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="range-and-xrange">range and xrange<a class="anchor-link" href="#range-and-xrange">&#182;</a></h2><ul>
+<li><p>range function behaves differently in python 2 and python 3</p>
+</li>
+<li><p>In <strong>python 2</strong> range creates and returns <strong>list</strong> of values</p>
+<ul>
+<li><p>it is like a <strong>stored sequence</strong></p>
+</li>
+<li><p>inspired by <strong>Python3</strong> ,<strong>python 2</strong> introduced a <strong>new</strong> <strong>xrange()</strong> function which is similar to <strong>python3 range</strong></p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>In Python 2</p>
+<ul>
+<li>range --&gt; returns list</li>
+<li>xrange --&gt;returns computed sequence</li>
+</ul>
+</li>
+<li><p>In python 3</p>
+<ul>
+<li>range --&gt; computed sequence</li>
+<li>xrange --&gt; n/a</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">r1</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="k">print</span> <span class="n">r1</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">r1</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[1, 2, 3, 4, 5, 6, 7, 8, 9] &lt;type &#39;list&#39;&gt;
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">r2</span><span class="o">=</span><span class="nb">xrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">r2</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">r2</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>xrange(1, 10) &lt;type &#39;xrange&#39;&gt;
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">r2</span><span class="p">:</span>
+    <span class="k">print</span> <span class="n">value</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre>
+</div>
 </div>
 
 </div>

@@ -2,7 +2,7 @@
 <html>
 <head><meta charset="utf-8" />
 
-<title>04-python-statements</title>
+<title>07-Functions-Part-2</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -13116,28 +13116,20 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Python-Statements">Python Statements<a class="anchor-link" href="#Python-Statements">&#182;</a></h1><ul>
-<li>Python Statements are generally associated with a physical code line</li>
-<li>Generally a python statement should end in single line</li>
-<li>Generally we don't write multiple statement in single physical</li>
-</ul>
-<h2 id="Language-Alert!!!">Language Alert!!!<a class="anchor-link" href="#Language-Alert!!!">&#182;</a></h2><ul>
-<li><p>C is a free style language.</p>
+<h1 id="Functions-(Advanced)">Functions (Advanced)<a class="anchor-link" href="#Functions-(Advanced)">&#182;</a></h1><h2 id="Variable-Argument-Functions">Variable Argument Functions<a class="anchor-link" href="#Variable-Argument-Functions">&#182;</a></h2><ul>
+<li><p>sometimes we don't know the total number of arguments a function needs</p>
 <ul>
-<li>there is no relationship between a statment and physical line</li>
-<li>A statement may span in multiple lines</li>
-<li>Multiple statement may be present on a single line</li>
-<li>Statement ends with a semicolon</li>
+<li>Think how many arguments <strong>print()</strong> takes ???</li>
 </ul>
 </li>
-<li><p>Python</p>
+<li><p>real worl example:</p>
 <ul>
-<li>one statement --&gt; one line</li>
-<li>no terminator char like semicolon</li>
+<li>we need to write an average function to average a given set of numbers</li>
+<li>we are not sure how many numbers user would like to average</li>
 </ul>
 </li>
 </ul>
-
+<h3 id="Option-1---Let-function-take-a-list-instead-of-a-single-value">Option 1 - Let function take a list instead of a single value<a class="anchor-link" href="#Option-1---Let-function-take-a-list-instead-of-a-single-value">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -13146,33 +13138,15 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span><span class="o">=</span>
-<span class="mi">20</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">average</span><span class="p">(</span><span class="n">numbers</span><span class="p">):</span>  <span class="c1"># i expect user to pass a list (or a tuple)</span>
+    <span class="nb">sum</span><span class="o">=</span><span class="mi">0</span>
+    <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">:</span>
+        <span class="nb">sum</span><span class="o">+=</span><span class="n">value</span>
+        
+    <span class="k">return</span> <span class="nb">sum</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-cyan-intense-fg ansi-bold">  File </span><span class="ansi-green-intense-fg ansi-bold">&#34;&lt;ipython-input-1-86477d3408e0&gt;&#34;</span><span class="ansi-cyan-intense-fg ansi-bold">, line </span><span class="ansi-green-intense-fg ansi-bold">1</span>
-<span class="ansi-yellow-intense-fg ansi-bold">    x=</span>
-<span class="ansi-white-intense-fg ansi-bold">      ^</span>
-<span class="ansi-red-intense-fg ansi-bold">SyntaxError</span><span class="ansi-red-intense-fg ansi-bold">:</span> invalid syntax
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -13182,7 +13156,7 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="mi">20</span> <span class="n">y</span><span class="o">=</span><span class="mi">30</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">average</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
 </pre></div>
 
     </div>
@@ -13195,192 +13169,60 @@ div#notebook {
 
 <div class="output_area">
 
-    <div class="prompt"></div>
+    <div class="prompt output_prompt">Out[2]:</div>
 
 
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-cyan-intense-fg ansi-bold">  File </span><span class="ansi-green-intense-fg ansi-bold">&#34;&lt;ipython-input-2-7cc3b5fd8ba6&gt;&#34;</span><span class="ansi-cyan-intense-fg ansi-bold">, line </span><span class="ansi-green-intense-fg ansi-bold">1</span>
-<span class="ansi-yellow-intense-fg ansi-bold">    x=20 y=30</span>
-<span class="ansi-white-intense-fg ansi-bold">         ^</span>
-<span class="ansi-red-intense-fg ansi-bold">SyntaxError</span><span class="ansi-red-intense-fg ansi-bold">:</span> invalid syntax
-</pre>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>2.5</pre>
 </div>
+
 </div>
 
 </div>
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Exceptions">Exceptions<a class="anchor-link" href="#Exceptions">&#182;</a></h2><ol>
-<li>if you have a really large statement that need to span in multiple line you can using continuatio char <strong>\</strong>   to mark the line continuation</li>
-</ol>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">average</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[3]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>2.5</pre>
+</div>
+
+</div>
 
 </div>
 </div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span><span class="o">=</span>\
-<span class="mi">20</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ol>
-<li>If you need to write multiple statement in a single line you can use semicolon (;) as a separator<ul>
-<li>Note semicolon is a separator and not a terminator</li>
-</ul>
-</li>
-</ol>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="mi">20</span> <span class="p">;</span>  <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>20
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Recommendation">Recommendation<a class="anchor-link" href="#Recommendation">&#182;</a></h3><ul>
-<li>Avoid exceptions as much as you can</li>
-</ul>
-<h4 id="Python-Multiple-assignment-syntax">Python Multiple assignment syntax<a class="anchor-link" href="#Python-Multiple-assignment-syntax">&#182;</a></h4><ul>
-<li>One common use-case of writing multiple statment in a single line is initializing multiple variable</li>
-</ul>
-<hr>
-<div class="highlight"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">;</span> <span class="n">y</span><span class="o">=</span><span class="mi">30</span> <span class="p">;</span> <span class="n">z</span><span class="o">=</span><span class="mi">40</span>
-</pre></div>
-<hr>
-<p>This can be written using <strong>Python Multi-assignemnt syntax</strong></p>
-<hr>
-<div class="highlight"><pre><span></span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="p">,</span>  <span class="n">z</span><span class="o">=</span>  <span class="mi">20</span><span class="p">,</span>   <span class="mi">30</span><span class="p">,</span>  <span class="mi">40</span>
-</pre></div>
-<hr>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Intresting-Use-of-Multi-Assignment-Sytanx">Intresting Use of Multi-Assignment Sytanx<a class="anchor-link" href="#Intresting-Use-of-Multi-Assignment-Sytanx">&#182;</a></h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="mi">20</span>
-<span class="n">y</span><span class="o">=</span><span class="mi">30</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
-
-<span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span><span class="n">x</span> <span class="c1">#swaps the value of x and y</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>20 30
-30 20
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Python-Block-code-or-Suite">Python Block code or Suite<a class="anchor-link" href="#Python-Block-code-or-Suite">&#182;</a></h2><ul>
-<li>Most language need a series of statment to be considered as a logical block</li>
-<li>C Style language uses block marker <strong>{}</strong> to represent a logical unit of statments</li>
-<li>In Python there is no explicit block marker</li>
-<li>Python calls its block code as a <strong>suite</strong></li>
-<li>A <strong>suite</strong> is one or more statement at same <strong>indent level</strong></li>
-<li>Indent can be done either using<ul>
-<li><strong>tab</strong> or</li>
-<li><del>one or more blank spaces</del> (Not recommended)</li>
-</ul>
-</li>
-</ul>
-<h3 id="Language-Alert!!!">Language Alert!!!<a class="anchor-link" href="#Language-Alert!!!">&#182;</a></h3><ul>
-<li>Unlike C style language, Python is not a free form language</li>
-<li>You can't use indent freely</li>
-<li>An indent is a suite</li>
-<li>A nested indent is a inner suite</li>
-<li>You can use tabs the way you like</li>
-</ul>
-<h3 id="examples-of-bad-indent">examples of bad indent<a class="anchor-link" href="#examples-of-bad-indent">&#182;</a></h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="mi">20</span>
- <span class="n">y</span><span class="o">=</span><span class="mi">30</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">average</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13398,11 +13240,55 @@ div#notebook {
 
 <div class="output_subarea output_text output_error">
 <pre>
-<span class="ansi-cyan-intense-fg ansi-bold">  File </span><span class="ansi-green-intense-fg ansi-bold">&#34;&lt;ipython-input-7-de821f9f9f57&gt;&#34;</span><span class="ansi-cyan-intense-fg ansi-bold">, line </span><span class="ansi-green-intense-fg ansi-bold">2</span>
-<span class="ansi-yellow-intense-fg ansi-bold">    y=30</span>
-<span class="ansi-white-intense-fg ansi-bold">    ^</span>
-<span class="ansi-red-intense-fg ansi-bold">IndentationError</span><span class="ansi-red-intense-fg ansi-bold">:</span> unexpected indent
-</pre>
+<span class="ansi-red-intense-fg ansi-bold">---------------------------------------------------------------------------</span>
+<span class="ansi-red-intense-fg ansi-bold">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-intense-fg ansi-bold">&lt;ipython-input-4-8066a808a6dc&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-intense-fg ansi-bold">()</span>
+<span class="ansi-green-intense-fg ansi-bold">----&gt; 1</span><span class="ansi-yellow-intense-fg ansi-bold"> </span>average<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-cyan-intense-fg ansi-bold">5</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>
+
+<span class="ansi-green-intense-fg ansi-bold">&lt;ipython-input-1-070d93135630&gt;</span> in <span class="ansi-cyan-fg">average</span><span class="ansi-blue-intense-fg ansi-bold">(numbers)</span>
+<span class="ansi-green-fg">      1</span> <span class="ansi-green-intense-fg ansi-bold">def</span> average<span class="ansi-yellow-intense-fg ansi-bold">(</span>numbers<span class="ansi-yellow-intense-fg ansi-bold">)</span><span class="ansi-yellow-intense-fg ansi-bold">:</span>  <span class="ansi-red-intense-fg ansi-bold"># i expect user to pass a list (or a tuple)</span>
+<span class="ansi-green-fg">      2</span>     sum<span class="ansi-yellow-intense-fg ansi-bold">=</span><span class="ansi-cyan-intense-fg ansi-bold">0</span>
+<span class="ansi-green-intense-fg ansi-bold">----&gt; 3</span><span class="ansi-yellow-intense-fg ansi-bold">     </span><span class="ansi-green-intense-fg ansi-bold">for</span> value <span class="ansi-green-intense-fg ansi-bold">in</span> numbers<span class="ansi-yellow-intense-fg ansi-bold">:</span>
+<span class="ansi-green-fg">      4</span>         sum<span class="ansi-yellow-intense-fg ansi-bold">+=</span>value
+<span class="ansi-green-fg">      5</span> 
+
+<span class="ansi-red-intense-fg ansi-bold">TypeError</span>: &#39;int&#39; object is not iterable</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">average</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-intense-fg ansi-bold">---------------------------------------------------------------------------</span>
+<span class="ansi-red-intense-fg ansi-bold">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-intense-fg ansi-bold">&lt;ipython-input-5-1f90c8697287&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-intense-fg ansi-bold">()</span>
+<span class="ansi-green-intense-fg ansi-bold">----&gt; 1</span><span class="ansi-yellow-intense-fg ansi-bold"> </span>average<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-cyan-intense-fg ansi-bold">1</span><span class="ansi-yellow-intense-fg ansi-bold">,</span><span class="ansi-cyan-intense-fg ansi-bold">2</span><span class="ansi-yellow-intense-fg ansi-bold">,</span><span class="ansi-cyan-intense-fg ansi-bold">3</span><span class="ansi-yellow-intense-fg ansi-bold">,</span><span class="ansi-cyan-intense-fg ansi-bold">4</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>
+
+<span class="ansi-red-intense-fg ansi-bold">TypeError</span>: average() takes 1 positional argument but 4 were given</pre>
 </div>
 </div>
 
@@ -13413,34 +13299,146 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Python-Statements">Python Statements<a class="anchor-link" href="#Python-Statements">&#182;</a></h2><ul>
-<li>Python supports fewer statements compared C style language</li>
-<li>this is to make the design simple</li>
-</ul>
-<h3 id="Python-supports">Python supports<a class="anchor-link" href="#Python-supports">&#182;</a></h3><ol>
-<li><strong>if - elif - else</strong> statement</li>
-<li><strong>while</strong> loop<ul>
-<li>to loop over an underministic condition</li>
+<h2 id="Option-2---Python-var-args-syntax">Option 2 - Python var args syntax<a class="anchor-link" href="#Option-2---Python-var-args-syntax">&#182;</a></h2><ul>
+<li>Python allows you to take any number of parameters for a function <ul>
+<li>number of argument and parameter need not match</li>
 </ul>
 </li>
-<li><strong>for</strong> loop<ul>
-<li>to loop over a sequence of values</li>
+<li>All these parameters are collected together to form a <strong>tuple</strong> internally</li>
+<li>To achieve this functionality we need to <strong>prefix a *</strong> to our parameter name</li>
 </ul>
-</li>
-</ol>
-<h3 id="python-doesn't-support">python doesn't support<a class="anchor-link" href="#python-doesn't-support">&#182;</a></h3><ol>
-<li><strong>do-while</strong></li>
-<li><strong>switch-case</strong></li>
-</ol>
-<h3 id="if-statment">if statment<a class="anchor-link" href="#if-statment">&#182;</a></h3><hr>
-<div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">condition</span> <span class="p">:</span>  <span class="c1">#mark this colon</span>
-    <span class="n">statement_1</span> <span class="c1">#mark the indent</span>
-    <span class="n">statement_2</span>
 
-<span class="c1">#this statment is out of if suite and shall be excuted in all cases</span>
-<span class="n">out_of_if_statment</span> <span class="c1">#mark the un-indent</span>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">average</span><span class="p">(</span><span class="o">*</span><span class="n">numbers</span><span class="p">):</span>
+    <span class="nb">sum</span><span class="o">=</span><span class="mi">0</span>
+    <span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">:</span>
+        <span class="nb">sum</span><span class="o">+=</span><span class="n">number</span>
+        
+    <span class="k">return</span> <span class="nb">sum</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
 </pre></div>
-<hr>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">average</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[7]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>2.5</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">average</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[8]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>2.0</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">average</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[9]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>5.5</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="A-Function-can-take-both-positional,-default-and-variable-parameter">A Function can take both positional, default and variable parameter<a class="anchor-link" href="#A-Function-can-take-both-positional,-default-and-variable-parameter">&#182;</a></h2><ul>
+<li>In same function you can pass <ol>
+<li>formal named positional parameters</li>
+<li>default argumented parameters</li>
+<li>var arg parameters</li>
+</ol>
+</li>
+</ul>
 
 </div>
 </div>
@@ -13450,32 +13448,11 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="mi">20</span>
-<span class="k">if</span> <span class="n">x</span><span class="o">&gt;</span><span class="mi">20</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;is greater than 20&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;end of program&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">call_me</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="o">*</span><span class="n">values</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x=</span><span class="si">{}</span><span class="se">\t</span><span class="s1">y=</span><span class="si">{}</span><span class="se">\t</span><span class="s1">values=</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">values</span><span class="p">))</span>
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>end of program
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -13485,11 +13462,7 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="mi">20</span>
-<span class="k">if</span> <span class="n">x</span><span class="o">%</span><span class="k">2</span>==0:
-    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;is even&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;end of program&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">call_me</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span> <span class="c1"># x=1   y=2  values=(3,4,5)</span>
 </pre></div>
 
     </div>
@@ -13506,9 +13479,7 @@ div#notebook {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>20
-is even
-end of program
+<pre>x=1	y=2	values=(3, 4, 5)
 </pre>
 </div>
 </div>
@@ -13516,24 +13487,13 @@ end of program
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Bad-Ident-Use-Case">Bad Ident Use Case<a class="anchor-link" href="#Bad-Ident-Use-Case">&#182;</a></h3>
-</div>
-</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="mi">20</span>
-<span class="k">if</span> <span class="n">x</span><span class="o">%</span><span class="k">2</span>==0:
-    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;is even&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;end of program&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">call_me</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="c1"># x=1 y=2 values=(3,)</span>
 </pre></div>
 
     </div>
@@ -13549,12 +13509,8 @@ end of program
     <div class="prompt"></div>
 
 
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-cyan-intense-fg ansi-bold">  File </span><span class="ansi-green-intense-fg ansi-bold">&#34;&lt;ipython-input-12-a3623c46cc28&gt;&#34;</span><span class="ansi-cyan-intense-fg ansi-bold">, line </span><span class="ansi-green-intense-fg ansi-bold">4</span>
-<span class="ansi-yellow-intense-fg ansi-bold">    print(&#39;is even&#39;)</span>
-<span class="ansi-white-intense-fg ansi-bold">    ^</span>
-<span class="ansi-red-intense-fg ansi-bold">IndentationError</span><span class="ansi-red-intense-fg ansi-bold">:</span> unexpected indent
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>x=1	y=2	values=(3,)
 </pre>
 </div>
 </div>
@@ -13565,14 +13521,72 @@ end of program
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="mi">20</span>
-<span class="k">if</span> <span class="n">x</span><span class="o">%</span><span class="k">2</span>==0:
-     <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;is even&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;end of program&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">call_me</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># x=1 y=2 values=() &lt;-- 0 item tuple</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>x=1	y=2	values=()
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">call_me</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># x=1 y=10 (default) values=() &lt;--empty tuple</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>x=1	y=10	values=()
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">call_me</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -13590,11 +13604,12 @@ end of program
 
 <div class="output_subarea output_text output_error">
 <pre>
-<span class="ansi-cyan-intense-fg ansi-bold">  File </span><span class="ansi-green-intense-fg ansi-bold">&#34;&lt;ipython-input-13-526be4ae9007&gt;&#34;</span><span class="ansi-cyan-intense-fg ansi-bold">, line </span><span class="ansi-green-intense-fg ansi-bold">4</span>
-<span class="ansi-yellow-intense-fg ansi-bold">    print(&#39;is even&#39;)</span>
-<span class="ansi-white-intense-fg ansi-bold">                    ^</span>
-<span class="ansi-red-intense-fg ansi-bold">IndentationError</span><span class="ansi-red-intense-fg ansi-bold">:</span> unindent does not match any outer indentation level
-</pre>
+<span class="ansi-red-intense-fg ansi-bold">---------------------------------------------------------------------------</span>
+<span class="ansi-red-intense-fg ansi-bold">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-intense-fg ansi-bold">&lt;ipython-input-18-e8d6b4caadb2&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-intense-fg ansi-bold">()</span>
+<span class="ansi-green-intense-fg ansi-bold">----&gt; 1</span><span class="ansi-yellow-intense-fg ansi-bold"> </span>call_me<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>
+
+<span class="ansi-red-intense-fg ansi-bold">TypeError</span>: call_me() missing 1 required positional argument: &#39;x&#39;</pre>
 </div>
 </div>
 
@@ -13605,7 +13620,49 @@ end of program
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="elif-(else-if-)-and-else">elif (else if ) and else<a class="anchor-link" href="#elif-(else-if-)-and-else">&#182;</a></h2>
+<h2 id="Coding-Convention">Coding Convention<a class="anchor-link" href="#Coding-Convention">&#182;</a></h2><ul>
+<li><p>Python is a simplistic language with fewer semantic and language restrictions</p>
+<ul>
+<li>implicit data type</li>
+<li>fewer loops</li>
+<li>allows writing global codes</li>
+</ul>
+</li>
+<li><p>While simplicity of python is great to begin, it can become problemtic in maintaing a large code base</p>
+</li>
+<li><p>As such it becomes important to follow certain <strong>well established conventions</strong></p>
+</li>
+<li><p>Use friendly name</p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">average</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">pass</span>
+</pre></div>
+<ul>
+<li>vs</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">average</span><span class="p">(</span><span class="n">numbers</span><span class="p">):</span>
+    <span class="k">pass</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Convention-for-passing-var-args">Convention for passing var args<a class="anchor-link" href="#Convention-for-passing-var-args">&#182;</a></h3><ul>
+<li>a var arg <strong>must be passed with a * prefix</strong><ul>
+<li>This is a language semantic</li>
+</ul>
+</li>
+<li><strong>conventionally</strong> we are expected to name our <strong>var-arg</strong> parameter as <strong>args</strong><ul>
+<li>you can all it anything you like</li>
+<li>It is recommended that you name it <strong>args</strong></li>
+</ul>
+</li>
+</ul>
+
 </div>
 </div>
 </div>
@@ -13614,19 +13671,77 @@ end of program
 <div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;enter the number? &#39;</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">average</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="nb">sum</span><span class="o">=</span><span class="mi">0</span>
+    <span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>
+        <span class="nb">sum</span><span class="o">+=</span><span class="n">number</span>
+        
+    <span class="k">return</span> <span class="nb">sum</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+</pre></div>
 
-<span class="k">if</span> <span class="n">x</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">:</span>
-    <span class="n">value</span><span class="o">=</span><span class="s1">&#39;negative&#39;</span>
-<span class="k">elif</span> <span class="n">x</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
-    <span class="n">value</span><span class="o">=</span><span class="s1">&#39;positive&#39;</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="n">value</span><span class="o">=</span><span class="s1">&#39;zero&#39;</span>
-    
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> is </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">value</span><span class="p">))</span>
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">average</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
 
 
-    
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[20]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>3.0</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Can-I-pass-a-real-list-(or-tuple)-for-var-args">Can I pass a real list (or tuple) for var args<a class="anchor-link" href="#Can-I-pass-a-real-list-(or-tuple)-for-var-args">&#182;</a></h3><ul>
+<li>I need to average a series of number</li>
+<li>Can I pass a <strong>real</strong> list or tuple to function expected <strong>*args</strong> ?</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">average</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="nb">sum</span><span class="o">=</span><span class="mi">0</span>
+    <span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>
+        <span class="nb">sum</span><span class="o">+=</span><span class="n">number</span>
+        
+    <span class="k">return</span> <span class="nb">sum</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+
+
+<span class="n">average</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
 </pre></div>
 
     </div>
@@ -13642,10 +13757,23 @@ end of program
     <div class="prompt"></div>
 
 
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>enter the number? 0
-0 is zero
-</pre>
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-intense-fg ansi-bold">---------------------------------------------------------------------------</span>
+<span class="ansi-red-intense-fg ansi-bold">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-intense-fg ansi-bold">&lt;ipython-input-21-92ce6ea3d082&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-intense-fg ansi-bold">()</span>
+<span class="ansi-green-fg">      7</span> 
+<span class="ansi-green-fg">      8</span> 
+<span class="ansi-green-intense-fg ansi-bold">----&gt; 9</span><span class="ansi-yellow-intense-fg ansi-bold"> </span>average<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-yellow-intense-fg ansi-bold">[</span><span class="ansi-cyan-intense-fg ansi-bold">1</span><span class="ansi-yellow-intense-fg ansi-bold">,</span><span class="ansi-cyan-intense-fg ansi-bold">2</span><span class="ansi-yellow-intense-fg ansi-bold">,</span><span class="ansi-cyan-intense-fg ansi-bold">3</span><span class="ansi-yellow-intense-fg ansi-bold">,</span><span class="ansi-cyan-intense-fg ansi-bold">4</span><span class="ansi-yellow-intense-fg ansi-bold">]</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>
+
+<span class="ansi-green-intense-fg ansi-bold">&lt;ipython-input-21-92ce6ea3d082&gt;</span> in <span class="ansi-cyan-fg">average</span><span class="ansi-blue-intense-fg ansi-bold">(*args)</span>
+<span class="ansi-green-fg">      2</span>     sum<span class="ansi-yellow-intense-fg ansi-bold">=</span><span class="ansi-cyan-intense-fg ansi-bold">0</span>
+<span class="ansi-green-fg">      3</span>     <span class="ansi-green-intense-fg ansi-bold">for</span> number <span class="ansi-green-intense-fg ansi-bold">in</span> args<span class="ansi-yellow-intense-fg ansi-bold">:</span>
+<span class="ansi-green-intense-fg ansi-bold">----&gt; 4</span><span class="ansi-yellow-intense-fg ansi-bold">         </span>sum<span class="ansi-yellow-intense-fg ansi-bold">+=</span>number
+<span class="ansi-green-fg">      5</span> 
+<span class="ansi-green-fg">      6</span>     <span class="ansi-green-intense-fg ansi-bold">return</span> sum<span class="ansi-yellow-intense-fg ansi-bold">/</span>len<span class="ansi-yellow-intense-fg ansi-bold">(</span>args<span class="ansi-yellow-intense-fg ansi-bold">)</span>
+
+<span class="ansi-red-intense-fg ansi-bold">TypeError</span>: unsupported operand type(s) for +=: &#39;int&#39; and &#39;list&#39;</pre>
 </div>
 </div>
 
@@ -13656,17 +13784,14 @@ end of program
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="while">while<a class="anchor-link" href="#while">&#182;</a></h2><ul>
-<li>while loops the suite as long as the condition is true</li>
+<h2 id="we-can-pass-a-real-sequence-for-a-args-parameter">we can pass a real sequence for a args parameter<a class="anchor-link" href="#we-can-pass-a-real-sequence-for-a-args-parameter">&#182;</a></h2><ul>
+<li>Python allows us to pass a real sequence to function expected <strong>*args</strong></li>
+<li>This is done through a spcial python operator called <strong>spread operator</strong></li>
 </ul>
-<hr>
-<div class="highlight"><pre><span></span><span class="k">while</span> <span class="n">condition</span><span class="p">:</span>
-    <span class="n">statement1</span>
-    <span class="n">statement2</span>
-
-<span class="n">out_of_while</span>
-</pre></div>
-<hr>
+<h3 id="spread-operator">spread operator<a class="anchor-link" href="#spread-operator">&#182;</a></h3><ul>
+<li>Python allows you to <strong>extract and spread</strong> values from a <strong>sequence</strong> into comma separted values</li>
+<li>you can do it by prefixing <strong>*</strong> to the object</li>
+</ul>
 
 </div>
 </div>
@@ -13676,72 +13801,16 @@ end of program
 <div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">hi</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;max?&#39;</span><span class="p">))</span>
-<span class="n">lo</span><span class="o">=</span><span class="mi">0</span>
-
-<span class="k">while</span> <span class="n">lo</span><span class="o">&lt;</span><span class="n">hi</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">lo</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
-    <span class="n">lo</span><span class="o">+=</span><span class="mi">1</span>
-    
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">end of program &#39;</span><span class="p">);</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>max?20
-0	1	2	3	4	5	6	7	8	9	10	11	12	13	14	15	16	17	18	19	
-end of program 
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="break-and-continue">break and continue<a class="anchor-link" href="#break-and-continue">&#182;</a></h3><ul>
-<li>just like C style python also supports break and continue</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">hi</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;max?&#39;</span><span class="p">))</span>
-<span class="n">lo</span><span class="o">=</span><span class="mi">0</span>
-
-<span class="k">while</span> <span class="n">lo</span><span class="o">&lt;</span><span class="n">hi</span><span class="p">:</span>
-    
-    <span class="n">lo</span><span class="o">+=</span><span class="mi">1</span>
-    
-    <span class="k">if</span> <span class="n">lo</span><span class="o">%</span><span class="k">5</span>==0:
-        <span class="k">continue</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">average</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="nb">sum</span><span class="o">=</span><span class="mi">0</span>
+    <span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>
+        <span class="nb">sum</span><span class="o">+=</span><span class="n">number</span>
         
-    <span class="k">if</span> <span class="n">lo</span><span class="o">&gt;</span><span class="mi">20</span><span class="p">:</span>
-        <span class="k">break</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">lo</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
-    
-    
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">end of program &#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+
+<span class="n">numbers</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
+
+<span class="n">average</span><span class="p">(</span><span class="o">*</span> <span class="n">numbers</span> <span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13754,15 +13823,15 @@ end of program
 
 <div class="output_area">
 
-    <div class="prompt"></div>
+    <div class="prompt output_prompt">Out[22]:</div>
 
 
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>max?25
-1	2	3	4	6	7	8	9	11	12	13	14	16	17	18	19	
-end of program 
-</pre>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>2.5</pre>
 </div>
+
 </div>
 
 </div>
@@ -13772,14 +13841,21 @@ end of program
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Mighty-else">Mighty else<a class="anchor-link" href="#Mighty-else">&#182;</a></h3><ul>
-<li>In Python <strong>else</strong> is the negation of a condtion</li>
-<li>It is not associated only with <strong>if</strong></li>
-<li>It can be used with any statment that tests for a condition including<ul>
-<li>while - else</li>
-<li>for -else</li>
-<li>try - else</li>
+<h2 id="spread-vs-args">spread vs args<a class="anchor-link" href="#spread-vs-args">&#182;</a></h2><ul>
+<li><p><strong>*args</strong> is a collector syntax</p>
+<ul>
+<li>it collects individual values in a tupe</li>
+<li>this syntax applies only when creating a new function and defining its parameter</li>
 </ul>
+</li>
+<li><p><strong>spread syntax</strong> extracts and spreads values out of a sequence object</p>
+<ul>
+<li>It may be used while invoking a function</li>
+</ul>
+</li>
+<li><p>while the two are often used together, they are actually unrelated</p>
+</li>
+<li><p>spread syntax can be used even without <strong>*args</strong> parameter</p>
 </li>
 </ul>
 
@@ -13788,27 +13864,24 @@ end of program
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">hi</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;max?&#39;</span><span class="p">))</span>
-<span class="n">lo</span><span class="o">=</span><span class="mi">0</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">plus</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span>
+</pre></div>
 
-<span class="k">while</span> <span class="n">lo</span><span class="o">&lt;</span><span class="n">hi</span><span class="p">:</span>
-    
-    <span class="n">lo</span><span class="o">+=</span><span class="mi">1</span>
-    
-    <span class="k">if</span> <span class="n">lo</span><span class="o">%</span><span class="k">5</span>==0:
-        <span class="k">continue</span>
-        
-    <span class="k">if</span> <span class="n">lo</span><span class="o">&gt;</span><span class="mi">20</span><span class="p">:</span>
-        <span class="k">break</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">lo</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&lt;-- loop ends normally&#39;</span><span class="p">)</span>
-    
-    
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">end of program &#39;</span><span class="p">)</span>
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plus</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13821,17 +13894,32 @@ end of program
 
 <div class="output_area">
 
-    <div class="prompt"></div>
+    <div class="prompt output_prompt">Out[24]:</div>
 
 
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>max?25
-1	2	3	4	6	7	8	9	11	12	13	14	16	17	18	19	
-end of program 
-</pre>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>10</pre>
+</div>
+
+</div>
+
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">t</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="c1"># how sum these two values</span>
+</pre></div>
+
+    </div>
 </div>
 </div>
 
@@ -13839,70 +13927,16 @@ end of program
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Why-else-in-a-loop?">Why else in a loop?<a class="anchor-link" href="#Why-else-in-a-loop?">&#182;</a></h3><ul>
-<li><p>else is called when</p>
-<ul>
-<li>while condition is initally false and loop is never executed</li>
-<li>while condition is initially true and eventually becomes false</li>
-</ul>
-</li>
-<li><p>else is not called when</p>
-<ul>
-<li>you break out of a loop while the condition was still true</li>
-</ul>
-</li>
-</ul>
-<h3 id="else-can-be-used-for-ensuring-that-loop-terminates-normally">else can be used for ensuring that loop terminates normally<a class="anchor-link" href="#else-can-be-used-for-ensuring-that-loop-terminates-normally">&#182;</a></h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="for-loop">for loop<a class="anchor-link" href="#for-loop">&#182;</a></h2><ul>
-<li>Python supports for loop to access items of a sequence (such as an array)</li>
-</ul>
-<h3 id="Langua-Alert">Langua Alert<a class="anchor-link" href="#Langua-Alert">&#182;</a></h3><ul>
-<li>Python' for loop is not similar to C style language for loop<ul>
-<li>C Style langauge support for loop for arbitrary conditions (like while) with additional init and reinit section</li>
-</ul>
-</li>
-</ul>
-<hr>
-<div class="highlight"><pre><span></span><span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span> <span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span> <span class="mi">10</span> <span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
-    <span class="n">print</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="c1">//this is similar to </span>
-
-<span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
-<span class="k">while</span><span class="p">(</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">){</span>
-    <span class="n">print</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
-    <span class="n">i</span><span class="o">++</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-<hr>
-<ul>
-<li>Python's for loop is similart to <strong>for each</strong> loop of other languages such as java/c#</li>
-</ul>
-<hr>
-<div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">array</span><span class="p">:</span> <span class="c1">#for each value in array one by one</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>    <span class="c1"># print them</span>
-</pre></div>
-<hr>
-
+<h3 id="How-to-sum-the-value-of-this-tuple??">How to sum the value of this tuple??<a class="anchor-link" href="#How-to-sum-the-value-of-this-tuple??">&#182;</a></h3><h3 id="1.-using-index">1. using index<a class="anchor-link" href="#1.-using-index">&#182;</a></h3>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">values</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># Python array</span>
-
-<span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">values</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plus</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 </pre></div>
 
     </div>
@@ -13915,12 +13949,15 @@ end of program
 
 <div class="output_area">
 
-    <div class="prompt"></div>
+    <div class="prompt output_prompt">Out[28]:</div>
 
 
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>2	3	9	8	1	</pre>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>22</pre>
 </div>
+
 </div>
 
 </div>
@@ -13930,22 +13967,58 @@ end of program
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="A-python-statement-needing-a-suite-must-be-provided-with-one">A python statement needing a suite must be provided with one<a class="anchor-link" href="#A-python-statement-needing-a-suite-must-be-provided-with-one">&#182;</a></h2>
+<h3 id="2.-using--spread-operator">2. using  spread operator<a class="anchor-link" href="#2.-using--spread-operator">&#182;</a></h3>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">n</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;number?&#39;</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
-<span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-    
-<span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;is odd&#39;</span><span class="p">)</span>
-    
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plus</span><span class="p">(</span><span class="o">*</span><span class="n">t</span><span class="p">)</span> <span class="c1">#  same as plus(10,12)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[29]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>22</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="3.-what-if-tuple-contains-3-items">3. what if tuple contains 3 items<a class="anchor-link" href="#3.-what-if-tuple-contains-3-items">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">t</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="n">plus</span><span class="p">(</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>  <span class="c1"># plus(1,2,3)</span>
 </pre></div>
 
     </div>
@@ -13963,11 +14036,14 @@ end of program
 
 <div class="output_subarea output_text output_error">
 <pre>
-<span class="ansi-cyan-intense-fg ansi-bold">  File </span><span class="ansi-green-intense-fg ansi-bold">&#34;&lt;ipython-input-3-ddcd0c946cbf&gt;&#34;</span><span class="ansi-cyan-intense-fg ansi-bold">, line </span><span class="ansi-green-intense-fg ansi-bold">5</span>
-<span class="ansi-yellow-intense-fg ansi-bold">    else:</span>
-<span class="ansi-white-intense-fg ansi-bold">       ^</span>
-<span class="ansi-red-intense-fg ansi-bold">IndentationError</span><span class="ansi-red-intense-fg ansi-bold">:</span> expected an indented block
-</pre>
+<span class="ansi-red-intense-fg ansi-bold">---------------------------------------------------------------------------</span>
+<span class="ansi-red-intense-fg ansi-bold">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-intense-fg ansi-bold">&lt;ipython-input-30-3955219ce8bd&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-intense-fg ansi-bold">()</span>
+<span class="ansi-green-fg">      1</span> t<span class="ansi-yellow-intense-fg ansi-bold">=</span><span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-cyan-intense-fg ansi-bold">1</span><span class="ansi-yellow-intense-fg ansi-bold">,</span><span class="ansi-cyan-intense-fg ansi-bold">2</span><span class="ansi-yellow-intense-fg ansi-bold">,</span><span class="ansi-cyan-intense-fg ansi-bold">3</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>
+<span class="ansi-green-fg">      2</span> 
+<span class="ansi-green-intense-fg ansi-bold">----&gt; 3</span><span class="ansi-yellow-intense-fg ansi-bold"> </span>plus<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-yellow-intense-fg ansi-bold">*</span>t<span class="ansi-yellow-intense-fg ansi-bold">)</span>  <span class="ansi-red-intense-fg ansi-bold"># plus(1,2,3)</span>
+
+<span class="ansi-red-intense-fg ansi-bold">TypeError</span>: plus() takes 2 positional arguments but 3 were given</pre>
 </div>
 </div>
 
@@ -13978,168 +14054,106 @@ end of program
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="If-you-have-nothing-to-say,-pass">If you have nothing to say, pass<a class="anchor-link" href="#If-you-have-nothing-to-say,-pass">&#182;</a></h2><ul>
-<li>python uses special keyword <strong>pass</strong> to represent an empty statement or a suite</li>
-<li>A statement that  requires a suite need have at least on statement.</li>
-<li>If you have no statement to offer you should say <strong>pass</strong></li>
+<h2 id="var-arg-passing-rule">var arg passing rule<a class="anchor-link" href="#var-arg-passing-rule">&#182;</a></h2><ul>
+<li>A function can take only on <strong>*args</strong> parameter</li>
+<li><p>when a function takes a <strong>*args</strong> it should be the last parameter of the function</p>
+</li>
+<li><p>Why?</p>
+<ul>
+<li>say we have a function which takes <strong>*args</strong> as non-last parameter</li>
 </ul>
-<h3 id="Note:">Note:<a class="anchor-link" href="#Note:">&#182;</a></h3><ul>
-<li>Below example is to demonstrate the use of <strong>pass</strong> and is <strong>NOT A GOOD EXAMPLE FOR WRITING EFFECTIVE CODE. THIS CODE CAN BE WRITTEN BETTER WITHOUT PASS</strong></li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">n</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;number?&#39;</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
-<span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-     <span class="k">pass</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;is odd&#39;</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>number?23
-23 is odd
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Note:-Above-code-can-be-more-effectively-written-by-reversing-the-condition-and-removing-else-and-pass">Note: Above code can be more effectively written by reversing the condition and removing else and pass<a class="anchor-link" href="#Note:-Above-code-can-be-more-effectively-written-by-reversing-the-condition-and-removing-else-and-pass">&#182;</a></h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">n</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;number?&#39;</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
-<span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;is odd&#39;</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>number?20
-20 </pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="if-you-have-a-single-statement-in-a-suite,-it-can-be-written-in-the-same-line-as-parent-statement-after-colon">if you have a single statement in a suite, it can be written in the same line as parent statement after colon<a class="anchor-link" href="#if-you-have-a-single-statement-in-a-suite,-it-can-be-written-in-the-same-line-as-parent-statement-after-colon">&#182;</a></h4><ul>
-<li><strong>many best practice guideline doesn't recommend use of this feature</strong></li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">numbers</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
-<span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="n">number</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>2	3	9	2	1	</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Compact-If-Expression">Compact If Expression<a class="anchor-link" href="#Compact-If-Expression">&#182;</a></h2><ul>
-<li>unlike c style language <strong>python doesn't support ternary operator (?:) </strong></li>
+</li>
 </ul>
 <hr>
-<div class="highlight"><pre><span></span><span class="n">value</span><span class="o">=</span> <span class="n">condition</span><span class="o">?</span> <span class="nl">true_value</span> <span class="p">:</span> <span class="n">false_value</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">call_me</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;x={}</span><span class="se">\t</span><span class="s1">args={}</span><span class="se">\t</span><span class="s1">y={}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">args</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
 </pre></div>
 <hr>
 <ul>
-<li>Instead python supports a syntax called <strong>compact if expression</strong></li>
+<li>How will the function be called?</li>
 </ul>
 <hr>
-<div class="highlight"><pre><span></span><span class="n">value</span> <span class="o">=</span> <span class="n">true_value</span> <span class="k">if</span> <span class="n">condition</span> <span class="k">else</span> <span class="n">false_value</span>
+<div class="highlight"><pre><span></span><span class="n">call_me</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>  <span class="c1"># x= 1, args=(2,3,4,5), y=???</span>
+
+<span class="n">call_me</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span> <span class="c1"># x=1 args(2,3,4,5,6,7,8,9,10) , y=???</span>
 </pre></div>
 <hr>
+<h3 id="How-will-you-pass-any-value-for-y???">How will you pass any value for y???<a class="anchor-link" href="#How-will-you-pass-any-value-for-y???">&#182;</a></h3><h2 id="Python-Version-Alert!!!">Python Version Alert!!!<a class="anchor-link" href="#Python-Version-Alert!!!">&#182;</a></h2><ul>
+<li><p>In Python 2 It is mandatory that <strong>*args</strong> parameter <strong>must be the last parameter</strong></p>
+<ul>
+<li>Making <strong>*args</strong> non-last is a semantic error</li>
+</ul>
+</li>
+<li><p>In Python 3, It is permitted (although not recommended) to have <strong>*args</strong> as non-last parameter</p>
+</li>
+</ul>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[33]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">number</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;number ?&#39;</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">call_me</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x=</span><span class="si">{}</span><span class="se">\t</span><span class="s1">args=</span><span class="si">{}</span><span class="se">\t</span><span class="s1">y=</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">args</span><span class="p">,</span><span class="n">y</span><span class="p">))</span>
+</pre></div>
 
-<span class="n">x</span><span class="o">=</span> <span class="s1">&#39;even&#39;</span> <span class="k">if</span> <span class="n">number</span><span class="o">%</span><span class="k">2</span>==0 else &#39;odd&#39;
+    </div>
+</div>
+</div>
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> is </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">number</span><span class="p">,</span><span class="n">x</span><span class="p">))</span>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">call_me</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-intense-fg ansi-bold">---------------------------------------------------------------------------</span>
+<span class="ansi-red-intense-fg ansi-bold">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-intense-fg ansi-bold">&lt;ipython-input-34-2691f9342b89&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-intense-fg ansi-bold">()</span>
+<span class="ansi-green-intense-fg ansi-bold">----&gt; 1</span><span class="ansi-yellow-intense-fg ansi-bold"> </span>call_me<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-cyan-intense-fg ansi-bold">1</span><span class="ansi-yellow-intense-fg ansi-bold">,</span><span class="ansi-cyan-intense-fg ansi-bold">2</span><span class="ansi-yellow-intense-fg ansi-bold">,</span><span class="ansi-cyan-intense-fg ansi-bold">3</span><span class="ansi-yellow-intense-fg ansi-bold">,</span><span class="ansi-cyan-intense-fg ansi-bold">4</span><span class="ansi-yellow-intense-fg ansi-bold">,</span><span class="ansi-cyan-intense-fg ansi-bold">5</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>
+
+<span class="ansi-red-intense-fg ansi-bold">TypeError</span>: call_me() missing 1 required keyword-only argument: &#39;y&#39;</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="I-can-still-pass-y">I can still pass y<a class="anchor-link" href="#I-can-still-pass-y">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[36]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">call_me</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -14156,8 +14170,7 @@ end of program
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>number ?33
-33 is odd
+<pre>x=1	args=(2, 3, 4, 5)	y=100
 </pre>
 </div>
 </div>
@@ -14169,88 +14182,12 @@ end of program
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Compact-if-is-an-expression-not--a-statement">Compact if is an expression not  a statement<a class="anchor-link" href="#Compact-if-is-an-expression-not--a-statement">&#182;</a></h2><ul>
-<li>compact if follows expression rule</li>
-<li>they can be written anywhere an expression can be written<ul>
-<li>inside another expression</li>
-<li>inside print or other function call</li>
-<li>assignment</li>
-</ul>
-</li>
-</ul>
-<h3 id="Assignment">Assignment<a class="anchor-link" href="#Assignment">&#182;</a></h3><ul>
-<li><p>write a program to</p>
-<ul>
-<li>accept a year as input</li>
-<li>print if it is a leap year</li>
-<li><p>Leap Year condition</p>
-<ul>
-<li>if year is a century year (1900,2000,2100) it should be divisible by 400</li>
-<li>for other years it should be divisible by 4</li>
-</ul>
-</li>
-<li><p><strong>use compact if</strong></p>
-</li>
-<li>you can use only two statement (including input and print) in your program</li>
-</ul>
-</li>
+<h2 id="Recommendation">Recommendation<a class="anchor-link" href="#Recommendation">&#182;</a></h2><ul>
+<li>Always use *args after providing all formal (and default) parameters</li>
 </ul>
 
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#approach 1</span>
-
-<span class="n">year</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;year?&#39;</span><span class="p">))</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> is </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">year</span><span class="p">,</span>  <span class="s1">&#39;leap&#39;</span> <span class="k">if</span> <span class="p">(</span><span class="n">year</span><span class="o">%</span><span class="k">400</span>==0 or year%4==0 and year%100!=0) else &#39;not leap&#39;))
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>year?2000
-2000 is leap
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> <span class="c1">#approach 1</span>
-
-<span class="n">year</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;year?&#39;</span><span class="p">))</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> is </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">year</span><span class="p">,</span>  <span class="s1">&#39;leap&#39;</span> <span class="k">if</span> <span class="p">(</span><span class="n">year</span><span class="o">%</span> <span class="p">(</span><span class="mi">4</span> <span class="k">if</span> <span class="n">year</span><span class="o">%</span><span class="k">100</span>!=0 else 400) == 0) else &#39;not leap&#39;))
-</pre></div>
-
-    </div>
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
