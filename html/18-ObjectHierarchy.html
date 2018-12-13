@@ -2,7 +2,7 @@
 <html>
 <head><meta charset="utf-8" />
 
-<title>17-AssignmentEmployeeManagement</title>
+<title>18-ObjectHierarchy</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -13116,60 +13116,96 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Assignment">Assignment<a class="anchor-link" href="#Assignment">&#182;</a></h1><ul>
-<li><p>Define an Object Employee with following information</p>
+<h2 id="How-do-I-represent-Employee-Designation">How do I represent Employee Designation<a class="anchor-link" href="#How-do-I-represent-Employee-Designation">&#182;</a></h2><ul>
+<li>Employees have designations like<ul>
+<li>Manager</li>
+<li>Accountant</li>
+<li>Developer</li>
+</ul>
+</li>
+<li><p>With each designation they get</p>
 <ul>
-<li>name<ul>
-<li>should contain at least two parts (first name last name)</li>
+<li>Specific Responsibilty<ul>
+<li>redefined work()</li>
+<li>additional work()</li>
 </ul>
 </li>
-<li>id<ul>
-<li>should be unique number</li>
-</ul>
-</li>
-<li><p>salary</p>
-</li>
-<li><p>department</p>
-</li>
-<li>organization</li>
-</ul>
-</li>
-<li><p>Define the behviors</p>
+<li><p>Extra Information</p>
 <ul>
-<li>work</li>
-<li>show details</li>
+<li>fields</li>
 </ul>
 </li>
-<li><p>Write Simple Tests</p>
+<li><p>Example</p>
+<ul>
+<li>Manager<ul>
+<li>will need to manage a <strong>team</strong></li>
+<li>work will be different from regular employee</li>
+</ul>
 </li>
+<li>Engineer<ul>
+<li>works on a <strong>project</strong></li>
+<li>work involves technial details</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="How-Do-I-represent-the-designation">How Do I represent the designation<a class="anchor-link" href="#How-Do-I-represent-the-designation">&#182;</a></h2><h3 id="Option-1---a-field-(string/int)-in-Employee">Option 1 - a field (string/int) in Employee<a class="anchor-link" href="#Option-1---a-field-(string/int)-in-Employee">&#182;</a></h3><ul>
+<li><p>Employee with different designation will have</p>
+<ul>
+<li>different information</li>
+<li>different work</li>
+</ul>
+</li>
+<li><p><strong>PROBLEM</strong></p>
+<ul>
+<li>we will need to define all information and behavior associated to all employee in the employee class</li>
+<li>complex design</li>
+<li>more likely to change tomorrow</li>
+</ul>
+</li>
+</ul>
+<h3 id="Option-2">Option 2<a class="anchor-link" href="#Option-2">&#182;</a></h3><ul>
+<li><p>Define different classes to represent different type of Employee - Manager, Engineer etc</p>
+</li>
+<li><p>Each of these type can <strong>inherit</strong> core functionality from <strong>Employee</strong></p>
+</li>
+</ul>
+<h1 id="When-to-Use-Inheritance">When to Use Inheritance<a class="anchor-link" href="#When-to-Use-Inheritance">&#182;</a></h1><ul>
+<li><p>Use Inheritance to define a <strong>object hierarchy</strong></p>
+</li>
+<li><p>A class <strong>X</strong> can <strong>inherit from another class A</strong> if (and only if ) we can say <strong>X is a type of A</strong></p>
+<ul>
+<li>Example:<ul>
+<li>Manager is a type of Employee</li>
+<li>Crow is a type of Bird</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Lets-create-the-Base-Class">Lets create the Base Class<a class="anchor-link" href="#Lets-create-the-Base-Class">&#182;</a></h2><ul>
+<li>often referred as <strong>super</strong> class</li>
 </ul>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Employee-Version-1">Employee Version 1<a class="anchor-link" href="#Employee-Version-1">&#182;</a></h2>
-</div>
-</div>
-</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Employee</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">salary</span><span class="p">,</span> <span class="n">designation</span> <span class="p">,</span><span class="n">department</span><span class="p">,</span> <span class="n">organization</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">salary</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_id</span><span class="o">=</span><span class="nb">id</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="o">=</span><span class="n">name</span>  <span class="c1">#name validation is triggered</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">salary</span><span class="o">=</span><span class="n">salary</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_department</span><span class="o">=</span><span class="n">department</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_organization</span><span class="o">=</span><span class="n">organization</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_designation</span><span class="o">=</span><span class="n">designation</span>
         
     <span class="k">def</span> <span class="nf">work</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> </span><span class="si">{}</span><span class="s1"> works as </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_id</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">_name</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">_designation</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Employee #</span><span class="si">{}</span><span class="s1"> </span><span class="si">{}</span><span class="s1"> works &#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_id</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">_name</span><span class="p">))</span>
         
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">id</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_id</span>
@@ -13191,37 +13227,33 @@ div#notebook {
             <span class="bp">self</span><span class="o">.</span><span class="n">_salary</span><span class="o">=</span><span class="n">newSalary</span>
             
     <span class="k">def</span> <span class="nf">show</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Employee Id=</span><span class="si">{}</span><span class="se">\n</span><span class="s1">Name=</span><span class="si">{}</span><span class="se">\n</span><span class="s1">Designation=</span><span class="si">{}</span><span class="se">\n</span><span class="s1">Salary=</span><span class="si">{}</span><span class="se">\n</span><span class="s1">Department=</span><span class="si">{}</span><span class="se">\n</span><span class="s1">Organization=</span><span class="si">{}</span><span class="s1">&#39;</span>\
-            <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">designation</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">salary</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">department</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">organization</span><span class="p">))</span>
-              
-              
-    <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">designation</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_designation</span>
-    
-    <span class="nd">@designation</span><span class="o">.</span><span class="n">setter</span>
-    <span class="k">def</span> <span class="nf">designation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">value</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_designation</span><span class="o">=</span><span class="n">value</span>
-              
-    <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">organization</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_organization</span>
-    
-    <span class="nd">@organization</span><span class="o">.</span><span class="n">setter</span>
-    <span class="k">def</span> <span class="nf">organization</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">value</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_organization</span><span class="o">=</span><span class="n">value</span>
-              
-    <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">department</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_designation</span>
-    
-    <span class="nd">@department</span><span class="o">.</span><span class="n">setter</span>
-    <span class="k">def</span> <span class="nf">department</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">value</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_designation</span><span class="o">=</span><span class="n">value</span>
-              
-    
-              
-              
-        
-              
-              
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Employee Id=</span><span class="si">{}</span><span class="se">\n</span><span class="s1">Name=</span><span class="si">{}</span><span class="se">\n</span><span class="s1">Salary=</span><span class="si">{}</span><span class="s1">&#39;</span>\
+            <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">salary</span><span class="p">))</span>              
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Let-us-now-define-a-Manager">Let us now define a Manager<a class="anchor-link" href="#Let-us-now-define-a-Manager">&#182;</a></h2><ul>
+<li><strong>Manager is a sub type of Employee</strong></li>
+<li>Everything (almost) defined for Employee also applies to a Manager</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Manager</span><span class="p">(</span><span class="n">Employee</span><span class="p">):</span>
+    <span class="k">pass</span>
 </pre></div>
 
     </div>
@@ -13231,11 +13263,10 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">e1</span><span class="o">=</span><span class="n">Employee</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;Vivek Dutta Mishra&#39;</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="s1">&#39;Trainer&#39;</span><span class="p">,</span> <span class="s1">&#39;Training&#39;</span><span class="p">,</span> <span class="s1">&#39;Concept Architect&#39;</span><span class="p">)</span>
-<span class="n">e1</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">m1</span><span class="o">=</span><span class="n">Manager</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -13245,125 +13276,6 @@ div#notebook {
 <div class="output_wrapper">
 <div class="output">
 
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Employee Id=1
-Name=Vivek Dutta Mishra
-Designation=Trainer
-Salary=1000
-Department=Trainer
-Organization=Concept Architect
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">e1</span><span class="o">.</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Vivek&#39;</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">e1</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
-<span class="n">e1</span><span class="o">.</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Vivek D Mishra&#39;</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">e1</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Vivek Dutta Mishra
-Vivek D Mishra
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">e1</span><span class="o">.</span><span class="n">salary</span><span class="o">=</span><span class="mi">0</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">e1</span><span class="o">.</span><span class="n">salary</span><span class="p">)</span>
-<span class="n">e1</span><span class="o">.</span><span class="n">salary</span><span class="o">=</span><span class="mi">2000</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">e1</span><span class="o">.</span><span class="n">salary</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>1000
-2000
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">e1</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
-<span class="n">e1</span><span class="o">.</span><span class="n">id</span><span class="o">=</span><span class="mi">20</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">e1</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>1
-</pre>
-</div>
-</div>
 
 <div class="output_area">
 
@@ -13373,26 +13285,91 @@ Vivek D Mishra
 <div class="output_subarea output_text output_error">
 <pre>
 <span class="ansi-red-intense-fg ansi-bold">---------------------------------------------------------------------------</span>
-<span class="ansi-red-intense-fg ansi-bold">AttributeError</span>                            Traceback (most recent call last)
-<span class="ansi-green-intense-fg ansi-bold">&lt;ipython-input-17-c201dcaac7a4&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-intense-fg ansi-bold">()</span>
-<span class="ansi-green-fg">      1</span> print<span class="ansi-yellow-intense-fg ansi-bold">(</span>e1<span class="ansi-yellow-intense-fg ansi-bold">.</span>id<span class="ansi-yellow-intense-fg ansi-bold">)</span>
-<span class="ansi-green-intense-fg ansi-bold">----&gt; 2</span><span class="ansi-yellow-intense-fg ansi-bold"> </span>e1<span class="ansi-yellow-intense-fg ansi-bold">.</span>id<span class="ansi-yellow-intense-fg ansi-bold">=</span><span class="ansi-cyan-intense-fg ansi-bold">20</span>
-<span class="ansi-green-fg">      3</span> print<span class="ansi-yellow-intense-fg ansi-bold">(</span>e1<span class="ansi-yellow-intense-fg ansi-bold">.</span>id<span class="ansi-yellow-intense-fg ansi-bold">)</span>
+<span class="ansi-red-intense-fg ansi-bold">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-intense-fg ansi-bold">&lt;ipython-input-4-170b6c029b53&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-intense-fg ansi-bold">()</span>
+<span class="ansi-green-intense-fg ansi-bold">----&gt; 1</span><span class="ansi-yellow-intense-fg ansi-bold"> </span>m1<span class="ansi-yellow-intense-fg ansi-bold">=</span>Manager<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>
 
-<span class="ansi-red-intense-fg ansi-bold">AttributeError</span>: can&#39;t set attribute</pre>
+<span class="ansi-red-intense-fg ansi-bold">TypeError</span>: __init__() missing 3 required positional arguments: &#39;id&#39;, &#39;name&#39;, and &#39;salary&#39;</pre>
 </div>
 </div>
 
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Inheritance">Inheritance<a class="anchor-link" href="#Inheritance">&#182;</a></h2><ul>
+<li>when we inherit a class </li>
+</ul>
+<hr>
+<div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Manager</span><span class="p">(</span><span class="n">Employee</span><span class="p">):</span>
+    <span class="k">pass</span>
+</pre></div>
+<hr>
+<ul>
+<li>class Manager inherits everything from class Employee including<ul>
+<li><strong>__int__()</strong></li>
+<li>properties</li>
+<li>other behviors like work</li>
+</ul>
+</li>
+</ul>
+<h3 id="Language-Alert!!!">Language Alert!!!<a class="anchor-link" href="#Language-Alert!!!">&#182;</a></h3><ul>
+<li>in C++ like langauge constructor is <strong>Not inherited</strong><ul>
+<li>but remember <strong>__int__()</strong> is not a constructor</li>
+</ul>
+</li>
+</ul>
+<h3 id="we-can-use-super-class-__int__()-for-sub-class-also">we can use super class <strong>__int__()</strong> for sub class also<a class="anchor-link" href="#we-can-use-super-class-__int__()-for-sub-class-also">&#182;</a></h3><ul>
+<li>this will work as long as <strong>sub class</strong> doesnt need additional information</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Manager</span><span class="p">(</span><span class="n">Employee</span><span class="p">):</span>
+    <span class="k">pass</span>
+</pre></div>
+
+    </div>
 </div>
 </div>
 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">e1</span><span class="o">.</span><span class="n">work</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">m1</span><span class="o">=</span><span class="n">Manager</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;Sanjay Mall&#39;</span><span class="p">,</span><span class="mi">50000</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="what-have-we-achieved">what have we achieved<a class="anchor-link" href="#what-have-we-achieved">&#182;</a></h3><h4 id="1.-we-get-all-the-memebrs-from-Employee">1. we get all the memebrs from Employee<a class="anchor-link" href="#1.-we-get-all-the-memebrs-from-Employee">&#182;</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">m1</span><span class="o">.</span><span class="n">work</span><span class="p">()</span>
+<span class="n">m1</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -13409,7 +13386,9 @@ Vivek D Mishra
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>1 Vivek D Mishra works as Trainer
+<pre>Employee #1 Sanjay Mall works 
+Employee Id=1
+Name=Sanjay Mall\nSalary=50000
 </pre>
 </div>
 </div>
@@ -13421,20 +13400,145 @@ Vivek D Mishra
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="How-to-ensure-a-unqiue-id?">How to ensure a unqiue id?<a class="anchor-link" href="#How-to-ensure-a-unqiue-id?">&#182;</a></h2>
+<h3 id="2.-we-get-a-new-identity">2. we get a new identity<a class="anchor-link" href="#2.-we-get-a-new-identity">&#182;</a></h3><ul>
+<li>we can differentiate between Ordinary Employee and a Manager</li>
+</ul>
+
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">m1</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>&lt;class &#39;__main__.Manager&#39;&gt;
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="3.-We-get-a-relationship">3. We get a relationship<a class="anchor-link" href="#3.-We-get-a-relationship">&#182;</a></h3><ul>
+<li>Manager is a subtype of Employee</li>
+<li>A Manager object can also be considered as an Employee Object<ul>
+<li>An Employee object can't be considered Manager Object</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">e1</span><span class="o">=</span><span class="n">Employee</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Vivek Dutta Mishra&#39;</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">m1</span><span class="o">=</span><span class="n">Manager</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;Sanjay Mall&#39;</span><span class="p">,</span> <span class="mi">2000</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">isinstance</span><span class="p">(</span><span class="n">e1</span><span class="p">,</span><span class="n">Employee</span><span class="p">)</span>
+<span class="nb">isinstance</span><span class="p">(</span><span class="n">m1</span><span class="p">,</span><span class="n">Manager</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[19]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>True</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">isinstance</span><span class="p">(</span><span class="n">m1</span><span class="p">,</span><span class="n">Employee</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[20]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>True</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">e1</span><span class="o">=</span><span class="n">Employee</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Vivek D Mishra&#39;</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="s1">&#39;Trainer&#39;</span><span class="p">,</span> <span class="s1">&#39;Training&#39;</span><span class="p">,</span> <span class="s1">&#39;Concept Architect&#39;</span><span class="p">)</span>
-<span class="n">e2</span><span class="o">=</span><span class="n">Employee</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Sanjay Mall&#39;</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="s1">&#39;Manager&#39;</span><span class="p">,</span> <span class="s1">&#39;Training&#39;</span><span class="p">,</span> <span class="s1">&#39;Concept Architect&#39;</span><span class="p">)</span>
-
-<span class="n">e1</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-<span class="n">e2</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">isinstance</span><span class="p">(</span><span class="n">e1</span><span class="p">,</span><span class="n">Manager</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13447,131 +13551,27 @@ Vivek D Mishra
 
 <div class="output_area">
 
-    <div class="prompt"></div>
+    <div class="prompt output_prompt">Out[21]:</div>
 
 
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Employee Id=1
-Name=Vivek D Mishra
-Designation=Trainer
-Salary=1000
-Department=Trainer
-Organization=Concept Architect
-Employee Id=1
-Name=Sanjay Mall
-Designation=Manager
-Salary=1000
-Department=Manager
-Organization=Concept Architect
-</pre>
-</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>False</pre>
 </div>
 
 </div>
-</div>
 
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="How-To-make-the-Id-Unqiue?">How To make the Id Unqiue?<a class="anchor-link" href="#How-To-make-the-Id-Unqiue?">&#182;</a></h2><h3 id="Core-Idea">Core Idea<a class="anchor-link" href="#Core-Idea">&#182;</a></h3><ol>
-<li>remember the last id assigned to any employee</li>
-<li>increment the value</li>
-<li>assign the value as new Id</li>
-</ol>
-<h2 id="Who/Where-should-we-remember-the-last-id?">Who/Where should we remember the last id?<a class="anchor-link" href="#Who/Where-should-we-remember-the-last-id?">&#182;</a></h2><h3 id="Possible-Choices">Possible Choices<a class="anchor-link" href="#Possible-Choices">&#182;</a></h3><ol>
-<li><p>using a global field to store unqiue id</p>
-<ul>
-<li>lastId</li>
-<li><strong>NOT RECOMMENDED</strong><ul>
-<li><strong>ITS NEVER A GOOD IDEA TO USE GLOBAL ELEMENTS</strong></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>use module level field to define unqiue id</p>
-<ul>
-<li>within the module the value is available as global</li>
-<li>doesn't conflict with other global items</li>
-<li><strong>Its a decent solution</strong></li>
-</ul>
-</li>
-<li><p>Use static members (class level members)</p>
-<ul>
-<li><p>A Class level member is a member that belongs to class and not to individual objects</p>
-</li>
-<li><p>Indvidual objects can access it, but doesn't own it</p>
-</li>
-</ul>
-</li>
-</ol>
-<h3 id="Language-Alert!!!">Language Alert!!!<a class="anchor-link" href="#Language-Alert!!!">&#182;</a></h3><ul>
-<li><p>C++ style lanaguage (C++/Java/C#) support a keyword <strong>static</strong> to represent class level</p>
-</li>
-<li><p><strong>Python</strong> doesn't support the keyword <strong>static</strong></p>
-<ul>
-<li>you simiply need to define the field at class level</li>
-</ul>
-</li>
-</ul>
-<h3 id="Python's-static-design">Python's static design<a class="anchor-link" href="#Python's-static-design">&#182;</a></h3><h4 id="A-Static-Field">A Static Field<a class="anchor-link" href="#A-Static-Field">&#182;</a></h4><ul>
-<li><p>defined at class level</p>
-</li>
-<li><p>can be accessed using either class reference or object reference</p>
-<ul>
-<li>preferred way to access it is class reference</li>
-</ul>
-</li>
-<li>should be modified using class reference</li>
-</ul>
-<h4 id="A-Static-Method">A Static Method<a class="anchor-link" href="#A-Static-Method">&#182;</a></h4><ul>
-<li>defined at class level (like any other method)</li>
-<li>doesn't take <strong>self</strong> parameter</li>
-<li>should be decorated with <strong>@staticmethod</strong> decorator</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[26]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Employee</span><span class="p">:</span>
-    <span class="c1">#define class level field here</span>
-    <span class="n">_emp_count</span><span class="o">=</span><span class="mi">0</span> <span class="c1"># expected to be private</span>
-    
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
-        <span class="n">Employee</span><span class="o">.</span><span class="n">_emp_count</span><span class="o">+=</span><span class="mi">1</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_id</span><span class="o">=</span><span class="n">Employee</span><span class="o">.</span><span class="n">_emp_count</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_name</span><span class="o">=</span><span class="n">name</span>
-        
-    <span class="k">def</span> <span class="nf">show</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Employee Name=</span><span class="si">{}</span><span class="s1"> Id=</span><span class="si">{}</span><span class="se">\t\t</span><span class="s1">Total Employees=</span><span class="si">{}</span><span class="s1">&#39;</span>\
-              <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_name</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">_id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_emp_count</span><span class="p">))</span>
-        
-    <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">get_emp_count</span><span class="p">():</span><span class="k">return</span> <span class="n">Employee</span><span class="o">.</span><span class="n">_emp_count</span>
-        
-        
-</pre></div>
-
-    </div>
 </div>
 </div>
 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">e1</span><span class="o">=</span><span class="n">Employee</span><span class="p">(</span><span class="s1">&#39;Vivek&#39;</span><span class="p">)</span>
-<span class="n">e2</span><span class="o">=</span><span class="n">Employee</span><span class="p">(</span><span class="s1">&#39;Sanjay&#39;</span><span class="p">)</span>
-
-<span class="n">e1</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-<span class="n">e2</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">issubclass</span><span class="p">(</span><span class="n">Manager</span><span class="p">,</span><span class="n">Employee</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13584,14 +13584,81 @@ Organization=Concept Architect
 
 <div class="output_area">
 
-    <div class="prompt"></div>
+    <div class="prompt output_prompt">Out[22]:</div>
 
 
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Employee Name=Vivek Id=1		Total Employees=2
-Employee Name=Sanjay Id=2		Total Employees=2
-</pre>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>True</pre>
 </div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">issubclass</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span><span class="n">Employee</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[23]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>False</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">issubclass</span><span class="p">(</span><span class="n">Employee</span><span class="p">,</span><span class="n">Manager</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[24]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>False</pre>
+</div>
+
 </div>
 
 </div>
@@ -13601,17 +13668,25 @@ Employee Name=Sanjay Id=2		Total Employees=2
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Accessing-class-level-field">Accessing class level field<a class="anchor-link" href="#Accessing-class-level-field">&#182;</a></h2><ul>
-<li>A class level field can contain <strong>shared information</strong> for all objects</li>
-<li><p>Objects can access that information using</p>
-<ul>
-<li>class reference</li>
-<li>object (or self) reference</li>
+<h2 id="But-Manager-may-need-more-information-and-additional-behavior">But Manager may need more information and additional behavior<a class="anchor-link" href="#But-Manager-may-need-more-information-and-additional-behavior">&#182;</a></h2><ul>
+<li>A manager may have more information<ul>
+<li>projectname</li>
+<li>team</li>
 </ul>
 </li>
-<li><p>because the information is not owned by object it is <strong>strongly recommended not to access this field using object reference</strong></p>
+<li><strong>HOW</strong><ul>
+<li>we need to redefine <strong>__int__()</strong> to take additional information</li>
+<li>our <strong>__int__()</strong> need to take all information<ul>
+<li>required by Manager</li>
+<li>required by Employee</li>
+</ul>
 </li>
-<li><p>This can have adverse consequences</p>
+<li>we may  call the <strong>__int__()</strong> of Employee to store the data<ul>
+<li>we may choose not to call the base class <strong>__int__()</strong></li>
+<li><strong>strongly recommended to invoke base class __int__()</strong></li>
+</ul>
+</li>
+</ul>
 </li>
 </ul>
 
@@ -13623,9 +13698,39 @@ Employee Name=Sanjay Id=2		Total Employees=2
 <div class="prompt input_prompt">In&nbsp;[28]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">e1</span><span class="o">.</span><span class="n">_emp_count</span><span class="o">=</span><span class="mi">100</span>
-<span class="n">e1</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-<span class="n">e2</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">class Employee:</span>
+<span class="sd">    def __init__(self, id, name, salary):</span>
+<span class="sd">        self._id=id</span>
+<span class="sd">        self.name=name  </span>
+<span class="sd">        self.salary=salary</span>
+<span class="sd">&#39;&#39;&#39;</span>
+
+<span class="k">class</span> <span class="nc">Manager</span><span class="p">(</span><span class="n">Employee</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="nb">id</span><span class="p">,</span><span class="n">name</span><span class="p">,</span><span class="n">salary</span><span class="p">,</span><span class="n">project</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_id</span><span class="o">=</span><span class="nb">id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_name</span><span class="o">=</span><span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_salary</span><span class="o">=</span><span class="n">salary</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_project</span><span class="o">=</span><span class="n">project</span>
+        
+    <span class="c1"># can add new functionality</span>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">project</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_project</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">m1</span><span class="o">=</span><span class="n">Manager</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;Sanjay&#39;</span><span class="p">,</span><span class="mi">25000</span><span class="p">,</span><span class="s1">&#39;WebSite&#39;</span><span class="p">)</span>
+<span class="n">m1</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;project&#39;</span><span class="p">,</span><span class="n">m1</span><span class="o">.</span><span class="n">project</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13642,8 +13747,10 @@ Employee Name=Sanjay Id=2		Total Employees=2
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Employee Name=Vivek Id=1		Total Employees=100
-Employee Name=Sanjay Id=2		Total Employees=2
+<pre>Employee Id=1
+Name=Sanjay
+Salary=25000
+project WebSite
 </pre>
 </div>
 </div>
@@ -13655,26 +13762,243 @@ Employee Name=Sanjay Id=2		Total Employees=2
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="How-is-class-level-members-accessed?">How is class level members accessed?<a class="anchor-link" href="#How-is-class-level-members-accessed?">&#182;</a></h2><ul>
-<li>when you try to access <strong>obj.anything</strong> using object reference. python follows following rule<ol>
-<li>check if there is a <strong>anything</strong> field available in current object<ul>
-<li>if found returns the field</li>
-</ul>
+<h3 id="we-can-invoke-super-class-__init__()-in-different-way">we can invoke super class __init__() in different way<a class="anchor-link" href="#we-can-invoke-super-class-__init__()-in-different-way">&#182;</a></h3><h4 id="1.-invoke-using-class-name">1. invoke using class name<a class="anchor-link" href="#1.-invoke-using-class-name">&#182;</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Manager</span><span class="p">(</span><span class="n">Employee</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="p">,</span><span class="n">name</span><span class="p">,</span><span class="n">salary</span><span class="p">,</span><span class="n">project</span><span class="p">):</span>
+        <span class="c1">#pass parameter to Employee __init__</span>
+        <span class="n">Employee</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="nb">id</span><span class="p">,</span><span class="n">name</span><span class="p">,</span><span class="n">salary</span><span class="p">)</span>
+        <span class="c1">#now you can initialize your own fields</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_project</span><span class="o">=</span><span class="n">project</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_team</span><span class="o">=</span><span class="p">[]</span>
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">project</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span><span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_project</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[33]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">m1</span><span class="o">=</span><span class="n">Manager</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;Sanjay Mall&#39;</span><span class="p">,</span><span class="mi">25000</span><span class="p">,</span><span class="s1">&#39;WebSite&#39;</span><span class="p">)</span>
+<span class="n">m1</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Project&#39;</span><span class="p">,</span> <span class="n">m1</span><span class="o">.</span><span class="n">project</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Employee Id=1
+Name=Sanjay Mall
+Salary=25000
+Project WebSite
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="2.-Using-super-keyword-instead-of-base-class-name">2. Using super keyword instead of base class name<a class="anchor-link" href="#2.-Using-super-keyword-instead-of-base-class-name">&#182;</a></h3><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyClass</span><span class="p">(</span><span class="n">BaseClass</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">MyClass</span><span class="p">,</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_c</span><span class="o">=</span><span class="n">c</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Manager</span><span class="p">(</span><span class="n">Employee</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="p">,</span><span class="n">name</span><span class="p">,</span><span class="n">salary</span><span class="p">,</span><span class="n">project</span><span class="p">):</span>
+        <span class="c1">#pass parameter to super</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Manager</span><span class="p">,</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span><span class="n">name</span><span class="p">,</span><span class="n">salary</span><span class="p">)</span>
+        <span class="c1">#now you can initialize your own fields</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_project</span><span class="o">=</span><span class="n">project</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_team</span><span class="o">=</span><span class="p">[]</span>
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">project</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span><span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_project</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[35]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">m1</span><span class="o">=</span><span class="n">Manager</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;Sanjay Mall&#39;</span><span class="p">,</span><span class="mi">25000</span><span class="p">,</span><span class="s1">&#39;WebSite&#39;</span><span class="p">)</span>
+<span class="n">m1</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Project&#39;</span><span class="p">,</span> <span class="n">m1</span><span class="o">.</span><span class="n">project</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Employee Id=1
+Name=Sanjay Mall
+Salary=25000
+Project WebSite
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="3.-using-simple-super-semantic">3. using simple super semantic<a class="anchor-link" href="#3.-using-simple-super-semantic">&#182;</a></h3><ul>
+<li><p>starting <strong>python 3</strong> super has a new simplified syntax</p>
 </li>
-<li>if <strong>anyhthing</strong> is not available at object level it searches for class level field</li>
-</ol>
+<li><p>instead of expanded version</p>
 </li>
 </ul>
+<hr>
+<div class="highlight"><pre><span></span><span class="nb">super</span><span class="p">(</span><span class="n">MyClass</span><span class="p">,</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+</pre></div>
+<hr>
 <ul>
-<li>when you try to use <strong>obj.anything=newValue</strong><ol>
-<li>python simply adds/update <strong>anything</strong> field on the object<ul>
-<li>it doens't attempt to check if there is any class level field with same name</li>
-<li>next time you try to access the same field it returns the newly created field for the current object</li>
-<li>other objects continue to get class level field</li>
+<li>you can now use</li>
 </ul>
-</li>
-</ol>
-</li>
+<hr>
+<div class="highlight"><pre><span></span><span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+</pre></div>
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[36]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Manager</span><span class="p">(</span><span class="n">Employee</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="p">,</span><span class="n">name</span><span class="p">,</span><span class="n">salary</span><span class="p">,</span><span class="n">project</span><span class="p">):</span>
+        <span class="c1">#pass parameter to super</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span><span class="n">name</span><span class="p">,</span><span class="n">salary</span><span class="p">)</span>
+        <span class="c1">#now you can initialize your own fields</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_project</span><span class="o">=</span><span class="n">project</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_team</span><span class="o">=</span><span class="p">[]</span>
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">project</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span><span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_project</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[37]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">m1</span><span class="o">=</span><span class="n">Manager</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;Sanjay Mall&#39;</span><span class="p">,</span><span class="mi">25000</span><span class="p">,</span><span class="s1">&#39;WebSite&#39;</span><span class="p">)</span>
+<span class="n">m1</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Project&#39;</span><span class="p">,</span> <span class="n">m1</span><span class="o">.</span><span class="n">project</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Employee Id=1
+Name=Sanjay Mall
+Salary=25000
+Project WebSite
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Python-Version-Alert!!!">Python Version Alert!!!<a class="anchor-link" href="#Python-Version-Alert!!!">&#182;</a></h2><ul>
+<li>The simplified <strong>super</strong> syntax is a <strong>python3</strong> feature not present in <strong>python2</strong></li>
+<li>you can still use first 2 version with <strong>python2</strong></li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="What-if-we-need-to-add-new-behavior">What if we need to add new behavior<a class="anchor-link" href="#What-if-we-need-to-add-new-behavior">&#182;</a></h2><ul>
+<li>a new behavior can simply be added to new class</li>
+<li>these methods can be directly called</li>
+</ul>
+<h2 id="What-if-we-need-to-modify-the-working-of-current-behavior">What if we need to modify the working of current behavior<a class="anchor-link" href="#What-if-we-need-to-modify-the-working-of-current-behavior">&#182;</a></h2><ul>
+<li>we can add a new method with same name as one in base class</li>
+<li>the new method will overwrite the old one for our class</li>
+<li>base class shall continue to use its own version</li>
+<li>our class will use the new version</li>
 </ul>
 
 </div>
@@ -13682,12 +14006,53 @@ Employee Name=Sanjay Id=2		Total Employees=2
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[32]:</div>
+<div class="prompt input_prompt">In&nbsp;[42]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Employee</span><span class="o">.</span><span class="n">_emp_count</span><span class="o">=</span><span class="mi">5</span>
-<span class="n">e1</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>  <span class="c1">#uses its personal copy</span>
-<span class="n">e2</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>  <span class="c1">#uses the shared copy</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Manager</span><span class="p">(</span><span class="n">Employee</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="p">,</span><span class="n">name</span><span class="p">,</span><span class="n">salary</span><span class="p">,</span><span class="n">project</span><span class="p">):</span>
+        <span class="c1">#pass parameter to super</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span><span class="n">name</span><span class="p">,</span><span class="n">salary</span><span class="p">)</span>
+        <span class="c1">#now you can initialize your own fields</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_project</span><span class="o">=</span><span class="n">project</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_team</span><span class="o">=</span><span class="p">[]</span>
+    
+    
+    <span class="c1"># new behaviors</span>
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">project</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span><span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_project</span>
+    
+    <span class="k">def</span> <span class="nf">add_to_team</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">employee</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">employee</span><span class="p">,</span><span class="n">Employee</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_team</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">employee</span><span class="p">)</span>
+    
+    <span class="c1"># modify exisitng behavior</span>
+    
+    <span class="k">def</span> <span class="nf">work</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Manager #</span><span class="si">{}</span><span class="s1"> </span><span class="si">{}</span><span class="s1"> works on </span><span class="si">{}</span><span class="s1"> with a team size of </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span>\
+             <span class="nb">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">project</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_team</span><span class="p">)))</span>
+    
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[46]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">m1</span><span class="o">=</span><span class="n">Manager</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;Sanjay Mall&#39;</span><span class="p">,</span><span class="mi">25000</span><span class="p">,</span><span class="s1">&#39;WebSite&#39;</span><span class="p">)</span>
+
+<span class="n">m1</span><span class="o">.</span><span class="n">add_to_team</span><span class="p">(</span><span class="n">Employee</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;Vivek D Mishra&#39;</span><span class="p">,</span><span class="mi">1000</span><span class="p">))</span>
+<span class="n">m1</span><span class="o">.</span><span class="n">add_to_team</span><span class="p">(</span><span class="n">Employee</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="s1">&#39;Shivanshi Mishra&#39;</span><span class="p">,</span><span class="mi">3000</span><span class="p">))</span>
+<span class="n">m1</span><span class="o">.</span><span class="n">add_to_team</span><span class="p">(</span><span class="s1">&#39;Vivek&#39;</span><span class="p">)</span> <span class="c1">#will not be added</span>
+<span class="n">m1</span><span class="o">.</span><span class="n">add_to_team</span><span class="p">(</span><span class="n">Manager</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="s1">&#39;Amit Singh&#39;</span><span class="p">,</span><span class="mi">3000</span><span class="p">,</span><span class="s1">&#39;Documentation&#39;</span><span class="p">))</span>
+
+<span class="n">m1</span><span class="o">.</span><span class="n">work</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -13704,8 +14069,7 @@ Employee Name=Sanjay Id=2		Total Employees=2
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Employee Name=Vivek Id=1		Total Employees=100
-Employee Name=Sanjay Id=2		Total Employees=5
+<pre>Manager #1 Sanjay Mall works on WebSite with a team size of 3
 </pre>
 </div>
 </div>
@@ -13717,58 +14081,112 @@ Employee Name=Sanjay Id=2		Total Employees=5
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Who-should-remember-the-last-id?">Who should remember the last id?<a class="anchor-link" href="#Who-should-remember-the-last-id?">&#182;</a></h1><ul>
-<li><p>can a 'employee' know the total employee count or last id generated?</p>
-</li>
-<li><p>who should know this information?</p>
-</li>
-</ul>
-<h3 id="Organzation">Organzation<a class="anchor-link" href="#Organzation">&#182;</a></h3><ul>
-<li>An organization Hires an Employee</li>
-<li>An organization assigns the id</li>
-<li>An organization assigns the Department</li>
-<li>Organization maintains a list of departments</li>
-</ul>
-<h3 id="Domain-Model">Domain Model<a class="anchor-link" href="#Domain-Model">&#182;</a></h3><ul>
-<li>Organization [ name, departments, employees ]<ul>
-<li>Departments<ul>
-<li>Development<ul>
-<li>Emp1</li>
-<li>Emp2</li>
-<li>Emp3<ul>
-<li>HR</li>
+<h2 id="what-if-I-need-to-invoke-overwritten-method">what if I need to invoke overwritten method<a class="anchor-link" href="#what-if-I-need-to-invoke-overwritten-method">&#182;</a></h2><ul>
+<li>I want to redefine show()<ul>
+<li>I still want to include previous show behavior</li>
+<li>also wanto to show the project and team information</li>
 </ul>
 </li>
-<li>Emp4</li>
-<li>Emp5</li>
+</ul>
+<h3 id="Steps">Steps<a class="anchor-link" href="#Steps">&#182;</a></h3><ol>
+<li>define a new <strong>show()</strong> that will overwrite the old show<ul>
+<li>invoke the old show by either calling<ul>
+<li>Employee.show(self)
+or</li>
+<li>super(Manager,self).show()
+or</li>
+<li>super().show() &lt;-- <strong>python 3 only</strong></li>
 </ul>
 </li>
 </ul>
 </li>
-</ul>
-</li>
-</ul>
-<h3 id="A-Simple-Use-case">A Simple Use case<a class="anchor-link" href="#A-Simple-Use-case">&#182;</a></h3><div class="highlight"><pre><span></span><span class="n">hp</span><span class="o">=</span><span class="n">Organization</span><span class="p">(</span><span class="s1">&#39;HP&#39;</span><span class="p">)</span>
+</ol>
 
-<span class="n">training</span><span class="o">=</span> <span class="n">hp</span><span class="o">.</span><span class="n">addDepartment</span><span class="p">(</span><span class="s1">&#39;Training&#39;</span><span class="p">)</span>
-<span class="n">development</span><span class="o">=</span> <span class="n">hp</span><span class="o">.</span><span class="n">addDepartment</span><span class="p">(</span><span class="s1">&#39;Development&#39;</span><span class="p">)</span>
-
-
-<span class="n">e1</span><span class="o">=</span><span class="n">hp</span><span class="o">.</span><span class="n">addEmployee</span><span class="p">(</span><span class="s1">&#39;Vivek&#39;</span><span class="p">,</span> <span class="mi">2000</span><span class="p">,</span> <span class="n">training</span><span class="p">)</span> <span class="c1">#creates employee and assigns to training department</span>
-<span class="n">e2</span><span class="o">=</span><span class="n">hp</span><span class="o">.</span><span class="n">addEmployee</span><span class="p">(</span><span class="s1">&#39;Sanjay&#39;</span> <span class="p">,</span> <span class="mi">5000</span><span class="p">,</span> <span class="n">development</span><span class="p">)</span>
-<span class="n">e3</span><span class="o">=</span><span class="n">hp</span><span class="o">.</span><span class="n">addEmployee</span><span class="p">(</span><span class="s1">&#39;Shweta&#39;</span> <span class="p">,</span> <span class="mi">5000</span><span class="p">,</span> <span class="n">development</span><span class="p">)</span>
-
-
-<span class="n">development</span><span class="o">.</span><span class="n">getEmployees</span><span class="p">()</span> <span class="c1"># [ e2, e3]</span>
-
-<span class="n">hp</span><span class="o">.</span><span class="n">getEmployees</span><span class="p">()</span>  <span class="c1"># [e1, e2, e3]</span>
-
-<span class="n">e1</span><span class="o">.</span><span class="n">organization</span> <span class="c1"># hp</span>
-<span class="n">e1</span><span class="o">.</span><span class="n">department</span> <span class="c1"># training</span>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[47]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Manager</span><span class="p">(</span><span class="n">Employee</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="p">,</span><span class="n">name</span><span class="p">,</span><span class="n">salary</span><span class="p">,</span><span class="n">project</span><span class="p">):</span>
+        <span class="c1">#pass parameter to super</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span><span class="n">name</span><span class="p">,</span><span class="n">salary</span><span class="p">)</span>
+        <span class="c1">#now you can initialize your own fields</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_project</span><span class="o">=</span><span class="n">project</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_team</span><span class="o">=</span><span class="p">[]</span>
+    
+    
+    <span class="c1"># new behaviors</span>
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">project</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span><span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_project</span>
+    
+    <span class="k">def</span> <span class="nf">add_to_team</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">employee</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">employee</span><span class="p">,</span><span class="n">Employee</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_team</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">employee</span><span class="p">)</span>
+    
+    <span class="c1"># modify exisitng behavior</span>
+    
+    <span class="k">def</span> <span class="nf">work</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Manager #</span><span class="si">{}</span><span class="s1"> </span><span class="si">{}</span><span class="s1"> works on </span><span class="si">{}</span><span class="s1"> with a team size of </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span>\
+             <span class="nb">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">project</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_team</span><span class="p">)))</span>
+        
+    <span class="k">def</span> <span class="nf">show</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">show</span><span class="p">()</span> <span class="c1"># call the overwritten method</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;project=&#39;</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">project</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;teamsize=&#39;</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_team</span><span class="p">))</span>
+    
 </pre></div>
 
+    </div>
 </div>
 </div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[48]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">m1</span><span class="o">=</span><span class="n">Manager</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;Sanjay Mall&#39;</span><span class="p">,</span><span class="mi">25000</span><span class="p">,</span><span class="s1">&#39;WebSite&#39;</span><span class="p">)</span>
+
+<span class="n">m1</span><span class="o">.</span><span class="n">add_to_team</span><span class="p">(</span><span class="n">Employee</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;Vivek D Mishra&#39;</span><span class="p">,</span><span class="mi">1000</span><span class="p">))</span>
+<span class="n">m1</span><span class="o">.</span><span class="n">add_to_team</span><span class="p">(</span><span class="n">Employee</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="s1">&#39;Shivanshi Mishra&#39;</span><span class="p">,</span><span class="mi">3000</span><span class="p">))</span>
+<span class="n">m1</span><span class="o">.</span><span class="n">add_to_team</span><span class="p">(</span><span class="s1">&#39;Vivek&#39;</span><span class="p">)</span> <span class="c1">#will not be added</span>
+<span class="n">m1</span><span class="o">.</span><span class="n">add_to_team</span><span class="p">(</span><span class="n">Manager</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="s1">&#39;Amit Singh&#39;</span><span class="p">,</span><span class="mi">3000</span><span class="p">,</span><span class="s1">&#39;Documentation&#39;</span><span class="p">))</span>
+
+<span class="n">m1</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Employee Id=1
+Name=Sanjay Mall
+Salary=25000
+project= WebSite
+teamsize= 3
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
