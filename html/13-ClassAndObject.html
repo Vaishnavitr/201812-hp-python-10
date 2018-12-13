@@ -2,7 +2,7 @@
 <html>
 <head><meta charset="utf-8" />
 
-<title>00-PythonVersionAlerts</title>
+<title>13-ClassAndObject</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -13116,155 +13116,48 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Python-Version-Alert-Note-Book">Python Version Alert Note Book<a class="anchor-link" href="#Python-Version-Alert-Note-Book">&#182;</a></h1><ul>
-<li>This notebook contains breaking changes between python 2 and python 3</li>
-<li>This nodebook shall contain the python 2 version of code</li>
-<li>for python 3 version consult respective python 3 notebook mentioned in the reference section</li>
-</ul>
-<h2 id="Python-print">Python print<a class="anchor-link" href="#Python-print">&#182;</a></h2><ul>
-<li>print is a statement in python 2 <ul>
-<li>print is a function in python 3<ul>
-<li>python 3 requires parentheses for print</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="s1">&#39;Hello World&#39;</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Hello World
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="In-python-2-you-can-use-parentheses">In python 2 you can use parentheses<a class="anchor-link" href="#In-python-2-you-can-use-parentheses">&#182;</a></h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;Hello World&#39;</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Hello World
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Note:-parentheses-is-not-same-in-python-2-and-python-3">Note: parentheses is not same in python 2 and python 3<a class="anchor-link" href="#Note:-parentheses-is-not-same-in-python-2-and-python-3">&#182;</a></h3><ul>
-<li><p>while parentheses may work both in python 2 and python 3 they have different meaning</p>
-</li>
-<li><p>In <strong>python3</strong> parentheses is part of <strong>print</strong> function</p>
-</li>
-<li>In <strong>python2</strong> parentheses is part of <strong>data that is being printed</strong> <ul>
-<li>multiple values in parentheses is a <strong>tuple</strong></li>
-</ul>
-</li>
-<li>If a <strong>print</strong> is printing a single value, there will be no difference.<ul>
-<li>a single value in parentheses is same value</li>
-</ul>
-</li>
-<li>This difference is apparent only when we are tryng to print <strong>multiple items using a single print</strong></li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>   <span class="c1"># print is printing a tuple</span>
-      
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>(1, 2, 3, 4)
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Defining-an-Object">Defining an Object<a class="anchor-link" href="#Defining-an-Object">&#182;</a></h1><ul>
+<li><p>An object describes a single domain entity</p>
 <ul>
-<li>Here Python is printing a speical value rpresented by <strong>(1,2,3,4)</strong>  which is a <strong>tuple</strong></li>
-<li>In python 3 print will be trying to print 4 values put in print parentheses 1,2,3,4</li>
+<li>Domain --&gt; business model</li>
+<li>Examples of Domain and Entity<ul>
+<li>Domain - ECommerce<ul>
+<li>Customer</li>
+<li>Product</li>
+<li>Order</li>
+<li>Address</li>
 </ul>
-
+</li>
+<li>Employee Management<ul>
+<li>Employee</li>
+<li>Department</li>
+<li>SalaryStructure</li>
+<li>Role</li>
+<li>Payroll</li>
+</ul>
+</li>
+<li>Banking<ul>
+<li>Bank</li>
+<li>BankAccount</li>
+<li>Transaction</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>In Python the <strong>Key</strong> to represent a <strong>domain object</strong> is to create a <strong>class</strong></p>
+</li>
+</ul>
+<h2 id="What-Does-a-Class--Do">What Does a Class  Do<a class="anchor-link" href="#What-Does-a-Class--Do">&#182;</a></h2><ol>
+<li>Class Creates a new  Identity</li>
+<li>Class Defines a new Entity <ul>
+<li>Grouping its  assoicated details (or states or properties)</li>
+</ul>
+</li>
+<li>Class Allows us to group associated behavior (functionality)</li>
+</ol>
+<h4 id="Lets-first-redefine-our-helper">Lets first redefine our helper<a class="anchor-link" href="#Lets-first-redefine-our-helper">&#182;</a></h4>
 </div>
 </div>
 </div>
@@ -13273,7 +13166,51 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">print_info</span><span class="p">(</span><span class="n">obj</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;type=</span><span class="si">{}</span><span class="se">\t</span><span class="s1">id=</span><span class="si">{}</span><span class="se">\t</span><span class="s1">value=</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">obj</span><span class="p">),</span><span class="nb">id</span><span class="p">(</span><span class="n">obj</span><span class="p">),</span><span class="n">obj</span><span class="p">))</span>
+    
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Class-Creates-a-new-Identity">Class Creates a new Identity<a class="anchor-link" href="#Class-Creates-a-new-Identity">&#182;</a></h2><ul>
+<li>A class can simply define a new Identity</li>
+<li>Multiple objects of that identity could exist</li>
+<li>A class can be as simple as an empty class<ul>
+<li>It still provides Identity</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Triangle</span><span class="p">:</span>
+    <span class="k">pass</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">print_info</span><span class="p">(</span><span class="n">Triangle</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13290,7 +13227,7 @@ div#notebook {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Hello
+<pre>type=&lt;class &#39;type&#39;&gt;	id=2519404938312	value=&lt;class &#39;__main__.Triangle&#39;&gt;
 </pre>
 </div>
 </div>
@@ -13302,24 +13239,20 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Print-doesn't-support-end-and-sep-like-Python-3">Print doesn't support end and sep like Python 3<a class="anchor-link" href="#Print-doesn't-support-end-and-sep-like-Python-3">&#182;</a></h3><ul>
-<li>the keyword argument <strong>end</strong> and <strong>sep</strong> are function features</li>
-<li>print being a function can have keyword arguments</li>
-<li>Python 2 print is not a function (its a statement). <ul>
-<li>Python 2 doesn't support <strong>end</strong> and <strong>sep</strong> like features</li>
-</ul>
-</li>
-</ul>
-
+<h3 id="Lets-create-an-object-of-Triangle">Lets create an object of Triangle<a class="anchor-link" href="#Lets-create-an-object-of-Triangle">&#182;</a></h3>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;---&gt;&#39;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">t1</span><span class="o">=</span><span class="n">Triangle</span><span class="p">()</span>  <span class="c1">#this creates the Triangle Object</span>
+<span class="n">t2</span><span class="o">=</span><span class="n">Triangle</span><span class="p">()</span>
+
+<span class="n">print_info</span><span class="p">(</span><span class="n">t1</span><span class="p">)</span>
+<span class="n">print_info</span><span class="p">(</span><span class="n">t2</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13335,12 +13268,9 @@ div#notebook {
     <div class="prompt"></div>
 
 
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-cyan-intense-fg ansi-bold">  File </span><span class="ansi-green-intense-fg ansi-bold">&#34;&lt;ipython-input-11-6ce4ec861e3c&gt;&#34;</span><span class="ansi-cyan-intense-fg ansi-bold">, line </span><span class="ansi-green-intense-fg ansi-bold">1</span>
-<span class="ansi-yellow-intense-fg ansi-bold">    print 1,2,3, sep=&#39;---&gt;&#39;</span>
-<span class="ansi-white-intense-fg ansi-bold">                    ^</span>
-<span class="ansi-red-intense-fg ansi-bold">SyntaxError</span><span class="ansi-red-intense-fg ansi-bold">:</span> invalid syntax
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>type=&lt;class &#39;__main__.Triangle&#39;&gt;	id=2519410050608	value=&lt;__main__.Triangle object at 0x0000024A988A8630&gt;
+type=&lt;class &#39;__main__.Triangle&#39;&gt;	id=2519410050384	value=&lt;__main__.Triangle object at 0x0000024A988A8550&gt;
 </pre>
 </div>
 </div>
@@ -13352,11 +13282,102 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Recommendation">Recommendation<a class="anchor-link" href="#Recommendation">&#182;</a></h2><ul>
-<li>Don't use multiple item print using a single print statement</li>
-<li>If Required using <strong>str.format</strong> to format your string</li>
-<li><strong>sep</strong> can be handled by <strong>str.format</strong></li>
-<li>you can still use <strong>end</strong></li>
+<h2 id="Triangle-defines-an-Idenity-of-Object">Triangle defines an Idenity of Object<a class="anchor-link" href="#Triangle-defines-an-Idenity-of-Object">&#182;</a></h2><ul>
+<li>Objects t1 and t2 are <strong>identitied</strong> as <strong>Triangle</strong></li>
+<li>Identity can be verifed using method <strong>isinstnace</strong></li>
+</ul>
+<div class="highlight"><pre><span></span><span class="n">obj</span><span class="o">=</span><span class="n">some_object</span><span class="p">()</span>
+
+<span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span><span class="n">SomeClass</span><span class="p">)</span> <span class="c1"># return True is obj is instance of SomeClass</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">print_identity</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span><span class="bp">cls</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> instanceof </span><span class="si">{}</span><span class="s1"> : </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span><span class="bp">cls</span><span class="p">,</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span><span class="bp">cls</span><span class="p">)))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">print_identity</span><span class="p">(</span><span class="s1">&#39;hello world&#39;</span><span class="p">,</span><span class="nb">str</span><span class="p">)</span>
+<span class="n">print_identity</span><span class="p">(</span><span class="mf">29.5</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span class="n">print_identity</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="n">Triangle</span><span class="p">)</span>
+<span class="n">print_identity</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span>
+<span class="n">print_identity</span><span class="p">((</span><span class="mi">1</span><span class="p">),</span> <span class="nb">int</span><span class="p">)</span>
+<span class="n">print_identity</span><span class="p">((</span><span class="mi">1</span><span class="p">,),</span> <span class="nb">int</span><span class="p">)</span>
+<span class="n">print_identity</span><span class="p">((</span><span class="mi">1</span><span class="p">,),</span> <span class="nb">tuple</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>hello world instanceof &lt;class &#39;str&#39;&gt; : True
+29.5 instanceof &lt;class &#39;int&#39;&gt; : False
+&lt;__main__.Triangle object at 0x0000024A97F3B668&gt; instanceof &lt;class &#39;__main__.Triangle&#39;&gt; : True
+&lt;__main__.Triangle object at 0x0000024A97F3B668&gt; instanceof &lt;class &#39;str&#39;&gt; : False
+1 instanceof &lt;class &#39;int&#39;&gt; : True
+(1,) instanceof &lt;class &#39;int&#39;&gt; : False
+(1,) instanceof &lt;class &#39;tuple&#39;&gt; : True
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Language-Alert!!!">Language Alert!!!<a class="anchor-link" href="#Language-Alert!!!">&#182;</a></h3><ul>
+<li>Note Object creation syntax in Python is different from C#/Java<ul>
+<li>There is no <strong>new</strong> keyword required</li>
+</ul>
+</li>
+<li>It is also different from C++ although C++ can create object without <strong>new</strong><ul>
+<li>In C++ above syntax will create a object on the stack</li>
+<li>In python the created object is dynamic (on the heap)</li>
+</ul>
+</li>
+</ul>
+<h3 id="In-python-new-keyword-is-implied!!!">In python new keyword is implied!!!<a class="anchor-link" href="#In-python-new-keyword-is-implied!!!">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="2.-Defines-an-Entity">2. Defines an Entity<a class="anchor-link" href="#2.-Defines-an-Entity">&#182;</a></h2><h3 id="Triangles-(as-per-geometry)-should-have-Sides.-Right?">Triangles (as per geometry) should have Sides. Right?<a class="anchor-link" href="#Triangles-(as-per-geometry)-should-have-Sides.-Right?">&#182;</a></h3><ul>
+<li>In python when an object is created it has no information (fields or states)</li>
+<li>They can be attached to the object once it is created</li>
+</ul>
+<h3 id="Language-Alert!!!">Language Alert!!!<a class="anchor-link" href="#Language-Alert!!!">&#182;</a></h3><ul>
+<li>Most C Style language need to define the associated fields as part of <strong>class definition</strong></li>
 </ul>
 
 </div>
@@ -13367,8 +13388,15 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;{}--&gt;{}--{}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="s1">&#39;{}</span><span class="se">\n</span><span class="s1">{}</span><span class="se">\t\t</span><span class="s1">{} {} {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">,</span> <span class="s1">&#39;World&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Lets create the object first</span>
+<span class="n">t</span><span class="o">=</span><span class="n">Triangle</span><span class="p">()</span>
+<span class="n">print_info</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<span class="c1"># Now lets attach the sides</span>
+
+<span class="n">t</span><span class="o">.</span><span class="n">s1</span><span class="o">=</span><span class="mi">3</span>  <span class="c1"># s1 field is dynamically attached.</span>
+<span class="n">t</span><span class="o">.</span><span class="n">s2</span><span class="o">=</span><span class="mi">4</span>
+<span class="n">t</span><span class="o">.</span><span class="n">s3</span><span class="o">=</span><span class="mi">5</span>
+<span class="n">print_info</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13385,9 +13413,8 @@ div#notebook {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>1--&gt;2--3
-Hello
-World		5 4 7
+<pre>type=&lt;class &#39;__main__.Triangle&#39;&gt;	id=2519400183232	value=&lt;__main__.Triangle object at 0x0000024A97F3F5C0&gt;
+type=&lt;class &#39;__main__.Triangle&#39;&gt;	id=2519400183232	value=&lt;__main__.Triangle object at 0x0000024A97F3F5C0&gt;
 </pre>
 </div>
 </div>
@@ -13399,1079 +13426,16 @@ World		5 4 7
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Recommendation">Recommendation<a class="anchor-link" href="#Recommendation">&#182;</a></h3><ol>
-<li>Always use print with parenthese even with pyton 2<ul>
-<li>This way migrating the code will be easy</li>
-</ul>
-</li>
-<li>Prefer to print single value in a single print<ul>
-<li>More on this later...</li>
-</ul>
-</li>
-</ol>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Division">Division<a class="anchor-link" href="#Division">&#182;</a></h2><ul>
-<li>In python 2 division operator <strong>/</strong> works like C Style division operator<ul>
-<li>int / int --&gt; int</li>
-<li>int / float --&gt; float</li>
-<li>float/ int --&gt; float</li>
-<li>float/ float --&gt; float</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><p>In Python 3 division operator always produce a float result</p>
-<ul>
-<li>number / number --&gt; float  (where number is int or float)</li>
-</ul>
-</li>
-<li><p>In Python 3 if you want to have int division result you can use int division operator (<strong>//</strong>)</p>
-<ul>
-<li>number // number --&gt; number (floored and not rounded to int division)</li>
-</ul>
-</li>
-</ul>
-
+<h3 id="we-can-access-the-attached-elements-back">we can access the attached elements back<a class="anchor-link" href="#we-can-access-the-attached-elements-back">&#182;</a></h3>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="mi">3</span><span class="o">/</span><span class="mi">2</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[5]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>1</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="mf">3.0</span><span class="o">/</span><span class="mi">2</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[6]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>1.5</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Floor-Division">Floor Division<a class="anchor-link" href="#Floor-Division">&#182;</a></h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="mi">3</span><span class="o">//</span><span class="mi">2</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[7]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>1</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="mf">3.0</span><span class="o">//</span><span class="mi">2</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[8]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>1.0</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="mi">9</span><span class="o">//</span><span class="mi">10</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[9]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>0</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="mf">9.0</span><span class="o">//</span><span class="mi">10</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[10]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>0.0</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="var-args-rule">var args rule<a class="anchor-link" href="#var-args-rule">&#182;</a></h2><ul>
-<li><p>In Python 2 It is mandatory that <strong>*args</strong> parameter <strong>must be the last parameter</strong></p>
-<ul>
-<li>Making <strong>*args</strong> non-last is a semantic error</li>
-</ul>
-</li>
-<li><p>In Python 3, It is permitted (although not recommended) to have <strong>*args</strong> as non-last parameter</p>
-</li>
-</ul>
-<h2 id="Why-var-arg-should-be-the-last-parameter">Why var arg should be the last parameter<a class="anchor-link" href="#Why-var-arg-should-be-the-last-parameter">&#182;</a></h2><ul>
-<li>say we have a function which takes <strong>*args</strong> as non-last parameter</li>
-</ul>
-<hr>
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">call_me</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;x={}</span><span class="se">\t</span><span class="s1">args={}</span><span class="se">\t</span><span class="s1">y={}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">args</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
-</pre></div>
-<hr>
-<ul>
-<li>How will the function be called?</li>
-</ul>
-<hr>
-<div class="highlight"><pre><span></span><span class="n">call_me</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>  <span class="c1"># x= 1, args=(2,3,4,5), y=???</span>
-
-<span class="n">call_me</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span> <span class="c1"># x=1 args(2,3,4,5,6,7,8,9,10) , y=???</span>
-</pre></div>
-<hr>
-<h3 id="How-will-you-pass-any-value-for-y???">How will you pass any value for y???<a class="anchor-link" href="#How-will-you-pass-any-value-for-y???">&#182;</a></h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">call_me</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;x={}</span><span class="se">\t</span><span class="s1">args={}</span><span class="se">\t</span><span class="s1">y={}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">args</span><span class="p">,</span><span class="n">y</span><span class="p">))</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-cyan-intense-fg ansi-bold">  File </span><span class="ansi-green-intense-fg ansi-bold">&#34;&lt;ipython-input-5-97818585fa05&gt;&#34;</span><span class="ansi-cyan-intense-fg ansi-bold">, line </span><span class="ansi-green-intense-fg ansi-bold">1</span>
-<span class="ansi-yellow-intense-fg ansi-bold">    def call_me(x, *args, y):</span>
-<span class="ansi-white-intense-fg ansi-bold">                          ^</span>
-<span class="ansi-red-intense-fg ansi-bold">SyntaxError</span><span class="ansi-red-intense-fg ansi-bold">:</span> invalid syntax
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="range-and-xrange">range and xrange<a class="anchor-link" href="#range-and-xrange">&#182;</a></h2><ul>
-<li><p>range function behaves differently in python 2 and python 3</p>
-</li>
-<li><p>In <strong>python 2</strong> range creates and returns <strong>list</strong> of values</p>
-<ul>
-<li><p>it is like a <strong>stored sequence</strong></p>
-</li>
-<li><p>inspired by <strong>Python3</strong> ,<strong>python 2</strong> introduced a <strong>new</strong> <strong>xrange()</strong> function which is similar to <strong>python3 range</strong></p>
-</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><p>In Python 2</p>
-<ul>
-<li>range --&gt; returns list</li>
-<li>xrange --&gt;returns computed sequence</li>
-</ul>
-</li>
-<li><p>In python 3</p>
-<ul>
-<li>range --&gt; computed sequence</li>
-<li>xrange --&gt; n/a</li>
-</ul>
-</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">r1</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
-
-<span class="k">print</span> <span class="n">r1</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">r1</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[1, 2, 3, 4, 5, 6, 7, 8, 9] &lt;type &#39;list&#39;&gt;
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">r2</span><span class="o">=</span><span class="nb">xrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
-<span class="k">print</span> <span class="n">r2</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">r2</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>xrange(1, 10) &lt;type &#39;xrange&#39;&gt;
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">r2</span><span class="p">:</span>
-    <span class="k">print</span> <span class="n">value</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Passing-Optional-Parameter">Passing Optional Parameter<a class="anchor-link" href="#Passing-Optional-Parameter">&#182;</a></h2><ul>
-<li>should use <strong>kwargs</strong> instead of default value parameters</li>
-<li>named parameters after <strong>args</strong> is not permitted in python 2</li>
-<li><strong>kwargs</strong> is universally accepted convention in  python</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">call_me</span><span class="p">(</span><span class="o">*</span><span class="n">data</span><span class="p">,</span><span class="n">design</span><span class="o">=</span><span class="s1">&#39;===&#39;</span><span class="p">,</span> <span class="n">align</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;design: {}</span><span class="se">\t</span><span class="s1">align: {}</span><span class="se">\t</span><span class="s1">label: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">design</span><span class="p">,</span><span class="n">align</span><span class="p">,</span><span class="n">label</span><span class="p">))</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-cyan-intense-fg ansi-bold">  File </span><span class="ansi-green-intense-fg ansi-bold">&#34;&lt;ipython-input-1-a3c8060d99d0&gt;&#34;</span><span class="ansi-cyan-intense-fg ansi-bold">, line </span><span class="ansi-green-intense-fg ansi-bold">1</span>
-<span class="ansi-yellow-intense-fg ansi-bold">    def call_me(*data,design=&#39;===&#39;, align=False, label=True):</span>
-<span class="ansi-white-intense-fg ansi-bold">                           ^</span>
-<span class="ansi-red-intense-fg ansi-bold">SyntaxError</span><span class="ansi-red-intense-fg ansi-bold">:</span> invalid syntax
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">call_me</span><span class="p">(</span><span class="o">*</span><span class="n">data</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-    <span class="n">design</span><span class="o">=</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;design&#39;</span><span class="p">,</span><span class="s1">&#39;---&#39;</span><span class="p">)</span>
-    <span class="n">align</span><span class="o">=</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;align&#39;</span><span class="p">,</span><span class="bp">False</span><span class="p">)</span>
-    <span class="n">label</span><span class="o">=</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;label&#39;</span><span class="p">,</span><span class="bp">True</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;design: {}</span><span class="se">\t</span><span class="s1">align: {}</span><span class="se">\t</span><span class="s1">label: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">design</span><span class="p">,</span><span class="n">align</span><span class="p">,</span><span class="n">label</span><span class="p">))</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">call_me</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span> <span class="n">design</span><span class="o">=</span><span class="s1">&#39;xxx&#39;</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>design: xxx	align: False	label: True
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">call_me</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>design: ---	align: False	label: False
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Python-2-Learns-from-Python-3">Python 2 Learns from Python 3<a class="anchor-link" href="#Python-2-Learns-from-Python-3">&#182;</a></h1><ul>
-<li>both python2 and python3 is in development for over a decade now</li>
-<li><p>during this period many features of python3 has slowly found it way back to python 2</p>
-<ul>
-<li>example <strong>xrange</strong> is a port of <strong>range</strong> from python 3 to python2</li>
-</ul>
-</li>
-<li><p>if you plan to (and you should) to migrate you python2 code to python 3 some day, you may want to incoroprate those features even in your current python2 code base</p>
-<ul>
-<li>Example<ul>
-<li>it would be great to use new <strong>print</strong> feature in python 2</li>
-<li>for consistenency division should world as python 3 division</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>Python 2.5 onward it is made possible by using a special module</p>
-</li>
-</ul>
-<h3 id="future-module"><strong>future</strong> module<a class="anchor-link" href="#future-module">&#182;</a></h3><ul>
-<li>available only in <strong>Python2</strong></li>
-<li>contains elements to convert some python 2 features to python</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>(1, 2, 3, 4)
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;--&gt;&#39;</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-cyan-intense-fg ansi-bold">  File </span><span class="ansi-green-intense-fg ansi-bold">&#34;&lt;ipython-input-17-90286e8c289d&gt;&#34;</span><span class="ansi-cyan-intense-fg ansi-bold">, line </span><span class="ansi-green-intense-fg ansi-bold">1</span>
-<span class="ansi-yellow-intense-fg ansi-bold">    print(1,2,3,4,sep=&#39;--&gt;&#39;)</span>
-<span class="ansi-white-intense-fg ansi-bold">                     ^</span>
-<span class="ansi-red-intense-fg ansi-bold">SyntaxError</span><span class="ansi-red-intense-fg ansi-bold">:</span> invalid syntax
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>1 2 3 4
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;--&gt;&#39;</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>1--&gt;2--&gt;3--&gt;4
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[22]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="s1">&#39;hello world&#39;</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-cyan-intense-fg ansi-bold">  File </span><span class="ansi-green-intense-fg ansi-bold">&#34;&lt;ipython-input-22-cdc75808e29f&gt;&#34;</span><span class="ansi-cyan-intense-fg ansi-bold">, line </span><span class="ansi-green-intense-fg ansi-bold">1</span>
-<span class="ansi-yellow-intense-fg ansi-bold">    print &#39;hello world&#39;</span>
-<span class="ansi-white-intense-fg ansi-bold">                      ^</span>
-<span class="ansi-red-intense-fg ansi-bold">SyntaxError</span><span class="ansi-red-intense-fg ansi-bold">:</span> invalid syntax
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="division">division<a class="anchor-link" href="#division">&#182;</a></h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[23]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="mi">7</span><span class="o">/</span><span class="mi">2</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[23]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>3</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[24]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[25]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="mi">7</span><span class="o">/</span><span class="mi">2</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[25]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>3.5</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[26]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">import</span> <span class="nn">__future__</span>
-<span class="nb">dir</span><span class="p">(</span><span class="n">__future__</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[26]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>[&#39;CO_FUTURE_ABSOLUTE_IMPORT&#39;,
- &#39;CO_FUTURE_DIVISION&#39;,
- &#39;CO_FUTURE_PRINT_FUNCTION&#39;,
- &#39;CO_FUTURE_UNICODE_LITERALS&#39;,
- &#39;CO_FUTURE_WITH_STATEMENT&#39;,
- &#39;CO_GENERATOR_ALLOWED&#39;,
- &#39;CO_NESTED&#39;,
- &#39;_Feature&#39;,
- &#39;__all__&#39;,
- &#39;__builtins__&#39;,
- &#39;__doc__&#39;,
- &#39;__file__&#39;,
- &#39;__name__&#39;,
- &#39;__package__&#39;,
- &#39;absolute_import&#39;,
- &#39;all_feature_names&#39;,
- &#39;division&#39;,
- &#39;generators&#39;,
- &#39;nested_scopes&#39;,
- &#39;print_function&#39;,
- &#39;unicode_literals&#39;,
- &#39;with_statement&#39;]</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Class-Level-Methods">Class Level Methods<a class="anchor-link" href="#Class-Level-Methods">&#182;</a></h2><ul>
-<li>In <strong>Python2</strong> all methods inside a class is expected to<ul>
-<li>have self parameter</li>
-<li>called using object reference</li>
-</ul>
-</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[38]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">class</span> <span class="nc">Triangle</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span><span class="n">s2</span><span class="p">,</span><span class="n">s3</span><span class="p">):</span>
-        <span class="n">t</span><span class="o">=</span><span class="n">Triangle</span><span class="p">()</span>
-        <span class="n">t</span><span class="o">.</span><span class="n">s1</span><span class="o">=</span><span class="n">s1</span>
-        <span class="n">t</span><span class="o">.</span><span class="n">s2</span><span class="o">=</span><span class="n">s2</span>
-        <span class="n">t</span><span class="o">.</span><span class="n">s3</span><span class="o">=</span><span class="n">s3</span>
-        <span class="k">return</span> <span class="n">t</span>
-        
-    <span class="k">def</span> <span class="nf">show</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;I am a Triangle&#39;</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[39]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">t</span><span class="o">=</span><span class="n">Triangle</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-intense-fg ansi-bold">---------------------------------------------------------------------------</span>
-<span class="ansi-red-intense-fg ansi-bold">TypeError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-intense-fg ansi-bold">&lt;ipython-input-39-508b158e2a67&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-intense-fg ansi-bold">()</span>
-<span class="ansi-green-intense-fg ansi-bold">----&gt; 1</span><span class="ansi-yellow-intense-fg ansi-bold"> </span>t<span class="ansi-yellow-intense-fg ansi-bold">=</span>Triangle<span class="ansi-yellow-intense-fg ansi-bold">.</span>create<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-cyan-intense-fg ansi-bold">3</span><span class="ansi-yellow-intense-fg ansi-bold">,</span><span class="ansi-cyan-intense-fg ansi-bold">4</span><span class="ansi-yellow-intense-fg ansi-bold">,</span><span class="ansi-cyan-intense-fg ansi-bold">5</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>
-
-<span class="ansi-red-intense-fg ansi-bold">TypeError</span>: unbound method create() must be called with Triangle instance as first argument (got int instance instead)</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[40]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">t</span><span class="o">=</span><span class="n">Triangle</span><span class="p">()</span>
-<span class="n">t</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>I am a Triangle
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="To-invoke-a-method-using-class-name">To invoke a method using class name<a class="anchor-link" href="#To-invoke-a-method-using-class-name">&#182;</a></h3><ul>
-<li>the method must be marked <strong>@staticmethod</strong></li>
-<li>while this is available in <strong>Python3</strong> its optional</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[41]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">class</span> <span class="nc">Triangle</span><span class="p">:</span>
-    <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span><span class="n">s2</span><span class="p">,</span><span class="n">s3</span><span class="p">):</span>
-        <span class="n">t</span><span class="o">=</span><span class="n">Triangle</span><span class="p">()</span>
-        <span class="n">t</span><span class="o">.</span><span class="n">s1</span><span class="o">=</span><span class="n">s1</span>
-        <span class="n">t</span><span class="o">.</span><span class="n">s2</span><span class="o">=</span><span class="n">s2</span>
-        <span class="n">t</span><span class="o">.</span><span class="n">s3</span><span class="o">=</span><span class="n">s3</span>
-        <span class="k">return</span> <span class="n">t</span>
-        
-    <span class="k">def</span> <span class="nf">show</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Triangle&lt;{},{},{}&gt;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">s1</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">s2</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">s3</span><span class="p">))</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[42]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">t</span><span class="o">=</span><span class="n">Triangle</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
-<span class="n">t</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Triangle&lt;</span><span class="si">{}</span><span class="s1">,</span><span class="si">{}</span><span class="s1">,</span><span class="si">{}</span><span class="s1">&gt;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">s1</span><span class="p">,</span><span class="n">t</span><span class="o">.</span><span class="n">s2</span><span class="p">,</span><span class="n">t</span><span class="o">.</span><span class="n">s3</span><span class="p">))</span>
 </pre></div>
 
     </div>
@@ -14497,12 +13461,858 @@ World		5 4 7
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Let-define-perimeter-now">Let define perimeter now<a class="anchor-link" href="#Let-define-perimeter-now">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">perimeter</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">t</span><span class="o">.</span><span class="n">s1</span><span class="o">+</span><span class="n">t</span><span class="o">.</span><span class="n">s2</span><span class="o">+</span><span class="n">t</span><span class="o">.</span><span class="n">s3</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">t1</span><span class="o">=</span><span class="n">Triangle</span><span class="p">()</span>
+<span class="n">t1</span><span class="o">.</span><span class="n">s1</span><span class="o">=</span><span class="mi">3</span>
+<span class="n">t1</span><span class="o">.</span><span class="n">s2</span><span class="o">=</span><span class="mi">4</span>
+<span class="n">t1</span><span class="o">.</span><span class="n">s3</span><span class="o">=</span><span class="mi">5</span>
+
+<span class="n">t2</span><span class="o">=</span><span class="n">Triangle</span><span class="p">()</span>
+<span class="n">t2</span><span class="o">.</span><span class="n">s1</span><span class="o">=</span><span class="mi">2</span>
+<span class="n">t2</span><span class="o">.</span><span class="n">s2</span><span class="o">=</span><span class="mi">3</span>
+<span class="n">t2</span><span class="o">.</span><span class="n">s3</span><span class="o">=</span><span class="mi">10</span> <span class="c1"># bad triangle</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">perimeter</span><span class="p">(</span><span class="n">t1</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>12
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">perimeter</span><span class="p">(</span><span class="n">t2</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>15
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Advantages">Advantages<a class="anchor-link" href="#Advantages">&#182;</a></h2><h3 id="Perimeter-works-only-for-Triangle">Perimeter works only for Triangle<a class="anchor-link" href="#Perimeter-works-only-for-Triangle">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">perimeter</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-intense-fg ansi-bold">---------------------------------------------------------------------------</span>
+<span class="ansi-red-intense-fg ansi-bold">AttributeError</span>                            Traceback (most recent call last)
+<span class="ansi-green-intense-fg ansi-bold">&lt;ipython-input-19-421582b1ea36&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-intense-fg ansi-bold">()</span>
+<span class="ansi-green-intense-fg ansi-bold">----&gt; 1</span><span class="ansi-yellow-intense-fg ansi-bold"> </span>perimeter<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-cyan-intense-fg ansi-bold">8</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>
+
+<span class="ansi-green-intense-fg ansi-bold">&lt;ipython-input-15-e3316825658f&gt;</span> in <span class="ansi-cyan-fg">perimeter</span><span class="ansi-blue-intense-fg ansi-bold">(t)</span>
+<span class="ansi-green-fg">      1</span> <span class="ansi-green-intense-fg ansi-bold">def</span> perimeter<span class="ansi-yellow-intense-fg ansi-bold">(</span>t<span class="ansi-yellow-intense-fg ansi-bold">)</span><span class="ansi-yellow-intense-fg ansi-bold">:</span>
+<span class="ansi-green-intense-fg ansi-bold">----&gt; 2</span><span class="ansi-yellow-intense-fg ansi-bold">     </span><span class="ansi-green-intense-fg ansi-bold">return</span> t<span class="ansi-yellow-intense-fg ansi-bold">.</span>s1<span class="ansi-yellow-intense-fg ansi-bold">+</span>t<span class="ansi-yellow-intense-fg ansi-bold">.</span>s2<span class="ansi-yellow-intense-fg ansi-bold">+</span>t<span class="ansi-yellow-intense-fg ansi-bold">.</span>s3
+
+<span class="ansi-red-intense-fg ansi-bold">AttributeError</span>: &#39;int&#39; object has no attribute &#39;s1&#39;</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="we-can't-pass-any-unrelated-values">we can't pass any unrelated values<a class="anchor-link" href="#we-can't-pass-any-unrelated-values">&#182;</a></h3><ul>
+<li>we can't pass any unrelated values
+<pre><code>  * we cant pass age,height and weight of a human
+  * we cant pass 3 length list</code></pre>
+</li>
+<li>we can pass multiple unwanted information
+<pre><code>  * we cant pass t1.s1, t2.s2, t3.s3</code></pre>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">perimeter</span><span class="p">(</span><span class="n">t1</span><span class="o">.</span><span class="n">s1</span><span class="p">,</span><span class="n">t1</span><span class="o">.</span><span class="n">s2</span><span class="p">,</span><span class="n">t2</span><span class="o">.</span><span class="n">s3</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-intense-fg ansi-bold">---------------------------------------------------------------------------</span>
+<span class="ansi-red-intense-fg ansi-bold">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-intense-fg ansi-bold">&lt;ipython-input-20-df6039fb6959&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-intense-fg ansi-bold">()</span>
+<span class="ansi-green-intense-fg ansi-bold">----&gt; 1</span><span class="ansi-yellow-intense-fg ansi-bold"> </span>perimeter<span class="ansi-yellow-intense-fg ansi-bold">(</span>t1<span class="ansi-yellow-intense-fg ansi-bold">.</span>s1<span class="ansi-yellow-intense-fg ansi-bold">,</span>t1<span class="ansi-yellow-intense-fg ansi-bold">.</span>s2<span class="ansi-yellow-intense-fg ansi-bold">,</span>t2<span class="ansi-yellow-intense-fg ansi-bold">.</span>s3<span class="ansi-yellow-intense-fg ansi-bold">)</span>
+
+<span class="ansi-red-intense-fg ansi-bold">TypeError</span>: perimeter() takes 1 positional argument but 3 were given</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Advantage">Advantage<a class="anchor-link" href="#Advantage">&#182;</a></h2><h3 id="Now-we-take-a-single-Triangle-Object">Now we take a single Triangle Object<a class="anchor-link" href="#Now-we-take-a-single-Triangle-Object">&#182;</a></h3><h2 id="Problems-Still-Unsolved">Problems Still Unsolved<a class="anchor-link" href="#Problems-Still-Unsolved">&#182;</a></h2><ul>
+<li>Perimeter can still give the answer for invalid triangle</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">t2</span><span class="o">=</span><span class="n">Triangle</span><span class="p">()</span>
+<span class="n">t2</span><span class="o">.</span><span class="n">s1</span><span class="o">=</span><span class="mi">2</span>
+<span class="n">t2</span><span class="o">.</span><span class="n">s2</span><span class="o">=</span><span class="mi">3</span>
+<span class="n">t2</span><span class="o">.</span><span class="n">s3</span><span class="o">=</span><span class="mi">10</span> <span class="c1"># bad triangle</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">perimeter</span><span class="p">(</span><span class="n">t2</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>15
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Problem-#2---the-function-still-doesn't-recognize-a-Triangle">Problem #2 - the function still doesn't recognize a Triangle<a class="anchor-link" href="#Problem-#2---the-function-still-doesn't-recognize-a-Triangle">&#182;</a></h2><ul>
+<li>what if we pass a <strong>Circle</strong> instead of Triangle</li>
+<li>the error we would get is missing 's1'<ul>
+<li>It should be <strong>Not A Triangle</strong> error</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Circle</span><span class="p">:</span>
+    <span class="k">pass</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">c1</span><span class="o">=</span><span class="n">Circle</span><span class="p">()</span>
+<span class="n">perimeter</span><span class="p">(</span><span class="n">c1</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-intense-fg ansi-bold">---------------------------------------------------------------------------</span>
+<span class="ansi-red-intense-fg ansi-bold">AttributeError</span>                            Traceback (most recent call last)
+<span class="ansi-green-intense-fg ansi-bold">&lt;ipython-input-25-91fa5b440006&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-intense-fg ansi-bold">()</span>
+<span class="ansi-green-fg">      1</span> c1<span class="ansi-yellow-intense-fg ansi-bold">=</span>Circle<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>
+<span class="ansi-green-intense-fg ansi-bold">----&gt; 2</span><span class="ansi-yellow-intense-fg ansi-bold"> </span>perimeter<span class="ansi-yellow-intense-fg ansi-bold">(</span>c1<span class="ansi-yellow-intense-fg ansi-bold">)</span>
+
+<span class="ansi-green-intense-fg ansi-bold">&lt;ipython-input-15-e3316825658f&gt;</span> in <span class="ansi-cyan-fg">perimeter</span><span class="ansi-blue-intense-fg ansi-bold">(t)</span>
+<span class="ansi-green-fg">      1</span> <span class="ansi-green-intense-fg ansi-bold">def</span> perimeter<span class="ansi-yellow-intense-fg ansi-bold">(</span>t<span class="ansi-yellow-intense-fg ansi-bold">)</span><span class="ansi-yellow-intense-fg ansi-bold">:</span>
+<span class="ansi-green-intense-fg ansi-bold">----&gt; 2</span><span class="ansi-yellow-intense-fg ansi-bold">     </span><span class="ansi-green-intense-fg ansi-bold">return</span> t<span class="ansi-yellow-intense-fg ansi-bold">.</span>s1<span class="ansi-yellow-intense-fg ansi-bold">+</span>t<span class="ansi-yellow-intense-fg ansi-bold">.</span>s2<span class="ansi-yellow-intense-fg ansi-bold">+</span>t<span class="ansi-yellow-intense-fg ansi-bold">.</span>s3
+
+<span class="ansi-red-intense-fg ansi-bold">AttributeError</span>: &#39;Circle&#39; object has no attribute &#39;s1&#39;</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Lets-us-Write-a-Perimeter-that-understands-Triangle">Lets us Write a Perimeter that understands Triangle<a class="anchor-link" href="#Lets-us-Write-a-Perimeter-that-understands-Triangle">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[36]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">is_valid_triangle</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">Triangle</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">t</span><span class="o">.</span><span class="n">s1</span><span class="o">&gt;</span><span class="mi">0</span> <span class="ow">and</span> <span class="n">t</span><span class="o">.</span><span class="n">s2</span><span class="o">&gt;</span><span class="mi">0</span> <span class="ow">and</span> <span class="n">t</span><span class="o">.</span><span class="n">s3</span><span class="o">&gt;</span><span class="mi">0</span> \
+        <span class="ow">and</span> <span class="n">t</span><span class="o">.</span><span class="n">s1</span><span class="o">+</span><span class="n">t</span><span class="o">.</span><span class="n">s2</span><span class="o">&gt;</span><span class="n">t</span><span class="o">.</span><span class="n">s3</span> <span class="ow">and</span> <span class="n">t</span><span class="o">.</span><span class="n">s2</span><span class="o">+</span><span class="n">t</span><span class="o">.</span><span class="n">s3</span><span class="o">&gt;</span> <span class="n">t</span><span class="o">.</span><span class="n">s1</span> <span class="ow">and</span> <span class="n">t</span><span class="o">.</span><span class="n">s1</span><span class="o">+</span><span class="n">t</span><span class="o">.</span><span class="n">s3</span><span class="o">&gt;</span><span class="n">t</span><span class="o">.</span><span class="n">s2</span>
+    
+    
+    
+<span class="k">def</span> <span class="nf">perimeter</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">t</span><span class="o">.</span><span class="n">s1</span><span class="o">+</span><span class="n">t</span><span class="o">.</span><span class="n">s2</span><span class="o">+</span><span class="n">t</span><span class="o">.</span><span class="n">s3</span> <span class="k">if</span> <span class="n">is_valid_triangle</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span>
+    
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[37]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">perimeter</span><span class="p">(</span><span class="n">t1</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>12
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Problem-Solved">Problem Solved<a class="anchor-link" href="#Problem-Solved">&#182;</a></h3><ul>
+<li>perimeter would not work for <ul>
+<li>invalid triangles</li>
+<li>other object (non Triangle objects)</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[38]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">perimeter</span><span class="p">(</span><span class="n">t2</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>None
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[39]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">perimeter</span><span class="p">(</span><span class="mi">9</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>None
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[41]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">perimeter</span><span class="p">(</span><span class="n">c1</span><span class="p">))</span> <span class="c1">#circle</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>None
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Unsolved-Problems">Unsolved Problems<a class="anchor-link" href="#Unsolved-Problems">&#182;</a></h3><ol>
+<li><p>How can perimeter functions for Circle and Triangle co-exist</p>
+<ul>
+<li>function with same name will overwrite each other</li>
+</ul>
+</li>
+<li><p>How can we create a <strong>valid triangle</strong> in the first place</p>
+</li>
+</ol>
+<h2 id="We-need-to-group-associated-Methods">We need to group associated Methods<a class="anchor-link" href="#We-need-to-group-associated-Methods">&#182;</a></h2><ul>
+<li>let us create another class to group Triangle Operations</li>
+<li>We can write methods inside a class</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[50]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># represents the Triangle entity</span>
+<span class="k">class</span> <span class="nc">Triangle</span><span class="p">:</span>
+    <span class="k">pass</span>
+
+<span class="c1"># represetns the Triangle operations</span>
+<span class="k">class</span> <span class="nc">TriangleOperations</span><span class="p">:</span>
+    
+    <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span><span class="n">s2</span><span class="p">,</span><span class="n">s3</span><span class="p">):</span>        
+        <span class="n">t</span><span class="o">=</span><span class="n">Triangle</span><span class="p">()</span>
+        <span class="n">t</span><span class="o">.</span><span class="n">s1</span><span class="o">=</span><span class="n">s1</span>
+        <span class="n">t</span><span class="o">.</span><span class="n">s2</span><span class="o">=</span><span class="n">s2</span>
+        <span class="n">t</span><span class="o">.</span><span class="n">s3</span><span class="o">=</span><span class="n">s3</span>
+        <span class="k">return</span> <span class="n">t</span> <span class="k">if</span> <span class="n">TriangleOperations</span><span class="o">.</span><span class="n">is_valid</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span>
+        
+        
+        
+    <span class="k">def</span> <span class="nf">is_valid</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">Triangle</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">t</span><span class="o">.</span><span class="n">s1</span><span class="o">&gt;</span><span class="mi">0</span> <span class="ow">and</span> <span class="n">t</span><span class="o">.</span><span class="n">s2</span><span class="o">&gt;</span><span class="mi">0</span> <span class="ow">and</span> <span class="n">t</span><span class="o">.</span><span class="n">s3</span><span class="o">&gt;</span><span class="mi">0</span> <span class="ow">and</span> <span class="n">t</span><span class="o">.</span><span class="n">s1</span><span class="o">+</span><span class="n">t</span><span class="o">.</span><span class="n">s2</span><span class="o">&gt;</span><span class="n">t</span><span class="o">.</span><span class="n">s3</span> <span class="ow">and</span> <span class="n">t</span><span class="o">.</span><span class="n">s2</span><span class="o">+</span><span class="n">t</span><span class="o">.</span><span class="n">s3</span><span class="o">&gt;</span> <span class="n">t</span><span class="o">.</span><span class="n">s1</span> <span class="ow">and</span> <span class="n">t</span><span class="o">.</span><span class="n">s1</span><span class="o">+</span><span class="n">t</span><span class="o">.</span><span class="n">s3</span><span class="o">&gt;</span><span class="n">t</span><span class="o">.</span><span class="n">s2</span>
+        
+    <span class="k">def</span> <span class="nf">perimeter</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">t</span><span class="o">.</span><span class="n">s1</span><span class="o">+</span><span class="n">t</span><span class="o">.</span><span class="n">s2</span><span class="o">+</span><span class="n">t</span><span class="o">.</span><span class="n">s3</span> <span class="k">if</span> <span class="n">TriangleOperations</span><span class="o">.</span><span class="n">is_valid</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span>
+    
+    <span class="k">def</span> <span class="nf">show</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">TriangleOperations</span><span class="o">.</span><span class="n">is_valid</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Triangle&lt;</span><span class="si">{}</span><span class="s1">,</span><span class="si">{}</span><span class="s1">,</span><span class="si">{}</span><span class="s1">&gt;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">s1</span><span class="p">,</span><span class="n">t</span><span class="o">.</span><span class="n">s2</span><span class="p">,</span><span class="n">t</span><span class="o">.</span><span class="n">s3</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&lt;invalid triangle&gt;&#39;</span><span class="p">)</span>
+    
+<span class="k">class</span> <span class="nc">Cricle</span><span class="p">:</span>
+    <span class="k">pass</span>
+
+<span class="kn">import</span> <span class="nn">math</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">CircleOperations</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="n">radius</span><span class="p">):</span>
+        <span class="n">c</span><span class="o">=</span><span class="n">Circle</span><span class="p">()</span>
+        <span class="n">c</span><span class="o">.</span><span class="n">radius</span><span class="o">=</span><span class="n">radius</span>
+        <span class="k">return</span> <span class="n">c</span>
+    
+    <span class="k">def</span> <span class="nf">perimeter</span><span class="p">(</span><span class="n">c</span><span class="p">):</span>
+        <span class="k">return</span> <span class="mi">2</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">c</span><span class="o">.</span><span class="n">radius</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[53]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">test_triangle</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+    <span class="n">TriangleOperations</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;perimeter is &#39;</span><span class="p">,</span><span class="n">TriangleOperations</span><span class="o">.</span><span class="n">perimeter</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[54]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">t1</span><span class="o">=</span><span class="n">TriangleOperations</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">test_triangle</span><span class="p">(</span><span class="n">t1</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Triangle&lt;3,4,5&gt;
+perimeter is  12
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[55]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">t2</span><span class="o">=</span><span class="n">TriangleOperations</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">test_triangle</span><span class="p">(</span><span class="n">t2</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>&lt;invalid triangle&gt;
+perimeter is  None
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[57]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">c1</span><span class="o">=</span><span class="n">CircleOperations</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+<span class="n">test_triangle</span><span class="p">(</span><span class="n">c1</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>&lt;invalid triangle&gt;
+perimeter is  None
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[58]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">CircleOperations</span><span class="o">.</span><span class="n">perimeter</span><span class="p">(</span><span class="n">c1</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>43.982297150257104
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Problems-Resolved">Problems Resolved<a class="anchor-link" href="#Problems-Resolved">&#182;</a></h3><ul>
+<li>perimeter for <strong>Circle</strong> and <strong>Triangle</strong> can co-exist</li>
+<li>we can create <strong>valid</strong> objects</li>
+<li>we can group related operations</li>
+</ul>
+<h3 id="Optimization">Optimization<a class="anchor-link" href="#Optimization">&#182;</a></h3><h4 id="Do-I-really-need-two-classes-Triangle-and-TriangleOperations-to-represent-the-idea-of-Triangle-?">Do I really need two classes <strong>Triangle</strong> and <strong>TriangleOperations</strong> to represent the idea of <strong>Triangle</strong> ?<a class="anchor-link" href="#Do-I-really-need-two-classes-Triangle-and-TriangleOperations-to-represent-the-idea-of-Triangle-?">&#182;</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[59]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># represents the Triangle entity</span>
+<span class="k">class</span> <span class="nc">Triangle</span><span class="p">:</span>
+    
+    <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span><span class="n">s2</span><span class="p">,</span><span class="n">s3</span><span class="p">):</span>        
+        <span class="n">t</span><span class="o">=</span><span class="n">Triangle</span><span class="p">()</span>
+        <span class="n">t</span><span class="o">.</span><span class="n">s1</span><span class="o">=</span><span class="n">s1</span>
+        <span class="n">t</span><span class="o">.</span><span class="n">s2</span><span class="o">=</span><span class="n">s2</span>
+        <span class="n">t</span><span class="o">.</span><span class="n">s3</span><span class="o">=</span><span class="n">s3</span>
+        <span class="k">return</span> <span class="n">t</span> <span class="k">if</span> <span class="n">Triangle</span><span class="o">.</span><span class="n">is_valid</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span>
+        
+    <span class="k">def</span> <span class="nf">is_valid</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">Triangle</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">t</span><span class="o">.</span><span class="n">s1</span><span class="o">&gt;</span><span class="mi">0</span> <span class="ow">and</span> <span class="n">t</span><span class="o">.</span><span class="n">s2</span><span class="o">&gt;</span><span class="mi">0</span> <span class="ow">and</span> <span class="n">t</span><span class="o">.</span><span class="n">s3</span><span class="o">&gt;</span><span class="mi">0</span> <span class="ow">and</span> <span class="n">t</span><span class="o">.</span><span class="n">s1</span><span class="o">+</span><span class="n">t</span><span class="o">.</span><span class="n">s2</span><span class="o">&gt;</span><span class="n">t</span><span class="o">.</span><span class="n">s3</span> <span class="ow">and</span> <span class="n">t</span><span class="o">.</span><span class="n">s2</span><span class="o">+</span><span class="n">t</span><span class="o">.</span><span class="n">s3</span><span class="o">&gt;</span> <span class="n">t</span><span class="o">.</span><span class="n">s1</span> <span class="ow">and</span> <span class="n">t</span><span class="o">.</span><span class="n">s1</span><span class="o">+</span><span class="n">t</span><span class="o">.</span><span class="n">s3</span><span class="o">&gt;</span><span class="n">t</span><span class="o">.</span><span class="n">s2</span>
+        
+    <span class="k">def</span> <span class="nf">perimeter</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">t</span><span class="o">.</span><span class="n">s1</span><span class="o">+</span><span class="n">t</span><span class="o">.</span><span class="n">s2</span><span class="o">+</span><span class="n">t</span><span class="o">.</span><span class="n">s3</span> <span class="k">if</span> <span class="n">Triangle</span><span class="o">.</span><span class="n">is_valid</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span>
+    
+    <span class="k">def</span> <span class="nf">show</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">Triangle</span><span class="o">.</span><span class="n">is_valid</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Triangle&lt;</span><span class="si">{}</span><span class="s1">,</span><span class="si">{}</span><span class="s1">,</span><span class="si">{}</span><span class="s1">&gt;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">s1</span><span class="p">,</span><span class="n">t</span><span class="o">.</span><span class="n">s2</span><span class="p">,</span><span class="n">t</span><span class="o">.</span><span class="n">s3</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&lt;invalid triangle&gt;&#39;</span><span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">math</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Cricle</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="n">radius</span><span class="p">):</span>
+        <span class="n">c</span><span class="o">=</span><span class="n">Circle</span><span class="p">()</span>
+        <span class="n">c</span><span class="o">.</span><span class="n">radius</span><span class="o">=</span><span class="n">radius</span>
+        <span class="k">return</span> <span class="n">c</span>
+    
+    <span class="k">def</span> <span class="nf">perimeter</span><span class="p">(</span><span class="n">c</span><span class="p">):</span>
+        <span class="k">return</span> <span class="mi">2</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">c</span><span class="o">.</span><span class="n">radius</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[60]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">test_triangle</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+    <span class="n">Triangle</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;perimeter is &#39;</span><span class="p">,</span><span class="n">Triangle</span><span class="o">.</span><span class="n">perimeter</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[61]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">t1</span><span class="o">=</span><span class="n">Triangle</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span> <span class="c1"># valid triangle</span>
+<span class="n">t2</span><span class="o">=</span><span class="n">Triangle</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">12</span><span class="p">)</span> <span class="c1"># invalid triangle</span>
+
+<span class="n">test_triangle</span><span class="p">(</span><span class="n">t1</span><span class="p">)</span>
+<span class="n">test_triangle</span><span class="p">(</span><span class="n">t2</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Triangle&lt;3,4,5&gt;
+perimeter is  12
+&lt;invalid triangle&gt;
+perimeter is  None
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Python-Version-Alert!!!">Python Version Alert!!!<a class="anchor-link" href="#Python-Version-Alert!!!">&#182;</a></h2><ul>
+<li>The above code shall work only in <strong>Python 3</strong></li>
+<li><strong>Python 2</strong> would require adjustment in the current code to make it work</li>
+<li>Refer to <strong>Python Version alert on Class Methods</strong> in Python 2 notebook!!!</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Do-I-really-Need-two-separate-class-to-define-Circle-and-Triangle-?">Do I really Need two separate class to define Circle and Triangle ?<a class="anchor-link" href="#Do-I-really-Need-two-separate-class-to-define-Circle-and-Triangle-?">&#182;</a></h2><ul>
+<li><p>a class is supposed to describe <strong>an entity (or identity)</strong></p>
+</li>
+<li><p>Since <strong>Circle</strong> and <strong>Triangle</strong> are conceptually different <strong>entities</strong> they <strong>MUST</strong> be described using <strong>separate classes</strong></p>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span> 
+<div class=" highlight hl-ipython3"><pre><span></span> 
 </pre></div>
 
     </div>
