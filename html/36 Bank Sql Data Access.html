@@ -2,7 +2,7 @@
 <html>
 <head><meta charset="utf-8" />
 
-<title>00-PythonVersionAlerts</title>
+<title>36 Bank Sql Data Access</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -13116,17 +13116,35 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Python-Version-Alert-Note-Book">Python Version Alert Note Book<a class="anchor-link" href="#Python-Version-Alert-Note-Book">&#182;</a></h1><ul>
-<li>This notebook contains breaking changes between python 2 and python 3</li>
-<li>This nodebook shall contain the python 2 version of code</li>
-<li>for python 3 version consult respective python 3 notebook mentioned in the reference section</li>
-</ul>
-<h2 id="Python-print">Python print<a class="anchor-link" href="#Python-print">&#182;</a></h2><ul>
-<li>print is a statement in python 2 <ul>
-<li>print is a function in python 3<ul>
-<li>python 3 requires parentheses for print</li>
+<h1 id="Data-Access">Data Access<a class="anchor-link" href="#Data-Access">&#182;</a></h1><p><strong> Important Elements </strong></p>
+<ul>
+<li><strong>import</strong> sqlite3</li>
+<li><strong>connect</strong> sqlite3.connect(db-name)<ul>
+<li>creates a new one if not exists</li>
+<li>prefer to use with <strong>with</strong><ul>
+<li>with sqlite3.connect('somedb.db') as connect: pass</li>
 </ul>
 </li>
+</ul>
+</li>
+<li><strong> close</strong><ul>
+<li>no need to close if used with with</li>
+</ul>
+</li>
+<li><p><strong> commit</strong></p>
+<ul>
+<li>commits the transaction</li>
+</ul>
+</li>
+<li><p><strong>conn.execute()</strong> returns a cursor</p>
+</li>
+<li><strong>conn.cursor() </strong> take predfined cursor</li>
+<li><strong>enumerate rows </strong><ul>
+<li>for row in cursor: pass # row is a tuple</li>
+</ul>
+</li>
+<li><strong>to get the id of inserted row </strong><ul>
+<li><strong>cursor.lastrowid</strong></li>
 </ul>
 </li>
 </ul>
@@ -13139,7 +13157,11 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="s1">&#39;Hello World&#39;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">sqlite3</span>
+
+<span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;bank.db&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Opened database successfully&quot;</span><span class="p">);</span>
 </pre></div>
 
     </div>
@@ -13156,7 +13178,7 @@ div#notebook {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Hello World
+<pre>Opened database successfully
 </pre>
 </div>
 </div>
@@ -13164,20 +13186,14 @@ div#notebook {
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="In-python-2-you-can-use-parentheses">In python 2 you can use parentheses<a class="anchor-link" href="#In-python-2-you-can-use-parentheses">&#182;</a></h3>
-</div>
-</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;Hello World&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;connection closed&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13194,7 +13210,7 @@ div#notebook {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Hello World
+<pre>connection closed
 </pre>
 </div>
 </div>
@@ -13202,36 +13218,15 @@ div#notebook {
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Note:-parentheses-is-not-same-in-python-2-and-python-3">Note: parentheses is not same in python 2 and python 3<a class="anchor-link" href="#Note:-parentheses-is-not-same-in-python-2-and-python-3">&#182;</a></h3><ul>
-<li><p>while parentheses may work both in python 2 and python 3 they have different meaning</p>
-</li>
-<li><p>In <strong>python3</strong> parentheses is part of <strong>print</strong> function</p>
-</li>
-<li>In <strong>python2</strong> parentheses is part of <strong>data that is being printed</strong> <ul>
-<li>multiple values in parentheses is a <strong>tuple</strong></li>
-</ul>
-</li>
-<li>If a <strong>print</strong> is printing a single value, there will be no difference.<ul>
-<li>a single value in parentheses is same value</li>
-</ul>
-</li>
-<li>This difference is apparent only when we are tryng to print <strong>multiple items using a single print</strong></li>
-</ul>
-
-</div>
-</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[44]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>   <span class="c1"># print is printing a tuple</span>
-      
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;drop table if exists ACCOUNTS&#39;</span><span class="p">)</span>
+<span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;drop table if exists TRANSACTIONS&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;table dropped &#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13248,7 +13243,7 @@ div#notebook {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>(1, 2, 3, 4)
+<pre>table dropped 
 </pre>
 </div>
 </div>
@@ -13257,1288 +13252,79 @@ div#notebook {
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>Here Python is printing a speical value rpresented by <strong>(1,2,3,4)</strong>  which is a <strong>tuple</strong></li>
-<li>In python 3 print will be trying to print 4 values put in print parentheses 1,2,3,4</li>
-</ul>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">sqlite3</span>
+<span class="k">def</span> <span class="nf">create_tables</span><span class="p">():</span>
+    
+    <span class="k">with</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;bank.db&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>
+        <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Opened database successfully&quot;</span><span class="p">)</span>
+        <span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;drop table if exists ACCOUNTS&#39;</span><span class="p">)</span>
+        <span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;drop table if exists TRANSACTIONS&#39;</span><span class="p">)</span>
 
+        <span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;CREATE TABLE ACCOUNTS</span>
+<span class="s1">                 (</span>
+<span class="s1">                 ID INTEGER PRIMARY KEY  autoincrement   NOT NULL,</span>
+<span class="s1">                 NAME           TEXT    NOT NULL,</span>
+<span class="s1">                 PASSWORD       TEXT    NOT NULL,</span>
+
+<span class="s1">                 ACTIVE         INTEGER NOT NULL,</span>
+<span class="s1">                 TYPE           TEXT    NOT NULL,</span>
+<span class="s1">                 BALANCE        INTEGER NOT NULL); &#39;&#39;&#39;</span><span class="p">)</span>
+
+        <span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;CREATE TABLE TRANSACTIONS</span>
+<span class="s1">                 (</span>
+<span class="s1">                 ID INTEGER PRIMARY KEY  autoincrement   NOT NULL,</span>
+<span class="s1">                 ACCOUNTID      INTEGEGER NO NULL,</span>
+<span class="s1">                 DESCRIPTION    TEXT    NOT NULL,</span>
+<span class="s1">                 AMOUNT         INTEGER    NOT NULL,</span>
+<span class="s1">                 TARGETACCOUNT  INTEGER ); &#39;&#39;&#39;</span><span class="p">)</span>
+
+
+        <span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+        <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Table created successfully&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
 </div>
 </div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">add_account</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span><span class="n">password</span><span class="p">,</span><span class="n">amount</span><span class="p">,</span><span class="n">accountType</span><span class="p">):</span>
+    <span class="n">qry</span><span class="o">=</span><span class="s2">&quot;insert into ACCOUNTS(NAME,PASSWORD,BALANCE,TYPE,ACTIVE) VALUES(&#39;</span><span class="si">{}</span><span class="s2">&#39;,&#39;</span><span class="si">{}</span><span class="s2">&#39;,</span><span class="si">{}</span><span class="s2">,&#39;</span><span class="si">{}</span><span class="s2">&#39;,</span><span class="si">{}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="n">password</span><span class="p">,</span><span class="n">amount</span><span class="p">,</span><span class="n">accountType</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;executing&#39;</span><span class="p">,</span><span class="n">qry</span><span class="p">)</span>
+    
+    
+    <span class="n">cursor</span><span class="o">=</span><span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">qry</span><span class="p">)</span>
+    <span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">cursor</span><span class="o">.</span><span class="n">lastrowid</span>
 </pre></div>
 
     </div>
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Hello
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Print-doesn't-support-end-and-sep-like-Python-3">Print doesn't support end and sep like Python 3<a class="anchor-link" href="#Print-doesn't-support-end-and-sep-like-Python-3">&#182;</a></h3><ul>
-<li>the keyword argument <strong>end</strong> and <strong>sep</strong> are function features</li>
-<li>print being a function can have keyword arguments</li>
-<li>Python 2 print is not a function (its a statement). <ul>
-<li>Python 2 doesn't support <strong>end</strong> and <strong>sep</strong> like features</li>
-</ul>
-</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;---&gt;&#39;</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-cyan-intense-fg ansi-bold">  File </span><span class="ansi-green-intense-fg ansi-bold">&#34;&lt;ipython-input-11-6ce4ec861e3c&gt;&#34;</span><span class="ansi-cyan-intense-fg ansi-bold">, line </span><span class="ansi-green-intense-fg ansi-bold">1</span>
-<span class="ansi-yellow-intense-fg ansi-bold">    print 1,2,3, sep=&#39;---&gt;&#39;</span>
-<span class="ansi-white-intense-fg ansi-bold">                    ^</span>
-<span class="ansi-red-intense-fg ansi-bold">SyntaxError</span><span class="ansi-red-intense-fg ansi-bold">:</span> invalid syntax
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Recommendation">Recommendation<a class="anchor-link" href="#Recommendation">&#182;</a></h2><ul>
-<li>Don't use multiple item print using a single print statement</li>
-<li>If Required using <strong>str.format</strong> to format your string</li>
-<li><strong>sep</strong> can be handled by <strong>str.format</strong></li>
-<li>you can still use <strong>end</strong></li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;{}--&gt;{}--{}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="s1">&#39;{}</span><span class="se">\n</span><span class="s1">{}</span><span class="se">\t\t</span><span class="s1">{} {} {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">,</span> <span class="s1">&#39;World&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>1--&gt;2--3
-Hello
-World		5 4 7
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Recommendation">Recommendation<a class="anchor-link" href="#Recommendation">&#182;</a></h3><ol>
-<li>Always use print with parenthese even with pyton 2<ul>
-<li>This way migrating the code will be easy</li>
-</ul>
-</li>
-<li>Prefer to print single value in a single print<ul>
-<li>More on this later...</li>
-</ul>
-</li>
-</ol>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Division">Division<a class="anchor-link" href="#Division">&#182;</a></h2><ul>
-<li>In python 2 division operator <strong>/</strong> works like C Style division operator<ul>
-<li>int / int --&gt; int</li>
-<li>int / float --&gt; float</li>
-<li>float/ int --&gt; float</li>
-<li>float/ float --&gt; float</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><p>In Python 3 division operator always produce a float result</p>
-<ul>
-<li>number / number --&gt; float  (where number is int or float)</li>
-</ul>
-</li>
-<li><p>In Python 3 if you want to have int division result you can use int division operator (<strong>//</strong>)</p>
-<ul>
-<li>number // number --&gt; number (floored and not rounded to int division)</li>
-</ul>
-</li>
-</ul>
-
-</div>
-</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="mi">3</span><span class="o">/</span><span class="mi">2</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[5]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>1</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="mf">3.0</span><span class="o">/</span><span class="mi">2</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[6]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>1.5</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Floor-Division">Floor Division<a class="anchor-link" href="#Floor-Division">&#182;</a></h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="mi">3</span><span class="o">//</span><span class="mi">2</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[7]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>1</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="mf">3.0</span><span class="o">//</span><span class="mi">2</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[8]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>1.0</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="mi">9</span><span class="o">//</span><span class="mi">10</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[9]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>0</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="mf">9.0</span><span class="o">//</span><span class="mi">10</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[10]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>0.0</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="var-args-rule">var args rule<a class="anchor-link" href="#var-args-rule">&#182;</a></h2><ul>
-<li><p>In Python 2 It is mandatory that <strong>*args</strong> parameter <strong>must be the last parameter</strong></p>
-<ul>
-<li>Making <strong>*args</strong> non-last is a semantic error</li>
-</ul>
-</li>
-<li><p>In Python 3, It is permitted (although not recommended) to have <strong>*args</strong> as non-last parameter</p>
-</li>
-</ul>
-<h2 id="Why-var-arg-should-be-the-last-parameter">Why var arg should be the last parameter<a class="anchor-link" href="#Why-var-arg-should-be-the-last-parameter">&#182;</a></h2><ul>
-<li>say we have a function which takes <strong>*args</strong> as non-last parameter</li>
-</ul>
-<hr>
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">call_me</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;x={}</span><span class="se">\t</span><span class="s1">args={}</span><span class="se">\t</span><span class="s1">y={}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">args</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
-</pre></div>
-<hr>
-<ul>
-<li>How will the function be called?</li>
-</ul>
-<hr>
-<div class="highlight"><pre><span></span><span class="n">call_me</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>  <span class="c1"># x= 1, args=(2,3,4,5), y=???</span>
-
-<span class="n">call_me</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span> <span class="c1"># x=1 args(2,3,4,5,6,7,8,9,10) , y=???</span>
-</pre></div>
-<hr>
-<h3 id="How-will-you-pass-any-value-for-y???">How will you pass any value for y???<a class="anchor-link" href="#How-will-you-pass-any-value-for-y???">&#182;</a></h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">call_me</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;x={}</span><span class="se">\t</span><span class="s1">args={}</span><span class="se">\t</span><span class="s1">y={}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">args</span><span class="p">,</span><span class="n">y</span><span class="p">))</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-cyan-intense-fg ansi-bold">  File </span><span class="ansi-green-intense-fg ansi-bold">&#34;&lt;ipython-input-5-97818585fa05&gt;&#34;</span><span class="ansi-cyan-intense-fg ansi-bold">, line </span><span class="ansi-green-intense-fg ansi-bold">1</span>
-<span class="ansi-yellow-intense-fg ansi-bold">    def call_me(x, *args, y):</span>
-<span class="ansi-white-intense-fg ansi-bold">                          ^</span>
-<span class="ansi-red-intense-fg ansi-bold">SyntaxError</span><span class="ansi-red-intense-fg ansi-bold">:</span> invalid syntax
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="range-and-xrange">range and xrange<a class="anchor-link" href="#range-and-xrange">&#182;</a></h2><ul>
-<li><p>range function behaves differently in python 2 and python 3</p>
-</li>
-<li><p>In <strong>python 2</strong> range creates and returns <strong>list</strong> of values</p>
-<ul>
-<li><p>it is like a <strong>stored sequence</strong></p>
-</li>
-<li><p>inspired by <strong>Python3</strong> ,<strong>python 2</strong> introduced a <strong>new</strong> <strong>xrange()</strong> function which is similar to <strong>python3 range</strong></p>
-</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><p>In Python 2</p>
-<ul>
-<li>range --&gt; returns list</li>
-<li>xrange --&gt;returns computed sequence</li>
-</ul>
-</li>
-<li><p>In python 3</p>
-<ul>
-<li>range --&gt; computed sequence</li>
-<li>xrange --&gt; n/a</li>
-</ul>
-</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">r1</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
-
-<span class="k">print</span> <span class="n">r1</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">r1</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[1, 2, 3, 4, 5, 6, 7, 8, 9] &lt;type &#39;list&#39;&gt;
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">r2</span><span class="o">=</span><span class="nb">xrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
-<span class="k">print</span> <span class="n">r2</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">r2</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>xrange(1, 10) &lt;type &#39;xrange&#39;&gt;
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">r2</span><span class="p">:</span>
-    <span class="k">print</span> <span class="n">value</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Passing-Optional-Parameter">Passing Optional Parameter<a class="anchor-link" href="#Passing-Optional-Parameter">&#182;</a></h2><ul>
-<li>should use <strong>kwargs</strong> instead of default value parameters</li>
-<li>named parameters after <strong>args</strong> is not permitted in python 2</li>
-<li><strong>kwargs</strong> is universally accepted convention in  python</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">call_me</span><span class="p">(</span><span class="o">*</span><span class="n">data</span><span class="p">,</span><span class="n">design</span><span class="o">=</span><span class="s1">&#39;===&#39;</span><span class="p">,</span> <span class="n">align</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;design: {}</span><span class="se">\t</span><span class="s1">align: {}</span><span class="se">\t</span><span class="s1">label: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">design</span><span class="p">,</span><span class="n">align</span><span class="p">,</span><span class="n">label</span><span class="p">))</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-cyan-intense-fg ansi-bold">  File </span><span class="ansi-green-intense-fg ansi-bold">&#34;&lt;ipython-input-1-a3c8060d99d0&gt;&#34;</span><span class="ansi-cyan-intense-fg ansi-bold">, line </span><span class="ansi-green-intense-fg ansi-bold">1</span>
-<span class="ansi-yellow-intense-fg ansi-bold">    def call_me(*data,design=&#39;===&#39;, align=False, label=True):</span>
-<span class="ansi-white-intense-fg ansi-bold">                           ^</span>
-<span class="ansi-red-intense-fg ansi-bold">SyntaxError</span><span class="ansi-red-intense-fg ansi-bold">:</span> invalid syntax
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">call_me</span><span class="p">(</span><span class="o">*</span><span class="n">data</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-    <span class="n">design</span><span class="o">=</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;design&#39;</span><span class="p">,</span><span class="s1">&#39;---&#39;</span><span class="p">)</span>
-    <span class="n">align</span><span class="o">=</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;align&#39;</span><span class="p">,</span><span class="bp">False</span><span class="p">)</span>
-    <span class="n">label</span><span class="o">=</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;label&#39;</span><span class="p">,</span><span class="bp">True</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;design: {}</span><span class="se">\t</span><span class="s1">align: {}</span><span class="se">\t</span><span class="s1">label: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">design</span><span class="p">,</span><span class="n">align</span><span class="p">,</span><span class="n">label</span><span class="p">))</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">call_me</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span> <span class="n">design</span><span class="o">=</span><span class="s1">&#39;xxx&#39;</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>design: xxx	align: False	label: True
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">call_me</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>design: ---	align: False	label: False
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Python-2-Learns-from-Python-3">Python 2 Learns from Python 3<a class="anchor-link" href="#Python-2-Learns-from-Python-3">&#182;</a></h1><ul>
-<li>both python2 and python3 is in development for over a decade now</li>
-<li><p>during this period many features of python3 has slowly found it way back to python 2</p>
-<ul>
-<li>example <strong>xrange</strong> is a port of <strong>range</strong> from python 3 to python2</li>
-</ul>
-</li>
-<li><p>if you plan to (and you should) to migrate you python2 code to python 3 some day, you may want to incoroprate those features even in your current python2 code base</p>
-<ul>
-<li>Example<ul>
-<li>it would be great to use new <strong>print</strong> feature in python 2</li>
-<li>for consistenency division should world as python 3 division</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>Python 2.5 onward it is made possible by using a special module</p>
-</li>
-</ul>
-<h3 id="future-module"><strong>future</strong> module<a class="anchor-link" href="#future-module">&#182;</a></h3><ul>
-<li>available only in <strong>Python2</strong></li>
-<li>contains elements to convert some python 2 features to python</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>(1, 2, 3, 4)
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;--&gt;&#39;</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-cyan-intense-fg ansi-bold">  File </span><span class="ansi-green-intense-fg ansi-bold">&#34;&lt;ipython-input-17-90286e8c289d&gt;&#34;</span><span class="ansi-cyan-intense-fg ansi-bold">, line </span><span class="ansi-green-intense-fg ansi-bold">1</span>
-<span class="ansi-yellow-intense-fg ansi-bold">    print(1,2,3,4,sep=&#39;--&gt;&#39;)</span>
-<span class="ansi-white-intense-fg ansi-bold">                     ^</span>
-<span class="ansi-red-intense-fg ansi-bold">SyntaxError</span><span class="ansi-red-intense-fg ansi-bold">:</span> invalid syntax
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>1 2 3 4
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;--&gt;&#39;</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>1--&gt;2--&gt;3--&gt;4
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[22]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="s1">&#39;hello world&#39;</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-cyan-intense-fg ansi-bold">  File </span><span class="ansi-green-intense-fg ansi-bold">&#34;&lt;ipython-input-22-cdc75808e29f&gt;&#34;</span><span class="ansi-cyan-intense-fg ansi-bold">, line </span><span class="ansi-green-intense-fg ansi-bold">1</span>
-<span class="ansi-yellow-intense-fg ansi-bold">    print &#39;hello world&#39;</span>
-<span class="ansi-white-intense-fg ansi-bold">                      ^</span>
-<span class="ansi-red-intense-fg ansi-bold">SyntaxError</span><span class="ansi-red-intense-fg ansi-bold">:</span> invalid syntax
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="division">division<a class="anchor-link" href="#division">&#182;</a></h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[23]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="mi">7</span><span class="o">/</span><span class="mi">2</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[23]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>3</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[24]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[25]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="mi">7</span><span class="o">/</span><span class="mi">2</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[25]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>3.5</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[26]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">import</span> <span class="nn">__future__</span>
-<span class="nb">dir</span><span class="p">(</span><span class="n">__future__</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[26]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>[&#39;CO_FUTURE_ABSOLUTE_IMPORT&#39;,
- &#39;CO_FUTURE_DIVISION&#39;,
- &#39;CO_FUTURE_PRINT_FUNCTION&#39;,
- &#39;CO_FUTURE_UNICODE_LITERALS&#39;,
- &#39;CO_FUTURE_WITH_STATEMENT&#39;,
- &#39;CO_GENERATOR_ALLOWED&#39;,
- &#39;CO_NESTED&#39;,
- &#39;_Feature&#39;,
- &#39;__all__&#39;,
- &#39;__builtins__&#39;,
- &#39;__doc__&#39;,
- &#39;__file__&#39;,
- &#39;__name__&#39;,
- &#39;__package__&#39;,
- &#39;absolute_import&#39;,
- &#39;all_feature_names&#39;,
- &#39;division&#39;,
- &#39;generators&#39;,
- &#39;nested_scopes&#39;,
- &#39;print_function&#39;,
- &#39;unicode_literals&#39;,
- &#39;with_statement&#39;]</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Class-Level-Methods">Class Level Methods<a class="anchor-link" href="#Class-Level-Methods">&#182;</a></h2><ul>
-<li>In <strong>Python2</strong> all methods inside a class is expected to<ul>
-<li>have self parameter</li>
-<li>called using object reference</li>
-</ul>
-</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[38]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">class</span> <span class="nc">Triangle</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span><span class="n">s2</span><span class="p">,</span><span class="n">s3</span><span class="p">):</span>
-        <span class="n">t</span><span class="o">=</span><span class="n">Triangle</span><span class="p">()</span>
-        <span class="n">t</span><span class="o">.</span><span class="n">s1</span><span class="o">=</span><span class="n">s1</span>
-        <span class="n">t</span><span class="o">.</span><span class="n">s2</span><span class="o">=</span><span class="n">s2</span>
-        <span class="n">t</span><span class="o">.</span><span class="n">s3</span><span class="o">=</span><span class="n">s3</span>
-        <span class="k">return</span> <span class="n">t</span>
-        
-    <span class="k">def</span> <span class="nf">show</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;I am a Triangle&#39;</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[39]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">t</span><span class="o">=</span><span class="n">Triangle</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-intense-fg ansi-bold">---------------------------------------------------------------------------</span>
-<span class="ansi-red-intense-fg ansi-bold">TypeError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-intense-fg ansi-bold">&lt;ipython-input-39-508b158e2a67&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-intense-fg ansi-bold">()</span>
-<span class="ansi-green-intense-fg ansi-bold">----&gt; 1</span><span class="ansi-yellow-intense-fg ansi-bold"> </span>t<span class="ansi-yellow-intense-fg ansi-bold">=</span>Triangle<span class="ansi-yellow-intense-fg ansi-bold">.</span>create<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-cyan-intense-fg ansi-bold">3</span><span class="ansi-yellow-intense-fg ansi-bold">,</span><span class="ansi-cyan-intense-fg ansi-bold">4</span><span class="ansi-yellow-intense-fg ansi-bold">,</span><span class="ansi-cyan-intense-fg ansi-bold">5</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>
-
-<span class="ansi-red-intense-fg ansi-bold">TypeError</span>: unbound method create() must be called with Triangle instance as first argument (got int instance instead)</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[40]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">t</span><span class="o">=</span><span class="n">Triangle</span><span class="p">()</span>
-<span class="n">t</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>I am a Triangle
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="To-invoke-a-method-using-class-name">To invoke a method using class name<a class="anchor-link" href="#To-invoke-a-method-using-class-name">&#182;</a></h3><ul>
-<li>the method must be marked <strong>@staticmethod</strong></li>
-<li>while this is available in <strong>Python3</strong> its optional</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[41]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">class</span> <span class="nc">Triangle</span><span class="p">:</span>
-    <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span><span class="n">s2</span><span class="p">,</span><span class="n">s3</span><span class="p">):</span>
-        <span class="n">t</span><span class="o">=</span><span class="n">Triangle</span><span class="p">()</span>
-        <span class="n">t</span><span class="o">.</span><span class="n">s1</span><span class="o">=</span><span class="n">s1</span>
-        <span class="n">t</span><span class="o">.</span><span class="n">s2</span><span class="o">=</span><span class="n">s2</span>
-        <span class="n">t</span><span class="o">.</span><span class="n">s3</span><span class="o">=</span><span class="n">s3</span>
-        <span class="k">return</span> <span class="n">t</span>
-        
-    <span class="k">def</span> <span class="nf">show</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Triangle&lt;{},{},{}&gt;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">s1</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">s2</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">s3</span><span class="p">))</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[42]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">t</span><span class="o">=</span><span class="n">Triangle</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
-<span class="n">t</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Triangle&lt;3,4,5&gt;
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Inheritance">Inheritance<a class="anchor-link" href="#Inheritance">&#182;</a></h1><ul>
-<li><strong>Python2</strong> Inheritance is different from <strong>Python3</strong> at a few points</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">class</span> <span class="nc">Employee</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">empId</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">empId</span><span class="o">=</span><span class="n">empId</span>
-        
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="call-to-__init__-with-base-class-name-works!!!">call to __init__ with base class name works!!!<a class="anchor-link" href="#call-to-__init__-with-base-class-name-works!!!">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">class</span> <span class="nc">Manager</span><span class="p">(</span><span class="n">Employee</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">empId</span><span class="p">,</span><span class="n">project</span><span class="p">):</span>
-        <span class="n">Employee</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">empId</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">project</span><span class="o">=</span><span class="n">project</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">add_dummy_accounts</span><span class="p">():</span>
+    <span class="k">with</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;bank.db&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">add_account</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span><span class="s1">&#39;Vivek Dutta Mishra&#39;</span><span class="p">,</span><span class="s1">&#39;p@ss&#39;</span><span class="p">,</span><span class="mi">76000</span><span class="p">,</span><span class="s1">&#39;SavingsAccount&#39;</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">add_account</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span><span class="s1">&#39;Sanjay Mall&#39;</span><span class="p">,</span><span class="s1">&#39;p@ss&#39;</span><span class="p">,</span><span class="mi">50000</span><span class="p">,</span><span class="s1">&#39;CurrentAccount&#39;</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">add_account</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span><span class="s1">&#39;Prabhat Singh&#39;</span><span class="p">,</span><span class="s1">&#39;p@ss&#39;</span><span class="p">,</span><span class="mi">15000</span><span class="p">,</span><span class="s1">&#39;OverdraftAccount&#39;</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">add_account</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span><span class="s1">&#39;Vinod Singh&#39;</span><span class="p">,</span><span class="s1">&#39;p@ss&#39;</span><span class="p">,</span><span class="mi">26000</span><span class="p">,</span><span class="s1">&#39;SavingsAccount&#39;</span><span class="p">))</span>
     
 </pre></div>
 
@@ -14552,10 +13338,12 @@ World		5 4 7
 <div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">test_manager</span><span class="p">():</span>
-    <span class="n">m</span><span class="o">=</span><span class="n">Manager</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;web&#39;</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;m.id&#39;</span><span class="p">,</span><span class="n">m</span><span class="o">.</span><span class="n">empId</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;m.project&#39;</span><span class="p">,</span><span class="n">m</span><span class="o">.</span><span class="n">project</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">print_account_list</span><span class="p">():</span>
+    <span class="k">with</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;bank.db&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>
+        <span class="n">qry</span><span class="o">=</span><span class="s1">&#39;select * from accounts&#39;</span>
+        <span class="n">cursor</span><span class="o">=</span><span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">qry</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">cursor</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -14568,7 +13356,124 @@ World		5 4 7
 <div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">test_manager</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">add_transaction</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span><span class="n">accountNumber</span><span class="p">,</span><span class="n">amount</span><span class="p">,</span><span class="n">description</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">change</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">toAccount</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">active</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    
+    <span class="n">cursor</span><span class="o">=</span><span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+    <span class="n">qry1</span><span class="o">=</span><span class="s2">&quot;update ACCOUNTS set BALANCE=</span><span class="si">{}</span><span class="s2">,ACTIVE=</span><span class="si">{}</span><span class="s2"> where id=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">amount</span><span class="p">,</span><span class="n">accountNumber</span><span class="p">,</span><span class="n">active</span><span class="p">)</span>
+    <span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">qry1</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">description</span><span class="o">!=</span><span class="kc">None</span><span class="p">:</span>
+        
+        <span class="n">qry2Template</span><span class="o">=</span><span class="s2">&quot;insert into TRANSACTIONS(ACCOUNTID,DESCRIPTION,AMOUNT,TARGETACCOUNT) values(</span><span class="si">{}</span><span class="s2">,&#39;</span><span class="si">{}</span><span class="s2">&#39;,</span><span class="si">{}</span><span class="s2">,</span><span class="si">{}</span><span class="s2">)&quot;</span>
+        <span class="n">qry2</span><span class="o">=</span><span class="n">qry2Template</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">accountNumber</span><span class="p">,</span><span class="n">description</span><span class="p">,</span><span class="n">change</span><span class="p">,</span><span class="n">toAccount</span><span class="p">)</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">qry2</span><span class="p">)</span>
+    
+    <span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;done&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">create_transaction</span><span class="p">(</span><span class="n">accountNumber</span><span class="p">,</span> <span class="n">amount</span><span class="p">,</span> <span class="n">description</span><span class="p">,</span><span class="n">toAccount</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">active</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">with</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;bank.db&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>
+        <span class="n">cursor</span><span class="o">=</span><span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;select * from ACCOUNTS where id=</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">accountNumber</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">cursor</span><span class="p">:</span>
+            <span class="n">balance</span><span class="o">=</span><span class="n">row</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
+            <span class="n">balance</span><span class="o">+=</span><span class="n">amount</span>
+            <span class="n">add_transaction</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span><span class="n">accountNumber</span><span class="p">,</span><span class="n">balance</span><span class="p">,</span><span class="n">description</span><span class="p">,</span><span class="n">toAccount</span><span class="p">,</span><span class="n">active</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">list_transaction</span><span class="p">(</span><span class="n">accountNumber</span><span class="p">):</span>
+    <span class="k">with</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;bank.db&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>
+        <span class="n">cursor</span><span class="o">=</span><span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;select * from TRANSACTIONS where ACCOUNTID=</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">accountNumber</span><span class="p">))</span>
+        
+        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">cursor</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">delete_record</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="nb">id</span><span class="p">):</span>
+    <span class="n">qry</span><span class="o">=</span><span class="s2">&quot;delete from ACCOUNTS where id=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span>
+    <span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">qry</span><span class="p">)</span>
+    <span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+    
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">close_account</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span><span class="nb">id</span><span class="p">):</span>
+    <span class="n">qry</span><span class="o">=</span><span class="s1">&#39;update ACCOUNTS set active=0 where id=</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span>
+    <span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">qry</span><span class="p">)</span>
+    <span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+    
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">close_account_2</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span><span class="nb">id</span><span class="p">):</span>
+    <span class="n">add_transaction</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span><span class="nb">id</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;Account Closed&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Transaction-Checks">Transaction Checks<a class="anchor-link" href="#Transaction-Checks">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">create_tables</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -14585,8 +13490,8 @@ World		5 4 7
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>(&#39;m.id&#39;, 1)
-(&#39;m.project&#39;, &#39;web&#39;)
+<pre>Opened database successfully
+Table created successfully
 </pre>
 </div>
 </div>
@@ -14595,38 +13500,12 @@ World		5 4 7
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="class-to-super().__init__-is-not-part-of-python-2">class to super().__init__ is not part of python 2<a class="anchor-link" href="#class-to-super().__init__-is-not-part-of-python-2">&#182;</a></h2><ul>
-<li>python 2 doesn't support compact <strong>super()</strong> syntax of <strong>python 3</strong></li>
-</ul>
-
-</div>
-</div>
-</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[31]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">class</span> <span class="nc">Manager</span><span class="p">(</span><span class="n">Employee</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">empId</span><span class="p">,</span><span class="n">project</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">empId</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">project</span><span class="o">=</span><span class="n">project</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">m</span><span class="o">=</span><span class="n">Manager</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;Web&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">add_dummy_accounts</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -14642,56 +13521,29 @@ World		5 4 7
     <div class="prompt"></div>
 
 
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-intense-fg ansi-bold">---------------------------------------------------------------------------</span>
-<span class="ansi-red-intense-fg ansi-bold">TypeError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-intense-fg ansi-bold">&lt;ipython-input-9-ca8b0f2a6a48&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-intense-fg ansi-bold">()</span>
-<span class="ansi-green-intense-fg ansi-bold">----&gt; 1</span><span class="ansi-yellow-intense-fg ansi-bold"> </span>m<span class="ansi-yellow-intense-fg ansi-bold">=</span>Manager<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-cyan-intense-fg ansi-bold">2</span><span class="ansi-yellow-intense-fg ansi-bold">,</span><span class="ansi-blue-intense-fg ansi-bold">&#39;Web&#39;</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>
-
-<span class="ansi-green-intense-fg ansi-bold">&lt;ipython-input-8-345e72777429&gt;</span> in <span class="ansi-cyan-fg">__init__</span><span class="ansi-blue-intense-fg ansi-bold">(self, empId, project)</span>
-<span class="ansi-green-fg">      1</span> <span class="ansi-green-intense-fg ansi-bold">class</span> Manager<span class="ansi-yellow-intense-fg ansi-bold">(</span>Employee<span class="ansi-yellow-intense-fg ansi-bold">)</span><span class="ansi-yellow-intense-fg ansi-bold">:</span>
-<span class="ansi-green-fg">      2</span>     <span class="ansi-green-intense-fg ansi-bold">def</span> __init__<span class="ansi-yellow-intense-fg ansi-bold">(</span>self<span class="ansi-yellow-intense-fg ansi-bold">,</span>empId<span class="ansi-yellow-intense-fg ansi-bold">,</span>project<span class="ansi-yellow-intense-fg ansi-bold">)</span><span class="ansi-yellow-intense-fg ansi-bold">:</span>
-<span class="ansi-green-intense-fg ansi-bold">----&gt; 3</span><span class="ansi-yellow-intense-fg ansi-bold">         </span>super<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-yellow-intense-fg ansi-bold">)</span><span class="ansi-yellow-intense-fg ansi-bold">.</span>__init__<span class="ansi-yellow-intense-fg ansi-bold">(</span>empId<span class="ansi-yellow-intense-fg ansi-bold">)</span>
-<span class="ansi-green-fg">      4</span>         self<span class="ansi-yellow-intense-fg ansi-bold">.</span>project<span class="ansi-yellow-intense-fg ansi-bold">=</span>project
-
-<span class="ansi-red-intense-fg ansi-bold">TypeError</span>: super() takes at least 1 argument (0 given)</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>executing insert into ACCOUNTS(NAME,PASSWORD,BALANCE,TYPE,ACTIVE) VALUES(&#39;Vivek Dutta Mishra&#39;,&#39;p@ss&#39;,76000,&#39;SavingsAccount&#39;,1)
+1
+executing insert into ACCOUNTS(NAME,PASSWORD,BALANCE,TYPE,ACTIVE) VALUES(&#39;Sanjay Mall&#39;,&#39;p@ss&#39;,50000,&#39;CurrentAccount&#39;,1)
+2
+executing insert into ACCOUNTS(NAME,PASSWORD,BALANCE,TYPE,ACTIVE) VALUES(&#39;Prabhat Singh&#39;,&#39;p@ss&#39;,15000,&#39;OverdraftAccount&#39;,1)
+3
+executing insert into ACCOUNTS(NAME,PASSWORD,BALANCE,TYPE,ACTIVE) VALUES(&#39;Vinod Singh&#39;,&#39;p@ss&#39;,26000,&#39;SavingsAccount&#39;,1)
+4
+</pre>
 </div>
 </div>
 
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="super-call-needs-to-be-chained">super call needs to be chained<a class="anchor-link" href="#super-call-needs-to-be-chained">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">class</span> <span class="nc">Manager</span><span class="p">(</span><span class="n">Employee</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">empId</span><span class="p">,</span><span class="n">project</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">(</span><span class="n">Manager</span><span class="p">,</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">empId</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">project</span><span class="o">=</span><span class="n">project</span>
-</pre></div>
-
-    </div>
 </div>
 </div>
 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[32]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">m</span><span class="o">=</span><span class="n">Manager</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;web&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">print_account_list</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -14707,89 +13559,152 @@ World		5 4 7
     <div class="prompt"></div>
 
 
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-intense-fg ansi-bold">---------------------------------------------------------------------------</span>
-<span class="ansi-red-intense-fg ansi-bold">TypeError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-intense-fg ansi-bold">&lt;ipython-input-15-a793f0388505&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-intense-fg ansi-bold">()</span>
-<span class="ansi-green-intense-fg ansi-bold">----&gt; 1</span><span class="ansi-yellow-intense-fg ansi-bold"> </span>m<span class="ansi-yellow-intense-fg ansi-bold">=</span>Manager<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-cyan-intense-fg ansi-bold">2</span><span class="ansi-yellow-intense-fg ansi-bold">,</span><span class="ansi-blue-intense-fg ansi-bold">&#39;web&#39;</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>
-
-<span class="ansi-green-intense-fg ansi-bold">&lt;ipython-input-14-fb78904a3df1&gt;</span> in <span class="ansi-cyan-fg">__init__</span><span class="ansi-blue-intense-fg ansi-bold">(self, empId, project)</span>
-<span class="ansi-green-fg">      1</span> <span class="ansi-green-intense-fg ansi-bold">class</span> Manager<span class="ansi-yellow-intense-fg ansi-bold">(</span>Employee<span class="ansi-yellow-intense-fg ansi-bold">)</span><span class="ansi-yellow-intense-fg ansi-bold">:</span>
-<span class="ansi-green-fg">      2</span>     <span class="ansi-green-intense-fg ansi-bold">def</span> __init__<span class="ansi-yellow-intense-fg ansi-bold">(</span>self<span class="ansi-yellow-intense-fg ansi-bold">,</span>empId<span class="ansi-yellow-intense-fg ansi-bold">,</span>project<span class="ansi-yellow-intense-fg ansi-bold">)</span><span class="ansi-yellow-intense-fg ansi-bold">:</span>
-<span class="ansi-green-intense-fg ansi-bold">----&gt; 3</span><span class="ansi-yellow-intense-fg ansi-bold">         </span>super<span class="ansi-yellow-intense-fg ansi-bold">(</span>Manager<span class="ansi-yellow-intense-fg ansi-bold">,</span>self<span class="ansi-yellow-intense-fg ansi-bold">)</span><span class="ansi-yellow-intense-fg ansi-bold">.</span>__init__<span class="ansi-yellow-intense-fg ansi-bold">(</span>empId<span class="ansi-yellow-intense-fg ansi-bold">)</span>
-<span class="ansi-green-fg">      4</span>         self<span class="ansi-yellow-intense-fg ansi-bold">.</span>project<span class="ansi-yellow-intense-fg ansi-bold">=</span>project
-
-<span class="ansi-red-intense-fg ansi-bold">TypeError</span>: super() argument 1 must be type, not classobj</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>(1, &#39;Vivek Dutta Mishra&#39;, &#39;p@ss&#39;, 1, &#39;SavingsAccount&#39;, 76000)
+(2, &#39;Sanjay Mall&#39;, &#39;p@ss&#39;, 1, &#39;CurrentAccount&#39;, 50000)
+(3, &#39;Prabhat Singh&#39;, &#39;p@ss&#39;, 1, &#39;OverdraftAccount&#39;, 15000)
+(4, &#39;Vinod Singh&#39;, &#39;p@ss&#39;, 1, &#39;SavingsAccount&#39;, 26000)
+</pre>
 </div>
 </div>
 
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="What-went-wrong">What went wrong<a class="anchor-link" href="#What-went-wrong">&#182;</a></h2><ul>
-<li>super call must be chained to the <strong>object</strong> class</li>
-<li>the top most class should invoke <strong>super()</strong> for object</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">class</span> <span class="nc">Employee</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">empId</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">(</span><span class="n">Employee</span><span class="p">,</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">empId</span><span class="o">=</span><span class="n">empId</span>
-        
-<span class="k">class</span> <span class="nc">Manager</span><span class="p">(</span><span class="n">Employee</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">empId</span><span class="p">,</span><span class="n">project</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">(</span><span class="n">Manager</span><span class="p">,</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">empId</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">project</span><span class="o">=</span><span class="n">project</span>
-</pre></div>
-
-    </div>
 </div>
 </div>
 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="prompt input_prompt">In&nbsp;[33]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">m</span><span class="o">=</span><span class="n">Manager</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;web&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">create_transaction</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5000</span><span class="p">,</span><span class="s1">&#39;deposit&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>done
+</pre>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Note">Note<a class="anchor-link" href="#Note">&#182;</a></h2><ul>
-<li>In case of <strong>super</strong> call in inheritance <strong>python 2</strong> requires an explicit inheritance from <strong>object</strong></li>
-<li>In Python 3 all classes <strong>implicitly</strong> inherit <strong>object</strong></li>
-</ul>
+</div>
 
 </div>
 </div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">create_transaction</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">3000</span><span class="p">,</span><span class="s1">&#39;transfer to&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">create_transaction</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3000</span><span class="p">,</span> <span class="s1">&#39;transfer from&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>done
+done
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[35]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">list_transaction</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>(1, 1, &#39;deposit&#39;, 0, 1)
+(2, 1, &#39;transfer to&#39;, 2, 1)
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[36]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">list_transaction</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>(3, 2, &#39;transfer from&#39;, 1, 1)
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span> 
+<div class=" highlight hl-ipython3"><pre><span></span> 
 </pre></div>
 
     </div>

@@ -2,7 +2,7 @@
 <html>
 <head><meta charset="utf-8" />
 
-<title>00-PythonVersionAlerts</title>
+<title>20-ExceptionAndErrorHandling</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -13116,401 +13116,105 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Python-Version-Alert-Note-Book">Python Version Alert Note Book<a class="anchor-link" href="#Python-Version-Alert-Note-Book">&#182;</a></h1><ul>
-<li>This notebook contains breaking changes between python 2 and python 3</li>
-<li>This nodebook shall contain the python 2 version of code</li>
-<li>for python 3 version consult respective python 3 notebook mentioned in the reference section</li>
-</ul>
-<h2 id="Python-print">Python print<a class="anchor-link" href="#Python-print">&#182;</a></h2><ul>
-<li>print is a statement in python 2 <ul>
-<li>print is a function in python 3<ul>
-<li>python 3 requires parentheses for print</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="s1">&#39;Hello World&#39;</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Hello World
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="In-python-2-you-can-use-parentheses">In python 2 you can use parentheses<a class="anchor-link" href="#In-python-2-you-can-use-parentheses">&#182;</a></h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;Hello World&#39;</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Hello World
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Note:-parentheses-is-not-same-in-python-2-and-python-3">Note: parentheses is not same in python 2 and python 3<a class="anchor-link" href="#Note:-parentheses-is-not-same-in-python-2-and-python-3">&#182;</a></h3><ul>
-<li><p>while parentheses may work both in python 2 and python 3 they have different meaning</p>
-</li>
-<li><p>In <strong>python3</strong> parentheses is part of <strong>print</strong> function</p>
-</li>
-<li>In <strong>python2</strong> parentheses is part of <strong>data that is being printed</strong> <ul>
-<li>multiple values in parentheses is a <strong>tuple</strong></li>
-</ul>
-</li>
-<li>If a <strong>print</strong> is printing a single value, there will be no difference.<ul>
-<li>a single value in parentheses is same value</li>
-</ul>
-</li>
-<li>This difference is apparent only when we are tryng to print <strong>multiple items using a single print</strong></li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>   <span class="c1"># print is printing a tuple</span>
-      
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>(1, 2, 3, 4)
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Exception">Exception<a class="anchor-link" href="#Exception">&#182;</a></h1><ul>
+<li><p>situation that is</p>
 <ul>
-<li>Here Python is printing a speical value rpresented by <strong>(1,2,3,4)</strong>  which is a <strong>tuple</strong></li>
-<li>In python 3 print will be trying to print 4 values put in print parentheses 1,2,3,4</li>
+<li><del>unexpected</del></li>
+<li><del>unusual</del></li>
+<li><del>uncommon</del></li>
+<li>undesirable</li>
 </ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Hello
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Print-doesn't-support-end-and-sep-like-Python-3">Print doesn't support end and sep like Python 3<a class="anchor-link" href="#Print-doesn't-support-end-and-sep-like-Python-3">&#182;</a></h3><ul>
-<li>the keyword argument <strong>end</strong> and <strong>sep</strong> are function features</li>
-<li>print being a function can have keyword arguments</li>
-<li>Python 2 print is not a function (its a statement). <ul>
-<li>Python 2 doesn't support <strong>end</strong> and <strong>sep</strong> like features</li>
+</li>
+<li><p>Exceptions are simply <strong>undesirable</strong> but</p>
+<ul>
+<li>common occurance</li>
+<li><strong>must be expected</strong><ul>
+<li>better be prepared</li>
 </ul>
 </li>
 </ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;---&gt;&#39;</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-cyan-intense-fg ansi-bold">  File </span><span class="ansi-green-intense-fg ansi-bold">&#34;&lt;ipython-input-11-6ce4ec861e3c&gt;&#34;</span><span class="ansi-cyan-intense-fg ansi-bold">, line </span><span class="ansi-green-intense-fg ansi-bold">1</span>
-<span class="ansi-yellow-intense-fg ansi-bold">    print 1,2,3, sep=&#39;---&gt;&#39;</span>
-<span class="ansi-white-intense-fg ansi-bold">                    ^</span>
-<span class="ansi-red-intense-fg ansi-bold">SyntaxError</span><span class="ansi-red-intense-fg ansi-bold">:</span> invalid syntax
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Recommendation">Recommendation<a class="anchor-link" href="#Recommendation">&#182;</a></h2><ul>
-<li>Don't use multiple item print using a single print statement</li>
-<li>If Required using <strong>str.format</strong> to format your string</li>
-<li><strong>sep</strong> can be handled by <strong>str.format</strong></li>
-<li>you can still use <strong>end</strong></li>
+</li>
 </ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;{}--&gt;{}--{}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="s1">&#39;{}</span><span class="se">\n</span><span class="s1">{}</span><span class="se">\t\t</span><span class="s1">{} {} {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">,</span> <span class="s1">&#39;World&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>1--&gt;2--3
-Hello
-World		5 4 7
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Recommendation">Recommendation<a class="anchor-link" href="#Recommendation">&#182;</a></h3><ol>
-<li>Always use print with parenthese even with pyton 2<ul>
-<li>This way migrating the code will be easy</li>
+<h3 id="Exception-Associated-Components">Exception Associated Components<a class="anchor-link" href="#Exception-Associated-Components">&#182;</a></h3><ol>
+<li><p><strong>Exception</strong></p>
+<ul>
+<li>the problem that we need to fix</li>
+<li>we should have as much information about problem as we can gather</li>
 </ul>
 </li>
-<li>Prefer to print single value in a single print<ul>
-<li>More on this later...</li>
+<li><p><strong>Source</strong></p>
+<ul>
+<li>the point of code where problem (exception) originated</li>
+<li>generally this is <strong>not</strong> the point where we want to handle it</li>
+<li>a source may <strong>not be the best or most competent</strong> to handle its error<ul>
+<li>if <strong>error is handled at source</strong><ul>
+<li>no one needs to know about it</li>
+<li>no point in any further discussion</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ol>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Division">Division<a class="anchor-link" href="#Division">&#182;</a></h2><ul>
-<li>In python 2 division operator <strong>/</strong> works like C Style division operator<ul>
-<li>int / int --&gt; int</li>
-<li>int / float --&gt; float</li>
-<li>float/ int --&gt; float</li>
-<li>float/ float --&gt; float</li>
+<ol>
+<li><strong>handler</strong><ul>
+<li>the point in code where you plan to handle the problem</li>
+<li>generally <strong>source</strong> and <strong>handler</strong> are going to be different points</li>
+<li>generally a <strong>source will not handle its own problem</strong></li>
+<li>handler will handle the problem<ul>
+<li>by an attempt to manage the situation (<strong>rare</strong>)</li>
+<li>by making a graceful exit</li>
 </ul>
 </li>
 </ul>
+</li>
+</ol>
+<h5 id="exception-handling-is-the-study-of-the-interaction-between-source,-exception-and-handler.-if-source-handles-its-own-problem,-then-it-doesn't-require-current-mechanism">exception handling is the study of the interaction between source, exception and handler. if source handles its own problem, then it doesn't require current mechanism<a class="anchor-link" href="#exception-handling-is-the-study-of-the-interaction-between-source,-exception-and-handler.-if-source-handles-its-own-problem,-then-it-doesn't-require-current-mechanism">&#182;</a></h5><h3 id="Exception-Handling-Phases">Exception Handling Phases<a class="anchor-link" href="#Exception-Handling-Phases">&#182;</a></h3><ol>
+<li><p>Identity Exception at the Source</p>
 <ul>
-<li><p>In Python 3 division operator always produce a float result</p>
-<ul>
-<li>number / number --&gt; float  (where number is int or float)</li>
+<li>Bad user Input</li>
+<li>Device not responding</li>
+<li>Some external failure</li>
+<li>...</li>
 </ul>
 </li>
-<li><p>In Python 3 if you want to have int division result you can use int division operator (<strong>//</strong>)</p>
+<li><p>Send the <strong>exception</strong> signal to the <strong>handler</strong></p>
+</li>
+<li><p>Intercept/Identify <strong>exception</strong> at target</p>
+</li>
+<li><p>Handle the Problem</p>
+</li>
+</ol>
+<h3 id="Traditional-Exception-Handling-Approach">Traditional Exception Handling Approach<a class="anchor-link" href="#Traditional-Exception-Handling-Approach">&#182;</a></h3><ol>
+<li>Identify Exception At Source<ul>
+<li>we write <strong>if</strong> to test for the condition</li>
+</ul>
+</li>
+<li><p>Send the <strong>exception</strong> signal to the <strong>handler</strong></p>
 <ul>
-<li>number // number --&gt; number (floored and not rounded to int division)</li>
+<li>we <strong>return</strong> a value to indicate error</li>
+<li>popular values include<ul>
+<li>False</li>
+<li>None</li>
+<li>0 (0 -&gt; fail, 1-&gt;success)</li>
+<li>non 0 ( 0-&gt; success, 1-&gt;failure reason 1, 2-&gt;failure reason 2...)</li>
 </ul>
 </li>
 </ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="mi">3</span><span class="o">/</span><span class="mi">2</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[5]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>1</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="mf">3.0</span><span class="o">/</span><span class="mi">2</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[6]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>1.5</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Floor-Division">Floor Division<a class="anchor-link" href="#Floor-Division">&#182;</a></h3>
+</li>
+<li><p>Intercept/Identify <strong>exception</strong> at target</p>
+<ul>
+<li>we write <strong>if</strong> to check if result was valid or not</li>
+</ul>
+</li>
+<li><p>Handle the problem</p>
+<ul>
+<li>we handle the problem in <strong>if</strong> suite or <strong>else</strong> suite</li>
+</ul>
+</li>
+</ol>
+<h2 id="Let-understand-traditional-mechanism">Let understand traditional mechanism<a class="anchor-link" href="#Let-understand-traditional-mechanism">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -13519,30 +13223,39 @@ World		5 4 7
 <div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="mi">3</span><span class="o">//</span><span class="mi">2</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">get_fortune</span><span class="p">(</span><span class="n">luckyNumber</span><span class="p">):</span>
+    <span class="n">message</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;Great Day&#39;</span><span class="p">,</span><span class="s1">&#39;Success Awaits You&#39;</span><span class="p">,</span><span class="s1">&#39;Be Careful Today&#39;</span>\
+             <span class="s1">&#39;God be with you&#39;</span><span class="p">,</span><span class="s1">&#39;Wonderful daily&#39;</span>\
+            <span class="p">]</span>
+    <span class="c1"># thigs could go wrong!!!</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">luckyNumber</span><span class="p">,</span><span class="nb">int</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    
+    <span class="k">if</span> <span class="n">luckyNumber</span><span class="o">&lt;</span><span class="mi">1</span> <span class="ow">or</span> <span class="n">luckyNumber</span><span class="o">&gt;</span><span class="mi">5</span> <span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+        
+    
+    <span class="k">return</span> <span class="n">message</span><span class="p">[</span><span class="n">luckyNumber</span><span class="p">]</span> <span class="c1"># happy path</span>
+    
+    
+<span class="k">def</span> <span class="nf">find_fortune</span><span class="p">(</span><span class="n">luckyNumber</span><span class="p">):</span>
+    <span class="n">result</span><span class="o">=</span><span class="n">get_fortune</span><span class="p">(</span><span class="n">luckyNumber</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">result</span><span class="o">==</span><span class="kc">False</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">result</span>
+    
+
+<span class="k">def</span> <span class="nf">fortune_teller</span><span class="p">(</span><span class="n">luckyNumber</span><span class="p">):</span>
+    <span class="n">message</span><span class="o">=</span><span class="n">find_fortune</span><span class="p">(</span><span class="n">luckyNumber</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">message</span><span class="o">==</span><span class="kc">None</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Error: Your luck is foggy!!!&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Prediction:&#39;</span><span class="p">,</span><span class="n">message</span><span class="p">)</span>
+    
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[7]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>1</pre>
-</div>
-
-</div>
-
 </div>
 </div>
 
@@ -13552,7 +13265,7 @@ World		5 4 7
 <div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="mf">3.0</span><span class="o">//</span><span class="mi">2</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fortune_teller</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13565,15 +13278,13 @@ World		5 4 7
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[8]:</div>
+    <div class="prompt"></div>
 
 
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>1.0</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Prediction: Wonderful daily
+</pre>
 </div>
-
 </div>
 
 </div>
@@ -13585,7 +13296,7 @@ World		5 4 7
 <div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="mi">9</span><span class="o">//</span><span class="mi">10</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fortune_teller</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13598,15 +13309,13 @@ World		5 4 7
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[9]:</div>
+    <div class="prompt"></div>
 
 
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>0</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Prediction: Be Careful TodayGod be with you
+</pre>
 </div>
-
 </div>
 
 </div>
@@ -13618,7 +13327,7 @@ World		5 4 7
 <div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="mf">9.0</span><span class="o">//</span><span class="mi">10</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fortune_teller</span><span class="p">(</span><span class="s1">&#39;hi&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13631,15 +13340,75 @@ World		5 4 7
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[10]:</div>
+    <div class="prompt"></div>
 
 
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>0.0</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Error: Your luck is foggy!!!
+</pre>
+</div>
 </div>
 
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fortune_teller</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Error: Your luck is foggy!!!
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fortune_teller</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Error: Your luck is foggy!!!
+</pre>
+</div>
 </div>
 
 </div>
@@ -13649,43 +13418,162 @@ World		5 4 7
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="var-args-rule">var args rule<a class="anchor-link" href="#var-args-rule">&#182;</a></h2><ul>
-<li><p>In Python 2 It is mandatory that <strong>*args</strong> parameter <strong>must be the last parameter</strong></p>
+<h2 id="Problem">Problem<a class="anchor-link" href="#Problem">&#182;</a></h2><ol>
+<li><p><strong>return</strong> used for both <strong>good results</strong> and <strong>error signals</strong></p>
 <ul>
-<li>Making <strong>*args</strong> non-last is a semantic error</li>
+<li>confusing code -&gt; are we returning result or signal</li>
 </ul>
 </li>
-<li><p>In Python 3, It is permitted (although not recommended) to have <strong>*args</strong> as non-last parameter</p>
+<li><p>same <strong>if</strong> handles <strong>result</strong> and <strong>error</strong></p>
+<ul>
+<li>confusing code -&gt; are we returning result or signal</li>
+</ul>
+</li>
+<li><p>no consistenet <strong>error value</strong></p>
+<ul>
+<li>we may use -&gt; False, None, 0, 1 to represent error</li>
+</ul>
+</li>
+<li><p><strong>return</strong> is hand me down</p>
+<ul>
+<li>each intermediate function (between source and handler) must return value and result</li>
+</ul>
+</li>
+<li><p>Often in handling the error we loose the actual error</p>
+<ul>
+<li>we get a signal <strong>None or False</strong> when it fails</li>
+<li>what we lose here is the <strong>cause of failure</strong><ul>
+<li>invalid input</li>
+<li>too large input</li>
+<li>too small input</li>
+<li>No input?</li>
+</ul>
 </li>
 </ul>
-<h2 id="Why-var-arg-should-be-the-last-parameter">Why var arg should be the last parameter<a class="anchor-link" href="#Why-var-arg-should-be-the-last-parameter">&#182;</a></h2><ul>
-<li>say we have a function which takes <strong>*args</strong> as non-last parameter</li>
-</ul>
-<hr>
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">call_me</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;x={}</span><span class="se">\t</span><span class="s1">args={}</span><span class="se">\t</span><span class="s1">y={}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">args</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
-</pre></div>
-<hr>
-<ul>
-<li>How will the function be called?</li>
-</ul>
-<hr>
-<div class="highlight"><pre><span></span><span class="n">call_me</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>  <span class="c1"># x= 1, args=(2,3,4,5), y=???</span>
+</li>
+</ol>
 
-<span class="n">call_me</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span> <span class="c1"># x=1 args(2,3,4,5,6,7,8,9,10) , y=???</span>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Object-Oriented-Exception-Handling">Object Oriented Exception Handling<a class="anchor-link" href="#Object-Oriented-Exception-Handling">&#182;</a></h1><h3 id="1.-Exception">1. Exception<a class="anchor-link" href="#1.-Exception">&#182;</a></h3><ul>
+<li>Exception is a special object<ul>
+<li>we shouldn't use other objects like int, bool or None to mean exception</li>
+<li>create special class representing Exception</li>
+<li><strong>in python</strong> the class should <strong>inherit exception</strong></li>
+</ul>
+</li>
+</ul>
+<hr>
+<div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">BadInputError</span><span class="p">(</span><span class="n">exception</span><span class="p">):</span>
+    <span class="k">pass</span>
 </pre></div>
 <hr>
-<h3 id="How-will-you-pass-any-value-for-y???">How will you pass any value for y???<a class="anchor-link" href="#How-will-you-pass-any-value-for-y???">&#182;</a></h3>
+<h3 id="2.-Don't-Return-Exception-raise-it">2. Don't Return Exception raise it<a class="anchor-link" href="#2.-Don't-Return-Exception-raise-it">&#182;</a></h3><ul>
+<li>we dont <del>return</del> the <strong>exception</strong> we <strong>raise</strong> it<ul>
+<li>a spcial keyword to represent <strong>error</strong> and differentiate it from <strong>normal result</strong></li>
+</ul>
+</li>
+</ul>
+<hr>
+<div class="highlight"><pre><span></span><span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span><span class="nb">int</span><span class="p">):</span>
+    <span class="k">raise</span> <span class="n">BadInputError</span><span class="p">()</span>
+</pre></div>
+<hr>
+<h3 id="3.-Be-Prepared-for-exception">3. Be Prepared for exception<a class="anchor-link" href="#3.-Be-Prepared-for-exception">&#182;</a></h3><ul>
+<li><p>we represent being prepared by writing a <strong>try</strong> suite</p>
+<ul>
+<li>try contains the code that <strong>may</strong> raise exception</li>
+<li><strong>NOTE</strong><ul>
+<li>try will generally not have a <strong>raise</strong> call inside it</li>
+<li>try should call a function that contains <strong>raise</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>we handle exception in a <strong>except</strong> block</p>
+<ul>
+<li>if things go wrong, <strong>except</strong> block will execute</li>
+<li>if <strong>except</strong> block doesn't execute you are lucky</li>
+</ul>
+</li>
+<li><p><strong>Note</strong></p>
+<ul>
+<li><strong>try</strong> is not linked to <strong>raise</strong><ul>
+<li>you dont <strong>raise</strong> in <strong>try</strong></li>
+</ul>
+</li>
+<li><strong>try</strong> is lnked to <strong>except</strong></li>
+<li>you can <strong>raise</strong> anywhere (without <strong>try</strong> or <strong>except</strong>)</li>
+<li><strong>try</strong> must be followed by one or more <strong>except</strong></li>
+<li><strong>except</strong> must be preceded by a <strong>try</strong></li>
+</ul>
+</li>
+</ul>
+<h2 id="Language-Alert!!!">Language Alert!!!<a class="anchor-link" href="#Language-Alert!!!">&#182;</a></h2><ul>
+<li>C++ style langauges use sligntly different keywords here!!!<ul>
+<li><strong>throw</strong> instead of <strong>raise</strong></li>
+<li><strong>catch</strong> instead of <strong>except</strong></li>
+</ul>
+</li>
+</ul>
+<h3 id="Python-Exception-Model">Python Exception Model<a class="anchor-link" href="#Python-Exception-Model">&#182;</a></h3><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">BadInput</span><span class="p">(</span><span class="n">exception</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+<span class="k">def</span> <span class="nf">some_function_that_may_raise</span><span class="p">(</span><span class="n">arg</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span><span class="nb">int</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="n">BadInput</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">arg</span><span class="o">*</span><span class="mi">2</span>
+
+
+
+<span class="k">def</span> <span class="nf">client_function</span><span class="p">():</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">value</span><span class="o">=</span><span class="nb">eval</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;value ?&#39;</span><span class="p">))</span>
+        <span class="n">result</span><span class="o">=</span><span class="n">some_function_that_may_raise</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="c1">#if you reach here ---&gt;all is well</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="c1"># if you reach here something went bad in try</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;something went wrong&#39;</span><span class="p">)</span>
+
+    <span class="c1"># you reach here either way</span>
+</pre></div>
+<hr>
+<h1 id="Python-Model">Python Model<a class="anchor-link" href="#Python-Model">&#182;</a></h1><ul>
+<li>In python we consistently follow the above exception model</li>
+<li>Every Python error including built in are exception</li>
+<li>Even semantic errors are exception</li>
+<li>All errors (system or user defined) is handled in the same way</li>
+</ul>
+<h2 id="Let-us-see-some-existing-error">Let us see some existing error<a class="anchor-link" href="#Let-us-see-some-existing-error">&#182;</a></h2>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">call_me</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;x={}</span><span class="se">\t</span><span class="s1">args={}</span><span class="se">\t</span><span class="s1">y={}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">args</span><span class="p">,</span><span class="n">y</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">numbers</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">number</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
 </pre></div>
 
     </div>
@@ -13703,77 +13591,12 @@ World		5 4 7
 
 <div class="output_subarea output_text output_error">
 <pre>
-<span class="ansi-cyan-intense-fg ansi-bold">  File </span><span class="ansi-green-intense-fg ansi-bold">&#34;&lt;ipython-input-5-97818585fa05&gt;&#34;</span><span class="ansi-cyan-intense-fg ansi-bold">, line </span><span class="ansi-green-intense-fg ansi-bold">1</span>
-<span class="ansi-yellow-intense-fg ansi-bold">    def call_me(x, *args, y):</span>
-<span class="ansi-white-intense-fg ansi-bold">                          ^</span>
-<span class="ansi-red-intense-fg ansi-bold">SyntaxError</span><span class="ansi-red-intense-fg ansi-bold">:</span> invalid syntax
-</pre>
-</div>
-</div>
+<span class="ansi-red-intense-fg ansi-bold">---------------------------------------------------------------------------</span>
+<span class="ansi-red-intense-fg ansi-bold">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-intense-fg ansi-bold">&lt;ipython-input-14-584286b37999&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-intense-fg ansi-bold">()</span>
+<span class="ansi-green-intense-fg ansi-bold">----&gt; 1</span><span class="ansi-yellow-intense-fg ansi-bold"> </span>number<span class="ansi-yellow-intense-fg ansi-bold">[</span><span class="ansi-cyan-intense-fg ansi-bold">5</span><span class="ansi-yellow-intense-fg ansi-bold">]</span>
 
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="range-and-xrange">range and xrange<a class="anchor-link" href="#range-and-xrange">&#182;</a></h2><ul>
-<li><p>range function behaves differently in python 2 and python 3</p>
-</li>
-<li><p>In <strong>python 2</strong> range creates and returns <strong>list</strong> of values</p>
-<ul>
-<li><p>it is like a <strong>stored sequence</strong></p>
-</li>
-<li><p>inspired by <strong>Python3</strong> ,<strong>python 2</strong> introduced a <strong>new</strong> <strong>xrange()</strong> function which is similar to <strong>python3 range</strong></p>
-</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><p>In Python 2</p>
-<ul>
-<li>range --&gt; returns list</li>
-<li>xrange --&gt;returns computed sequence</li>
-</ul>
-</li>
-<li><p>In python 3</p>
-<ul>
-<li>range --&gt; computed sequence</li>
-<li>xrange --&gt; n/a</li>
-</ul>
-</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">r1</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
-
-<span class="k">print</span> <span class="n">r1</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">r1</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[1, 2, 3, 4, 5, 6, 7, 8, 9] &lt;type &#39;list&#39;&gt;
-</pre>
+<span class="ansi-red-intense-fg ansi-bold">NameError</span>: name &#39;number&#39; is not defined</pre>
 </div>
 </div>
 
@@ -13783,95 +13606,10 @@ World		5 4 7
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">r2</span><span class="o">=</span><span class="nb">xrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
-<span class="k">print</span> <span class="n">r2</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">r2</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>xrange(1, 10) &lt;type &#39;xrange&#39;&gt;
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">r2</span><span class="p">:</span>
-    <span class="k">print</span> <span class="n">value</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Passing-Optional-Parameter">Passing Optional Parameter<a class="anchor-link" href="#Passing-Optional-Parameter">&#182;</a></h2><ul>
-<li>should use <strong>kwargs</strong> instead of default value parameters</li>
-<li>named parameters after <strong>args</strong> is not permitted in python 2</li>
-<li><strong>kwargs</strong> is universally accepted convention in  python</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">call_me</span><span class="p">(</span><span class="o">*</span><span class="n">data</span><span class="p">,</span><span class="n">design</span><span class="o">=</span><span class="s1">&#39;===&#39;</span><span class="p">,</span> <span class="n">align</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;design: {}</span><span class="se">\t</span><span class="s1">align: {}</span><span class="se">\t</span><span class="s1">label: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">design</span><span class="p">,</span><span class="n">align</span><span class="p">,</span><span class="n">label</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">numbers</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
 </pre></div>
 
     </div>
@@ -13889,164 +13627,25 @@ World		5 4 7
 
 <div class="output_subarea output_text output_error">
 <pre>
-<span class="ansi-cyan-intense-fg ansi-bold">  File </span><span class="ansi-green-intense-fg ansi-bold">&#34;&lt;ipython-input-1-a3c8060d99d0&gt;&#34;</span><span class="ansi-cyan-intense-fg ansi-bold">, line </span><span class="ansi-green-intense-fg ansi-bold">1</span>
-<span class="ansi-yellow-intense-fg ansi-bold">    def call_me(*data,design=&#39;===&#39;, align=False, label=True):</span>
-<span class="ansi-white-intense-fg ansi-bold">                           ^</span>
-<span class="ansi-red-intense-fg ansi-bold">SyntaxError</span><span class="ansi-red-intense-fg ansi-bold">:</span> invalid syntax
-</pre>
+<span class="ansi-red-intense-fg ansi-bold">---------------------------------------------------------------------------</span>
+<span class="ansi-red-intense-fg ansi-bold">IndexError</span>                                Traceback (most recent call last)
+<span class="ansi-green-intense-fg ansi-bold">&lt;ipython-input-15-8608fc38bf23&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-intense-fg ansi-bold">()</span>
+<span class="ansi-green-intense-fg ansi-bold">----&gt; 1</span><span class="ansi-yellow-intense-fg ansi-bold"> </span>numbers<span class="ansi-yellow-intense-fg ansi-bold">[</span><span class="ansi-cyan-intense-fg ansi-bold">5</span><span class="ansi-yellow-intense-fg ansi-bold">]</span>
+
+<span class="ansi-red-intense-fg ansi-bold">IndexError</span>: tuple index out of range</pre>
 </div>
 </div>
 
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">call_me</span><span class="p">(</span><span class="o">*</span><span class="n">data</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-    <span class="n">design</span><span class="o">=</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;design&#39;</span><span class="p">,</span><span class="s1">&#39;---&#39;</span><span class="p">)</span>
-    <span class="n">align</span><span class="o">=</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;align&#39;</span><span class="p">,</span><span class="bp">False</span><span class="p">)</span>
-    <span class="n">label</span><span class="o">=</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;label&#39;</span><span class="p">,</span><span class="bp">True</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;design: {}</span><span class="se">\t</span><span class="s1">align: {}</span><span class="se">\t</span><span class="s1">label: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">design</span><span class="p">,</span><span class="n">align</span><span class="p">,</span><span class="n">label</span><span class="p">))</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">call_me</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span> <span class="n">design</span><span class="o">=</span><span class="s1">&#39;xxx&#39;</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>design: xxx	align: False	label: True
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">call_me</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>design: ---	align: False	label: False
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Python-2-Learns-from-Python-3">Python 2 Learns from Python 3<a class="anchor-link" href="#Python-2-Learns-from-Python-3">&#182;</a></h1><ul>
-<li>both python2 and python3 is in development for over a decade now</li>
-<li><p>during this period many features of python3 has slowly found it way back to python 2</p>
-<ul>
-<li>example <strong>xrange</strong> is a port of <strong>range</strong> from python 3 to python2</li>
-</ul>
-</li>
-<li><p>if you plan to (and you should) to migrate you python2 code to python 3 some day, you may want to incoroprate those features even in your current python2 code base</p>
-<ul>
-<li>Example<ul>
-<li>it would be great to use new <strong>print</strong> feature in python 2</li>
-<li>for consistenency division should world as python 3 division</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>Python 2.5 onward it is made possible by using a special module</p>
-</li>
-</ul>
-<h3 id="future-module"><strong>future</strong> module<a class="anchor-link" href="#future-module">&#182;</a></h3><ul>
-<li>available only in <strong>Python2</strong></li>
-<li>contains elements to convert some python 2 features to python</li>
-</ul>
-
-</div>
-</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>(1, 2, 3, 4)
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;--&gt;&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">numbers</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">=</span><span class="mi">9</span>
 </pre></div>
 
     </div>
@@ -14064,11 +13663,48 @@ World		5 4 7
 
 <div class="output_subarea output_text output_error">
 <pre>
-<span class="ansi-cyan-intense-fg ansi-bold">  File </span><span class="ansi-green-intense-fg ansi-bold">&#34;&lt;ipython-input-17-90286e8c289d&gt;&#34;</span><span class="ansi-cyan-intense-fg ansi-bold">, line </span><span class="ansi-green-intense-fg ansi-bold">1</span>
-<span class="ansi-yellow-intense-fg ansi-bold">    print(1,2,3,4,sep=&#39;--&gt;&#39;)</span>
-<span class="ansi-white-intense-fg ansi-bold">                     ^</span>
-<span class="ansi-red-intense-fg ansi-bold">SyntaxError</span><span class="ansi-red-intense-fg ansi-bold">:</span> invalid syntax
-</pre>
+<span class="ansi-red-intense-fg ansi-bold">---------------------------------------------------------------------------</span>
+<span class="ansi-red-intense-fg ansi-bold">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-intense-fg ansi-bold">&lt;ipython-input-16-9234a51b9b70&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-intense-fg ansi-bold">()</span>
+<span class="ansi-green-intense-fg ansi-bold">----&gt; 1</span><span class="ansi-yellow-intense-fg ansi-bold"> </span>numbers<span class="ansi-yellow-intense-fg ansi-bold">[</span><span class="ansi-cyan-intense-fg ansi-bold">2</span><span class="ansi-yellow-intense-fg ansi-bold">]</span><span class="ansi-yellow-intense-fg ansi-bold">=</span><span class="ansi-cyan-intense-fg ansi-bold">9</span>
+
+<span class="ansi-red-intense-fg ansi-bold">TypeError</span>: &#39;tuple&#39; object does not support item assignment</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">numbers</span><span class="o">+</span><span class="mi">2</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-intense-fg ansi-bold">---------------------------------------------------------------------------</span>
+<span class="ansi-red-intense-fg ansi-bold">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-intense-fg ansi-bold">&lt;ipython-input-18-bd4d46ef0ba8&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-intense-fg ansi-bold">()</span>
+<span class="ansi-green-intense-fg ansi-bold">----&gt; 1</span><span class="ansi-yellow-intense-fg ansi-bold"> </span>numbers<span class="ansi-yellow-intense-fg ansi-bold">+</span><span class="ansi-cyan-intense-fg ansi-bold">2</span>
+
+<span class="ansi-red-intense-fg ansi-bold">TypeError</span>: can only concatenate tuple (not &#34;int&#34;) to tuple</pre>
 </div>
 </div>
 
@@ -14081,82 +13717,7 @@ World		5 4 7
 <div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>1 2 3 4
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;--&gt;&#39;</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>1--&gt;2--&gt;3--&gt;4
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[22]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="s1">&#39;hello world&#39;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">numbers</span><span class="o">.</span><span class="n">multiply</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -14174,10 +13735,118 @@ World		5 4 7
 
 <div class="output_subarea output_text output_error">
 <pre>
-<span class="ansi-cyan-intense-fg ansi-bold">  File </span><span class="ansi-green-intense-fg ansi-bold">&#34;&lt;ipython-input-22-cdc75808e29f&gt;&#34;</span><span class="ansi-cyan-intense-fg ansi-bold">, line </span><span class="ansi-green-intense-fg ansi-bold">1</span>
-<span class="ansi-yellow-intense-fg ansi-bold">    print &#39;hello world&#39;</span>
-<span class="ansi-white-intense-fg ansi-bold">                      ^</span>
-<span class="ansi-red-intense-fg ansi-bold">SyntaxError</span><span class="ansi-red-intense-fg ansi-bold">:</span> invalid syntax
+<span class="ansi-red-intense-fg ansi-bold">---------------------------------------------------------------------------</span>
+<span class="ansi-red-intense-fg ansi-bold">AttributeError</span>                            Traceback (most recent call last)
+<span class="ansi-green-intense-fg ansi-bold">&lt;ipython-input-19-924a866f1946&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-intense-fg ansi-bold">()</span>
+<span class="ansi-green-intense-fg ansi-bold">----&gt; 1</span><span class="ansi-yellow-intense-fg ansi-bold"> </span>numbers<span class="ansi-yellow-intense-fg ansi-bold">.</span>multiply<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>
+
+<span class="ansi-red-intense-fg ansi-bold">AttributeError</span>: &#39;tuple&#39; object has no attribute &#39;multiply&#39;</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Let-us-rewrite-fortune-app">Let us rewrite fortune app<a class="anchor-link" href="#Let-us-rewrite-fortune-app">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">get_fortune</span><span class="p">(</span><span class="n">luckyNumber</span><span class="p">):</span>
+    <span class="n">message</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;Great Day&#39;</span><span class="p">,</span><span class="s1">&#39;Success Awaits You&#39;</span><span class="p">,</span><span class="s1">&#39;Be Careful Today&#39;</span>\
+             <span class="s1">&#39;God be with you&#39;</span><span class="p">,</span><span class="s1">&#39;Wonderful daily&#39;</span>\
+            <span class="p">]</span>
+
+    <span class="k">if</span> <span class="n">luckyNumber</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+        <span class="n">call_function_that_doesnt_exist</span><span class="p">()</span>
+        
+    <span class="k">return</span> <span class="n">message</span><span class="p">[</span><span class="n">luckyNumber</span><span class="p">]</span> <span class="c1"># happy path</span>
+    
+    
+<span class="k">def</span> <span class="nf">find_fortune</span><span class="p">(</span><span class="n">luckyNumber</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">get_fortune</span><span class="p">(</span><span class="n">luckyNumber</span><span class="p">)</span>
+    
+
+<span class="k">def</span> <span class="nf">fortune_teller</span><span class="p">(</span><span class="n">luckyNumber</span><span class="p">):</span>
+    <span class="n">message</span><span class="o">=</span><span class="n">find_fortune</span><span class="p">(</span><span class="n">luckyNumber</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Prediction:&#39;</span><span class="p">,</span><span class="n">message</span><span class="p">)</span>
+    
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Happy-Path">Happy Path<a class="anchor-link" href="#Happy-Path">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fortune_teller</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Prediction: Success Awaits You
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fortune_teller</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Prediction: Be Careful TodayGod be with you
 </pre>
 </div>
 </div>
@@ -14189,16 +13858,16 @@ World		5 4 7
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="division">division<a class="anchor-link" href="#division">&#182;</a></h3>
+<h3 id="When-Things-Go-Wrong">When Things Go Wrong<a class="anchor-link" href="#When-Things-Go-Wrong">&#182;</a></h3>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="mi">7</span><span class="o">/</span><span class="mi">2</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fortune_teller</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -14211,61 +13880,39 @@ World		5 4 7
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[23]:</div>
+    <div class="prompt"></div>
 
 
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-intense-fg ansi-bold">---------------------------------------------------------------------------</span>
+<span class="ansi-red-intense-fg ansi-bold">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-intense-fg ansi-bold">&lt;ipython-input-28-2050ee97a32e&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-intense-fg ansi-bold">()</span>
+<span class="ansi-green-intense-fg ansi-bold">----&gt; 1</span><span class="ansi-yellow-intense-fg ansi-bold"> </span>fortune_teller<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-cyan-intense-fg ansi-bold">0</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>
 
+<span class="ansi-green-intense-fg ansi-bold">&lt;ipython-input-25-2a1cfe125ded&gt;</span> in <span class="ansi-cyan-fg">fortune_teller</span><span class="ansi-blue-intense-fg ansi-bold">(luckyNumber)</span>
+<span class="ansi-green-fg">     13</span> 
+<span class="ansi-green-fg">     14</span> <span class="ansi-green-intense-fg ansi-bold">def</span> fortune_teller<span class="ansi-yellow-intense-fg ansi-bold">(</span>luckyNumber<span class="ansi-yellow-intense-fg ansi-bold">)</span><span class="ansi-yellow-intense-fg ansi-bold">:</span>
+<span class="ansi-green-intense-fg ansi-bold">---&gt; 15</span><span class="ansi-yellow-intense-fg ansi-bold">     </span>message<span class="ansi-yellow-intense-fg ansi-bold">=</span>find_fortune<span class="ansi-yellow-intense-fg ansi-bold">(</span>luckyNumber<span class="ansi-yellow-intense-fg ansi-bold">)</span>
+<span class="ansi-green-fg">     16</span>     print<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-blue-intense-fg ansi-bold">&#39;Prediction:&#39;</span><span class="ansi-yellow-intense-fg ansi-bold">,</span>message<span class="ansi-yellow-intense-fg ansi-bold">)</span>
+<span class="ansi-green-fg">     17</span> 
 
-<div class="output_text output_subarea output_execute_result">
-<pre>3</pre>
+<span class="ansi-green-intense-fg ansi-bold">&lt;ipython-input-25-2a1cfe125ded&gt;</span> in <span class="ansi-cyan-fg">find_fortune</span><span class="ansi-blue-intense-fg ansi-bold">(luckyNumber)</span>
+<span class="ansi-green-fg">      9</span> 
+<span class="ansi-green-fg">     10</span> <span class="ansi-green-intense-fg ansi-bold">def</span> find_fortune<span class="ansi-yellow-intense-fg ansi-bold">(</span>luckyNumber<span class="ansi-yellow-intense-fg ansi-bold">)</span><span class="ansi-yellow-intense-fg ansi-bold">:</span>
+<span class="ansi-green-intense-fg ansi-bold">---&gt; 11</span><span class="ansi-yellow-intense-fg ansi-bold">     </span><span class="ansi-green-intense-fg ansi-bold">return</span> get_fortune<span class="ansi-yellow-intense-fg ansi-bold">(</span>luckyNumber<span class="ansi-yellow-intense-fg ansi-bold">)</span>
+<span class="ansi-green-fg">     12</span> 
+<span class="ansi-green-fg">     13</span> 
+
+<span class="ansi-green-intense-fg ansi-bold">&lt;ipython-input-25-2a1cfe125ded&gt;</span> in <span class="ansi-cyan-fg">get_fortune</span><span class="ansi-blue-intense-fg ansi-bold">(luckyNumber)</span>
+<span class="ansi-green-fg">      3</span> 
+<span class="ansi-green-fg">      4</span>     <span class="ansi-green-intense-fg ansi-bold">if</span> luckyNumber<span class="ansi-yellow-intense-fg ansi-bold">==</span><span class="ansi-cyan-intense-fg ansi-bold">0</span><span class="ansi-yellow-intense-fg ansi-bold">:</span>
+<span class="ansi-green-intense-fg ansi-bold">----&gt; 5</span><span class="ansi-yellow-intense-fg ansi-bold">         </span>call_function_that_doesnt_exist<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>
+<span class="ansi-green-fg">      6</span> 
+<span class="ansi-green-fg">      7</span>     <span class="ansi-green-intense-fg ansi-bold">return</span> message<span class="ansi-yellow-intense-fg ansi-bold">[</span>luckyNumber<span class="ansi-yellow-intense-fg ansi-bold">]</span> <span class="ansi-red-intense-fg ansi-bold"># happy path</span>
+
+<span class="ansi-red-intense-fg ansi-bold">NameError</span>: name &#39;call_function_that_doesnt_exist&#39; is not defined</pre>
 </div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[24]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[25]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="mi">7</span><span class="o">/</span><span class="mi">2</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[25]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>3.5</pre>
-</div>
-
 </div>
 
 </div>
@@ -14274,11 +13921,10 @@ World		5 4 7
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="prompt input_prompt">In&nbsp;[30]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">import</span> <span class="nn">__future__</span>
-<span class="nb">dir</span><span class="p">(</span><span class="n">__future__</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fortune_teller</span><span class="p">(</span><span class="mi">29</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -14291,36 +13937,96 @@ World		5 4 7
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[26]:</div>
+    <div class="prompt"></div>
 
 
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-intense-fg ansi-bold">---------------------------------------------------------------------------</span>
+<span class="ansi-red-intense-fg ansi-bold">IndexError</span>                                Traceback (most recent call last)
+<span class="ansi-green-intense-fg ansi-bold">&lt;ipython-input-30-cb3147a38302&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-intense-fg ansi-bold">()</span>
+<span class="ansi-green-intense-fg ansi-bold">----&gt; 1</span><span class="ansi-yellow-intense-fg ansi-bold"> </span>fortune_teller<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-cyan-intense-fg ansi-bold">29</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>
 
+<span class="ansi-green-intense-fg ansi-bold">&lt;ipython-input-25-2a1cfe125ded&gt;</span> in <span class="ansi-cyan-fg">fortune_teller</span><span class="ansi-blue-intense-fg ansi-bold">(luckyNumber)</span>
+<span class="ansi-green-fg">     13</span> 
+<span class="ansi-green-fg">     14</span> <span class="ansi-green-intense-fg ansi-bold">def</span> fortune_teller<span class="ansi-yellow-intense-fg ansi-bold">(</span>luckyNumber<span class="ansi-yellow-intense-fg ansi-bold">)</span><span class="ansi-yellow-intense-fg ansi-bold">:</span>
+<span class="ansi-green-intense-fg ansi-bold">---&gt; 15</span><span class="ansi-yellow-intense-fg ansi-bold">     </span>message<span class="ansi-yellow-intense-fg ansi-bold">=</span>find_fortune<span class="ansi-yellow-intense-fg ansi-bold">(</span>luckyNumber<span class="ansi-yellow-intense-fg ansi-bold">)</span>
+<span class="ansi-green-fg">     16</span>     print<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-blue-intense-fg ansi-bold">&#39;Prediction:&#39;</span><span class="ansi-yellow-intense-fg ansi-bold">,</span>message<span class="ansi-yellow-intense-fg ansi-bold">)</span>
+<span class="ansi-green-fg">     17</span> 
 
-<div class="output_text output_subarea output_execute_result">
-<pre>[&#39;CO_FUTURE_ABSOLUTE_IMPORT&#39;,
- &#39;CO_FUTURE_DIVISION&#39;,
- &#39;CO_FUTURE_PRINT_FUNCTION&#39;,
- &#39;CO_FUTURE_UNICODE_LITERALS&#39;,
- &#39;CO_FUTURE_WITH_STATEMENT&#39;,
- &#39;CO_GENERATOR_ALLOWED&#39;,
- &#39;CO_NESTED&#39;,
- &#39;_Feature&#39;,
- &#39;__all__&#39;,
- &#39;__builtins__&#39;,
- &#39;__doc__&#39;,
- &#39;__file__&#39;,
- &#39;__name__&#39;,
- &#39;__package__&#39;,
- &#39;absolute_import&#39;,
- &#39;all_feature_names&#39;,
- &#39;division&#39;,
- &#39;generators&#39;,
- &#39;nested_scopes&#39;,
- &#39;print_function&#39;,
- &#39;unicode_literals&#39;,
- &#39;with_statement&#39;]</pre>
+<span class="ansi-green-intense-fg ansi-bold">&lt;ipython-input-25-2a1cfe125ded&gt;</span> in <span class="ansi-cyan-fg">find_fortune</span><span class="ansi-blue-intense-fg ansi-bold">(luckyNumber)</span>
+<span class="ansi-green-fg">      9</span> 
+<span class="ansi-green-fg">     10</span> <span class="ansi-green-intense-fg ansi-bold">def</span> find_fortune<span class="ansi-yellow-intense-fg ansi-bold">(</span>luckyNumber<span class="ansi-yellow-intense-fg ansi-bold">)</span><span class="ansi-yellow-intense-fg ansi-bold">:</span>
+<span class="ansi-green-intense-fg ansi-bold">---&gt; 11</span><span class="ansi-yellow-intense-fg ansi-bold">     </span><span class="ansi-green-intense-fg ansi-bold">return</span> get_fortune<span class="ansi-yellow-intense-fg ansi-bold">(</span>luckyNumber<span class="ansi-yellow-intense-fg ansi-bold">)</span>
+<span class="ansi-green-fg">     12</span> 
+<span class="ansi-green-fg">     13</span> 
+
+<span class="ansi-green-intense-fg ansi-bold">&lt;ipython-input-25-2a1cfe125ded&gt;</span> in <span class="ansi-cyan-fg">get_fortune</span><span class="ansi-blue-intense-fg ansi-bold">(luckyNumber)</span>
+<span class="ansi-green-fg">      5</span>         call_function_that_doesnt_exist<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>
+<span class="ansi-green-fg">      6</span> 
+<span class="ansi-green-intense-fg ansi-bold">----&gt; 7</span><span class="ansi-yellow-intense-fg ansi-bold">     </span><span class="ansi-green-intense-fg ansi-bold">return</span> message<span class="ansi-yellow-intense-fg ansi-bold">[</span>luckyNumber<span class="ansi-yellow-intense-fg ansi-bold">]</span> <span class="ansi-red-intense-fg ansi-bold"># happy path</span>
+<span class="ansi-green-fg">      8</span> 
+<span class="ansi-green-fg">      9</span> 
+
+<span class="ansi-red-intense-fg ansi-bold">IndexError</span>: list index out of range</pre>
+</div>
 </div>
 
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fortune_teller</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-intense-fg ansi-bold">---------------------------------------------------------------------------</span>
+<span class="ansi-red-intense-fg ansi-bold">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-intense-fg ansi-bold">&lt;ipython-input-31-914fdee681df&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-intense-fg ansi-bold">()</span>
+<span class="ansi-green-intense-fg ansi-bold">----&gt; 1</span><span class="ansi-yellow-intense-fg ansi-bold"> </span>fortune_teller<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-blue-intense-fg ansi-bold">&#39;Hello&#39;</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>
+
+<span class="ansi-green-intense-fg ansi-bold">&lt;ipython-input-25-2a1cfe125ded&gt;</span> in <span class="ansi-cyan-fg">fortune_teller</span><span class="ansi-blue-intense-fg ansi-bold">(luckyNumber)</span>
+<span class="ansi-green-fg">     13</span> 
+<span class="ansi-green-fg">     14</span> <span class="ansi-green-intense-fg ansi-bold">def</span> fortune_teller<span class="ansi-yellow-intense-fg ansi-bold">(</span>luckyNumber<span class="ansi-yellow-intense-fg ansi-bold">)</span><span class="ansi-yellow-intense-fg ansi-bold">:</span>
+<span class="ansi-green-intense-fg ansi-bold">---&gt; 15</span><span class="ansi-yellow-intense-fg ansi-bold">     </span>message<span class="ansi-yellow-intense-fg ansi-bold">=</span>find_fortune<span class="ansi-yellow-intense-fg ansi-bold">(</span>luckyNumber<span class="ansi-yellow-intense-fg ansi-bold">)</span>
+<span class="ansi-green-fg">     16</span>     print<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-blue-intense-fg ansi-bold">&#39;Prediction:&#39;</span><span class="ansi-yellow-intense-fg ansi-bold">,</span>message<span class="ansi-yellow-intense-fg ansi-bold">)</span>
+<span class="ansi-green-fg">     17</span> 
+
+<span class="ansi-green-intense-fg ansi-bold">&lt;ipython-input-25-2a1cfe125ded&gt;</span> in <span class="ansi-cyan-fg">find_fortune</span><span class="ansi-blue-intense-fg ansi-bold">(luckyNumber)</span>
+<span class="ansi-green-fg">      9</span> 
+<span class="ansi-green-fg">     10</span> <span class="ansi-green-intense-fg ansi-bold">def</span> find_fortune<span class="ansi-yellow-intense-fg ansi-bold">(</span>luckyNumber<span class="ansi-yellow-intense-fg ansi-bold">)</span><span class="ansi-yellow-intense-fg ansi-bold">:</span>
+<span class="ansi-green-intense-fg ansi-bold">---&gt; 11</span><span class="ansi-yellow-intense-fg ansi-bold">     </span><span class="ansi-green-intense-fg ansi-bold">return</span> get_fortune<span class="ansi-yellow-intense-fg ansi-bold">(</span>luckyNumber<span class="ansi-yellow-intense-fg ansi-bold">)</span>
+<span class="ansi-green-fg">     12</span> 
+<span class="ansi-green-fg">     13</span> 
+
+<span class="ansi-green-intense-fg ansi-bold">&lt;ipython-input-25-2a1cfe125ded&gt;</span> in <span class="ansi-cyan-fg">get_fortune</span><span class="ansi-blue-intense-fg ansi-bold">(luckyNumber)</span>
+<span class="ansi-green-fg">      5</span>         call_function_that_doesnt_exist<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>
+<span class="ansi-green-fg">      6</span> 
+<span class="ansi-green-intense-fg ansi-bold">----&gt; 7</span><span class="ansi-yellow-intense-fg ansi-bold">     </span><span class="ansi-green-intense-fg ansi-bold">return</span> message<span class="ansi-yellow-intense-fg ansi-bold">[</span>luckyNumber<span class="ansi-yellow-intense-fg ansi-bold">]</span> <span class="ansi-red-intense-fg ansi-bold"># happy path</span>
+<span class="ansi-green-fg">      8</span> 
+<span class="ansi-green-fg">      9</span> 
+
+<span class="ansi-red-intense-fg ansi-bold">TypeError</span>: list indices must be integers or slices, not str</pre>
+</div>
 </div>
 
 </div>
@@ -14330,12 +14036,179 @@ World		5 4 7
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Class-Level-Methods">Class Level Methods<a class="anchor-link" href="#Class-Level-Methods">&#182;</a></h2><ul>
-<li>In <strong>Python2</strong> all methods inside a class is expected to<ul>
-<li>have self parameter</li>
-<li>called using object reference</li>
-</ul>
-</li>
+<h2 id="How-to-Handle-The-Error">How to Handle The Error<a class="anchor-link" href="#How-to-Handle-The-Error">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[33]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">get_fortune</span><span class="p">(</span><span class="n">luckyNumber</span><span class="p">):</span>
+    <span class="n">message</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;Great Day&#39;</span><span class="p">,</span><span class="s1">&#39;Success Awaits You&#39;</span><span class="p">,</span><span class="s1">&#39;Be Careful Today&#39;</span>\
+             <span class="s1">&#39;God be with you&#39;</span><span class="p">,</span><span class="s1">&#39;Wonderful daily&#39;</span>\
+            <span class="p">]</span>
+
+    <span class="k">if</span> <span class="n">luckyNumber</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+        <span class="n">call_function_that_doesnt_exist</span><span class="p">()</span>
+        
+    <span class="k">return</span> <span class="n">message</span><span class="p">[</span><span class="n">luckyNumber</span><span class="p">]</span> <span class="c1"># happy path</span>
+    
+    
+<span class="k">def</span> <span class="nf">find_fortune</span><span class="p">(</span><span class="n">luckyNumber</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">get_fortune</span><span class="p">(</span><span class="n">luckyNumber</span><span class="p">)</span>
+    
+
+<span class="k">def</span> <span class="nf">fortune_teller</span><span class="p">(</span><span class="n">luckyNumber</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">message</span><span class="o">=</span><span class="n">find_fortune</span><span class="p">(</span><span class="n">luckyNumber</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Prediction:&#39;</span><span class="p">,</span><span class="n">message</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Error&#39;</span><span class="p">,</span><span class="s1">&#39;Something Prevents me from seeing your fortune&#39;</span><span class="p">)</span>
+        
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;end of fortune teller!!!&#39;</span><span class="p">)</span>
+    
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fortune_teller</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Prediction: Success Awaits You
+end of fortune teller!!!
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[35]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fortune_teller</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Error Something Prevents me from seeing your fortune
+end of fortune teller!!!
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[36]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fortune_teller</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Error Something Prevents me from seeing your fortune
+end of fortune teller!!!
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[37]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fortune_teller</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Error Something Prevents me from seeing your fortune
+end of fortune teller!!!
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="But-Haven't-we-lost-the-real-cause-again?">But Haven't we lost the real cause again?<a class="anchor-link" href="#But-Haven't-we-lost-the-real-cause-again?">&#182;</a></h2><ul>
+<li>we may choose to have a dedicate except for each exception/error type</li>
 </ul>
 
 </div>
@@ -14346,16 +14219,34 @@ World		5 4 7
 <div class="prompt input_prompt">In&nbsp;[38]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">class</span> <span class="nc">Triangle</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span><span class="n">s2</span><span class="p">,</span><span class="n">s3</span><span class="p">):</span>
-        <span class="n">t</span><span class="o">=</span><span class="n">Triangle</span><span class="p">()</span>
-        <span class="n">t</span><span class="o">.</span><span class="n">s1</span><span class="o">=</span><span class="n">s1</span>
-        <span class="n">t</span><span class="o">.</span><span class="n">s2</span><span class="o">=</span><span class="n">s2</span>
-        <span class="n">t</span><span class="o">.</span><span class="n">s3</span><span class="o">=</span><span class="n">s3</span>
-        <span class="k">return</span> <span class="n">t</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">get_fortune</span><span class="p">(</span><span class="n">luckyNumber</span><span class="p">):</span>
+    <span class="n">message</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;Great Day&#39;</span><span class="p">,</span><span class="s1">&#39;Success Awaits You&#39;</span><span class="p">,</span><span class="s1">&#39;Be Careful Today&#39;</span>\
+             <span class="s1">&#39;God be with you&#39;</span><span class="p">,</span><span class="s1">&#39;Wonderful daily&#39;</span>\
+            <span class="p">]</span>
+
+    <span class="k">if</span> <span class="n">luckyNumber</span><span class="o">&lt;=</span><span class="mi">0</span><span class="p">:</span>
+        <span class="n">dont_be_negative</span><span class="p">()</span>
         
-    <span class="k">def</span> <span class="nf">show</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;I am a Triangle&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">message</span><span class="p">[</span><span class="n">luckyNumber</span><span class="p">]</span> <span class="c1"># happy path</span>
+    
+    
+<span class="k">def</span> <span class="nf">find_fortune</span><span class="p">(</span><span class="n">luckyNumber</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">get_fortune</span><span class="p">(</span><span class="n">luckyNumber</span><span class="p">)</span>
+    
+
+<span class="k">def</span> <span class="nf">fortune_teller</span><span class="p">(</span><span class="n">luckyNumber</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">message</span><span class="o">=</span><span class="n">find_fortune</span><span class="p">(</span><span class="n">luckyNumber</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Prediction:&#39;</span><span class="p">,</span><span class="n">message</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">NameError</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Error&#39;</span><span class="p">,</span><span class="s1">&#39;Dont be a pessimist. Be Positive!!!&#39;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Error&#39;</span><span class="p">,</span> <span class="s1">&#39;Dont fly too high. Luck should be between 1 and 5&#39;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Error&#39;</span><span class="p">,</span> <span class="s1">&#39;Suprise !!! Surprise Lukcy Number should be a Number&#39;</span><span class="p">)</span>
+        
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;end of fortune teller!!!&#39;</span><span class="p">)</span>
+    
 </pre></div>
 
     </div>
@@ -14368,7 +14259,7 @@ World		5 4 7
 <div class="prompt input_prompt">In&nbsp;[39]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">t</span><span class="o">=</span><span class="n">Triangle</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fortune_teller</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -14384,14 +14275,10 @@ World		5 4 7
     <div class="prompt"></div>
 
 
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-intense-fg ansi-bold">---------------------------------------------------------------------------</span>
-<span class="ansi-red-intense-fg ansi-bold">TypeError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-intense-fg ansi-bold">&lt;ipython-input-39-508b158e2a67&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-intense-fg ansi-bold">()</span>
-<span class="ansi-green-intense-fg ansi-bold">----&gt; 1</span><span class="ansi-yellow-intense-fg ansi-bold"> </span>t<span class="ansi-yellow-intense-fg ansi-bold">=</span>Triangle<span class="ansi-yellow-intense-fg ansi-bold">.</span>create<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-cyan-intense-fg ansi-bold">3</span><span class="ansi-yellow-intense-fg ansi-bold">,</span><span class="ansi-cyan-intense-fg ansi-bold">4</span><span class="ansi-yellow-intense-fg ansi-bold">,</span><span class="ansi-cyan-intense-fg ansi-bold">5</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>
-
-<span class="ansi-red-intense-fg ansi-bold">TypeError</span>: unbound method create() must be called with Triangle instance as first argument (got int instance instead)</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Prediction: Be Careful TodayGod be with you
+end of fortune teller!!!
+</pre>
 </div>
 </div>
 
@@ -14404,8 +14291,7 @@ World		5 4 7
 <div class="prompt input_prompt">In&nbsp;[40]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">t</span><span class="o">=</span><span class="n">Triangle</span><span class="p">()</span>
-<span class="n">t</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fortune_teller</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -14422,7 +14308,8 @@ World		5 4 7
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>I am a Triangle
+<pre>Error Dont be a pessimist. Be Positive!!!
+end of fortune teller!!!
 </pre>
 </div>
 </div>
@@ -14431,36 +14318,34 @@ World		5 4 7
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="To-invoke-a-method-using-class-name">To invoke a method using class name<a class="anchor-link" href="#To-invoke-a-method-using-class-name">&#182;</a></h3><ul>
-<li>the method must be marked <strong>@staticmethod</strong></li>
-<li>while this is available in <strong>Python3</strong> its optional</li>
-</ul>
-
-</div>
-</div>
-</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[41]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">class</span> <span class="nc">Triangle</span><span class="p">:</span>
-    <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span><span class="n">s2</span><span class="p">,</span><span class="n">s3</span><span class="p">):</span>
-        <span class="n">t</span><span class="o">=</span><span class="n">Triangle</span><span class="p">()</span>
-        <span class="n">t</span><span class="o">.</span><span class="n">s1</span><span class="o">=</span><span class="n">s1</span>
-        <span class="n">t</span><span class="o">.</span><span class="n">s2</span><span class="o">=</span><span class="n">s2</span>
-        <span class="n">t</span><span class="o">.</span><span class="n">s3</span><span class="o">=</span><span class="n">s3</span>
-        <span class="k">return</span> <span class="n">t</span>
-        
-    <span class="k">def</span> <span class="nf">show</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Triangle&lt;{},{},{}&gt;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">s1</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">s2</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">s3</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fortune_teller</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Error Dont fly too high. Luck should be between 1 and 5
+end of fortune teller!!!
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -14470,8 +14355,7 @@ World		5 4 7
 <div class="prompt input_prompt">In&nbsp;[42]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">t</span><span class="o">=</span><span class="n">Triangle</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
-<span class="n">t</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fortune_teller</span><span class="p">(</span><span class="s1">&#39;hi&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -14488,7 +14372,8 @@ World		5 4 7
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Triangle&lt;3,4,5&gt;
+<pre>Error Suprise !!! Surprise Lukcy Number should be a Number
+end of fortune teller!!!
 </pre>
 </div>
 </div>
@@ -14500,22 +14385,27 @@ World		5 4 7
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Inheritance">Inheritance<a class="anchor-link" href="#Inheritance">&#182;</a></h1><ul>
-<li><strong>Python2</strong> Inheritance is different from <strong>Python3</strong> at a few points</li>
-</ul>
-
+<h2 id="can-i-get-details-of-exception">can i get details of exception<a class="anchor-link" href="#can-i-get-details-of-exception">&#182;</a></h2>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[45]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">class</span> <span class="nc">Employee</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">empId</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">empId</span><span class="o">=</span><span class="n">empId</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">fortune_teller</span><span class="p">(</span><span class="n">luckyNumber</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">message</span><span class="o">=</span><span class="n">find_fortune</span><span class="p">(</span><span class="n">luckyNumber</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Prediction:&#39;</span><span class="p">,</span><span class="n">message</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">NameError</span> <span class="k">as</span> <span class="n">ne</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Error&#39;</span><span class="p">,</span> <span class="n">ne</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">IndexError</span> <span class="k">as</span> <span class="n">ie</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Error&#39;</span><span class="p">,</span> <span class="s1">&#39;Dont fly too high. Luck should be between 1 and 5&#39;</span><span class="p">,</span> <span class="n">ie</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Error&#39;</span><span class="p">,</span> <span class="s1">&#39;Suprise !!! Surprise Lukcy Number should be a Number&#39;</span><span class="p">)</span>
         
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;end of fortune teller!!!&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -14523,22 +14413,116 @@ World		5 4 7
 </div>
 
 </div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[46]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fortune_teller</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Error name &#39;dont_be_negative&#39; is not defined
+end of fortune teller!!!
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[47]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fortune_teller</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Error Dont fly too high. Luck should be between 1 and 5 list index out of range
+end of fortune teller!!!
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="call-to-__init__-with-base-class-name-works!!!">call to __init__ with base class name works!!!<a class="anchor-link" href="#call-to-__init__-with-base-class-name-works!!!">&#182;</a></h2>
+<h2 id="How-to-define-User-Defined-Error">How to define User Defined Error<a class="anchor-link" href="#How-to-define-User-Defined-Error">&#182;</a></h2><ul>
+<li>Let us define User Defined Exception<ul>
+<li>LuckPredictionError</li>
+</ul>
+</li>
+<li>Let us also define Specialized (subclass) of LuckPredictionError<ul>
+<li>NegativeLuckError</li>
+<li>BadLuckError</li>
+</ul>
+</li>
+</ul>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[92]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">class</span> <span class="nc">Manager</span><span class="p">(</span><span class="n">Employee</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">empId</span><span class="p">,</span><span class="n">project</span><span class="p">):</span>
-        <span class="n">Employee</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">empId</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">project</span><span class="o">=</span><span class="n">project</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">LuckPredictionError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">message</span><span class="o">=</span><span class="s1">&#39;Luck Prdiction Error&#39;</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_value</span><span class="o">=</span><span class="n">value</span>
+        <span class="c1">#print(&#39;value received is &#39;,value)</span>
+        
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">value</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_value</span>
+        
+        
+<span class="k">class</span> <span class="nc">NegativeLuckError</span><span class="p">(</span><span class="n">LuckPredictionError</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="s1">&#39;Negative Luck&#39;</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">value</span><span class="p">,</span><span class="n">message</span><span class="p">)</span>
+
+        
+<span class="k">class</span> <span class="nc">BadLuckError</span><span class="p">(</span><span class="n">LuckPredictionError</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="s1">&#39;Bad Luck&#39;</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">value</span><span class="p">,</span><span class="s1">&#39;</span><span class="si">{}</span><span class="se">\t</span><span class="s1">value:</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">message</span><span class="p">,</span><span class="n">value</span><span class="p">))</span>
+
+    
+
+
     
 </pre></div>
 
@@ -14549,13 +14533,44 @@ World		5 4 7
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[93]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">test_manager</span><span class="p">():</span>
-    <span class="n">m</span><span class="o">=</span><span class="n">Manager</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;web&#39;</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;m.id&#39;</span><span class="p">,</span><span class="n">m</span><span class="o">.</span><span class="n">empId</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;m.project&#39;</span><span class="p">,</span><span class="n">m</span><span class="o">.</span><span class="n">project</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">get_fortune</span><span class="p">(</span><span class="n">luckyNumber</span><span class="p">):</span>
+    <span class="n">message</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;Great Day&#39;</span><span class="p">,</span><span class="s1">&#39;Success Awaits You&#39;</span><span class="p">,</span><span class="s1">&#39;Be Careful Today&#39;</span>\
+             <span class="s1">&#39;God be with you&#39;</span><span class="p">,</span><span class="s1">&#39;Wonderful daily&#39;</span>\
+            <span class="p">]</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">luckyNumber</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="n">BadLuckError</span><span class="p">(</span><span class="n">luckyNumber</span><span class="p">,</span> <span class="s1">&#39;Lucky Number should be number&#39;</span><span class="p">)</span>
+    
+    <span class="k">if</span> <span class="n">luckyNumber</span><span class="o">&lt;=</span><span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">NegativeLuckError</span><span class="p">(</span><span class="n">luckyNumber</span><span class="p">)</span>
+        
+        
+    <span class="k">return</span> <span class="n">message</span><span class="p">[</span><span class="n">luckyNumber</span><span class="p">]</span> <span class="c1"># raise IndexError</span>
+    
+    
+<span class="k">def</span> <span class="nf">find_fortune</span><span class="p">(</span><span class="n">luckyNumber</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">get_fortune</span><span class="p">(</span><span class="n">luckyNumber</span><span class="p">)</span>
+    
+
+<span class="k">def</span> <span class="nf">fortune_teller</span><span class="p">(</span><span class="n">luckyNumber</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">message</span><span class="o">=</span><span class="n">find_fortune</span><span class="p">(</span><span class="n">luckyNumber</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Prediction:&#39;</span><span class="p">,</span><span class="n">message</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">IndexError</span> <span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;error&#39;</span><span class="p">,</span><span class="s1">&#39;luck should be between 1-5&#39;</span><span class="p">)</span>
+        
+    <span class="k">except</span> <span class="n">BadLuckError</span> <span class="k">as</span> <span class="n">bl</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;error&#39;</span><span class="p">,</span><span class="n">bl</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;due to&#39;</span><span class="p">,</span><span class="n">bl</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+    
+    <span class="k">except</span> <span class="n">LuckPredictionError</span> <span class="k">as</span> <span class="n">lp</span><span class="p">:</span>  <span class="c1"># handles NegativeLuckError as NegativeLuckError is a LuckPredictionError</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;error&#39;</span><span class="p">,</span><span class="n">lp</span><span class="p">,</span><span class="s1">&#39;due to&#39;</span><span class="p">,</span><span class="n">lp</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+        
+        
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;end of fortune teller!!!&#39;</span><span class="p">)</span>
+    
 </pre></div>
 
     </div>
@@ -14565,10 +14580,10 @@ World		5 4 7
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[94]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">test_manager</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fortune_teller</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -14585,8 +14600,105 @@ World		5 4 7
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>(&#39;m.id&#39;, 1)
-(&#39;m.project&#39;, &#39;web&#39;)
+<pre>Prediction: Success Awaits You
+end of fortune teller!!!
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[95]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fortune_teller</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>error Negative Luck due to -1
+end of fortune teller!!!
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[96]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fortune_teller</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>error Lucky Number should be number	value:hello
+due to hello
+end of fortune teller!!!
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[97]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fortune_teller</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>error luck should be between 1-5
+end of fortune teller!!!
 </pre>
 </div>
 </div>
@@ -14598,161 +14710,57 @@ World		5 4 7
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="class-to-super().__init__-is-not-part-of-python-2">class to super().__init__ is not part of python 2<a class="anchor-link" href="#class-to-super().__init__-is-not-part-of-python-2">&#182;</a></h2><ul>
-<li>python 2 doesn't support compact <strong>super()</strong> syntax of <strong>python 3</strong></li>
-</ul>
-
+<h2 id="Errors-can-be-intercepted,-translated-and-re-raised">Errors can be intercepted, translated and re-raised<a class="anchor-link" href="#Errors-can-be-intercepted,-translated-and-re-raised">&#182;</a></h2>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[101]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">class</span> <span class="nc">Manager</span><span class="p">(</span><span class="n">Employee</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">empId</span><span class="p">,</span><span class="n">project</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">empId</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">project</span><span class="o">=</span><span class="n">project</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">m</span><span class="o">=</span><span class="n">Manager</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;Web&#39;</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-intense-fg ansi-bold">---------------------------------------------------------------------------</span>
-<span class="ansi-red-intense-fg ansi-bold">TypeError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-intense-fg ansi-bold">&lt;ipython-input-9-ca8b0f2a6a48&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-intense-fg ansi-bold">()</span>
-<span class="ansi-green-intense-fg ansi-bold">----&gt; 1</span><span class="ansi-yellow-intense-fg ansi-bold"> </span>m<span class="ansi-yellow-intense-fg ansi-bold">=</span>Manager<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-cyan-intense-fg ansi-bold">2</span><span class="ansi-yellow-intense-fg ansi-bold">,</span><span class="ansi-blue-intense-fg ansi-bold">&#39;Web&#39;</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>
-
-<span class="ansi-green-intense-fg ansi-bold">&lt;ipython-input-8-345e72777429&gt;</span> in <span class="ansi-cyan-fg">__init__</span><span class="ansi-blue-intense-fg ansi-bold">(self, empId, project)</span>
-<span class="ansi-green-fg">      1</span> <span class="ansi-green-intense-fg ansi-bold">class</span> Manager<span class="ansi-yellow-intense-fg ansi-bold">(</span>Employee<span class="ansi-yellow-intense-fg ansi-bold">)</span><span class="ansi-yellow-intense-fg ansi-bold">:</span>
-<span class="ansi-green-fg">      2</span>     <span class="ansi-green-intense-fg ansi-bold">def</span> __init__<span class="ansi-yellow-intense-fg ansi-bold">(</span>self<span class="ansi-yellow-intense-fg ansi-bold">,</span>empId<span class="ansi-yellow-intense-fg ansi-bold">,</span>project<span class="ansi-yellow-intense-fg ansi-bold">)</span><span class="ansi-yellow-intense-fg ansi-bold">:</span>
-<span class="ansi-green-intense-fg ansi-bold">----&gt; 3</span><span class="ansi-yellow-intense-fg ansi-bold">         </span>super<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-yellow-intense-fg ansi-bold">)</span><span class="ansi-yellow-intense-fg ansi-bold">.</span>__init__<span class="ansi-yellow-intense-fg ansi-bold">(</span>empId<span class="ansi-yellow-intense-fg ansi-bold">)</span>
-<span class="ansi-green-fg">      4</span>         self<span class="ansi-yellow-intense-fg ansi-bold">.</span>project<span class="ansi-yellow-intense-fg ansi-bold">=</span>project
-
-<span class="ansi-red-intense-fg ansi-bold">TypeError</span>: super() takes at least 1 argument (0 given)</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="super-call-needs-to-be-chained">super call needs to be chained<a class="anchor-link" href="#super-call-needs-to-be-chained">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">class</span> <span class="nc">Manager</span><span class="p">(</span><span class="n">Employee</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">empId</span><span class="p">,</span><span class="n">project</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">(</span><span class="n">Manager</span><span class="p">,</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">empId</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">project</span><span class="o">=</span><span class="n">project</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">m</span><span class="o">=</span><span class="n">Manager</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;web&#39;</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-intense-fg ansi-bold">---------------------------------------------------------------------------</span>
-<span class="ansi-red-intense-fg ansi-bold">TypeError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-intense-fg ansi-bold">&lt;ipython-input-15-a793f0388505&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-intense-fg ansi-bold">()</span>
-<span class="ansi-green-intense-fg ansi-bold">----&gt; 1</span><span class="ansi-yellow-intense-fg ansi-bold"> </span>m<span class="ansi-yellow-intense-fg ansi-bold">=</span>Manager<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-cyan-intense-fg ansi-bold">2</span><span class="ansi-yellow-intense-fg ansi-bold">,</span><span class="ansi-blue-intense-fg ansi-bold">&#39;web&#39;</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>
-
-<span class="ansi-green-intense-fg ansi-bold">&lt;ipython-input-14-fb78904a3df1&gt;</span> in <span class="ansi-cyan-fg">__init__</span><span class="ansi-blue-intense-fg ansi-bold">(self, empId, project)</span>
-<span class="ansi-green-fg">      1</span> <span class="ansi-green-intense-fg ansi-bold">class</span> Manager<span class="ansi-yellow-intense-fg ansi-bold">(</span>Employee<span class="ansi-yellow-intense-fg ansi-bold">)</span><span class="ansi-yellow-intense-fg ansi-bold">:</span>
-<span class="ansi-green-fg">      2</span>     <span class="ansi-green-intense-fg ansi-bold">def</span> __init__<span class="ansi-yellow-intense-fg ansi-bold">(</span>self<span class="ansi-yellow-intense-fg ansi-bold">,</span>empId<span class="ansi-yellow-intense-fg ansi-bold">,</span>project<span class="ansi-yellow-intense-fg ansi-bold">)</span><span class="ansi-yellow-intense-fg ansi-bold">:</span>
-<span class="ansi-green-intense-fg ansi-bold">----&gt; 3</span><span class="ansi-yellow-intense-fg ansi-bold">         </span>super<span class="ansi-yellow-intense-fg ansi-bold">(</span>Manager<span class="ansi-yellow-intense-fg ansi-bold">,</span>self<span class="ansi-yellow-intense-fg ansi-bold">)</span><span class="ansi-yellow-intense-fg ansi-bold">.</span>__init__<span class="ansi-yellow-intense-fg ansi-bold">(</span>empId<span class="ansi-yellow-intense-fg ansi-bold">)</span>
-<span class="ansi-green-fg">      4</span>         self<span class="ansi-yellow-intense-fg ansi-bold">.</span>project<span class="ansi-yellow-intense-fg ansi-bold">=</span>project
-
-<span class="ansi-red-intense-fg ansi-bold">TypeError</span>: super() argument 1 must be type, not classobj</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="What-went-wrong">What went wrong<a class="anchor-link" href="#What-went-wrong">&#182;</a></h2><ul>
-<li>super call must be chained to the <strong>object</strong> class</li>
-<li>the top most class should invoke <strong>super()</strong> for object</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">class</span> <span class="nc">Employee</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">empId</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">(</span><span class="n">Employee</span><span class="p">,</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">empId</span><span class="o">=</span><span class="n">empId</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">get_fortune</span><span class="p">(</span><span class="n">luckyNumber</span><span class="p">):</span>
+    <span class="n">message</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;Great Day&#39;</span><span class="p">,</span><span class="s1">&#39;Success Awaits You&#39;</span><span class="p">,</span><span class="s1">&#39;Be Careful Today&#39;</span>\
+             <span class="s1">&#39;God be with you&#39;</span><span class="p">,</span><span class="s1">&#39;Wonderful daily&#39;</span>\
+            <span class="p">]</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">luckyNumber</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="n">BadLuckError</span><span class="p">(</span><span class="n">luckyNumber</span><span class="p">,</span> <span class="s1">&#39;Lucky Number should be number&#39;</span><span class="p">)</span>
+    
+    <span class="k">if</span> <span class="n">luckyNumber</span><span class="o">&lt;=</span><span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">NegativeLuckError</span><span class="p">(</span><span class="n">luckyNumber</span><span class="p">)</span>
         
-<span class="k">class</span> <span class="nc">Manager</span><span class="p">(</span><span class="n">Employee</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">empId</span><span class="p">,</span><span class="n">project</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">(</span><span class="n">Manager</span><span class="p">,</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">empId</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">project</span><span class="o">=</span><span class="n">project</span>
+        
+    <span class="k">return</span> <span class="n">message</span><span class="p">[</span><span class="n">luckyNumber</span><span class="p">]</span> <span class="c1"># raise IndexError</span>
+    
+    
+<span class="k">def</span> <span class="nf">find_fortune</span><span class="p">(</span><span class="n">luckyNumber</span><span class="p">):</span>
+    <span class="n">result</span><span class="o">=</span><span class="kc">None</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">result</span><span class="o">=</span> <span class="n">get_fortune</span><span class="p">(</span><span class="n">luckyNumber</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">BadLuckError</span><span class="p">(</span><span class="n">luckyNumber</span><span class="p">,</span> <span class="s1">&#39;Lucky Number Should be between 1-5&#39;</span><span class="p">)</span>
+        
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;find_fortune completed&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span>
+    
+
+<span class="k">def</span> <span class="nf">fortune_teller</span><span class="p">(</span><span class="n">luckyNumber</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">message</span><span class="o">=</span><span class="n">find_fortune</span><span class="p">(</span><span class="n">luckyNumber</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Prediction:&#39;</span><span class="p">,</span><span class="n">message</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">IndexError</span> <span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;error&#39;</span><span class="p">,</span><span class="s1">&#39;value should be between 1-5&#39;</span><span class="p">)</span>
+        
+    <span class="k">except</span> <span class="n">BadLuckError</span> <span class="k">as</span> <span class="n">bl</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;error&#39;</span><span class="p">,</span><span class="n">bl</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;due to&#39;</span><span class="p">,</span><span class="n">bl</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+    
+    <span class="k">except</span> <span class="n">LuckPredictionError</span> <span class="k">as</span> <span class="n">lp</span><span class="p">:</span>  <span class="c1"># handles NegativeLuckError as NegativeLuckError is a LuckPredictionError</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;error&#39;</span><span class="p">,</span><span class="n">lp</span><span class="p">,</span><span class="s1">&#39;due to&#39;</span><span class="p">,</span><span class="n">lp</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+        
+        
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;end of fortune teller!!!&#39;</span><span class="p">)</span>
+    
 </pre></div>
 
     </div>
@@ -14762,13 +14770,66 @@ World		5 4 7
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="prompt input_prompt">In&nbsp;[102]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">m</span><span class="o">=</span><span class="n">Manager</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;web&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fortune_teller</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>find_fortune completed
+Prediction: Great Day
+end of fortune teller!!!
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[103]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fortune_teller</span><span class="p">(</span><span class="mi">51</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>error Lucky Number Should be between 1-5	value:51
+due to 51
+end of fortune teller!!!
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -14776,9 +14837,216 @@ World		5 4 7
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Note">Note<a class="anchor-link" href="#Note">&#182;</a></h2><ul>
-<li>In case of <strong>super</strong> call in inheritance <strong>python 2</strong> requires an explicit inheritance from <strong>object</strong></li>
-<li>In Python 3 all classes <strong>implicitly</strong> inherit <strong>object</strong></li>
+<h1 id="Finally">Finally<a class="anchor-link" href="#Finally">&#182;</a></h1><h2 id="Note-if-you-code-raises-exception-There-is-no-surity-that">Note if you code raises exception There is no surity that<a class="anchor-link" href="#Note-if-you-code-raises-exception-There-is-no-surity-that">&#182;</a></h2><ol>
+<li>try block will execute completely<ul>
+<li>there may be an excetion</li>
+</ul>
+</li>
+<li><p>except block will execute</p>
+<ul>
+<li>exception may not be raised</li>
+<li>a different exception is raised</li>
+</ul>
+</li>
+<li><p>code after try-catch will execute</p>
+<ul>
+<li>exception that is raised was not <strong>except</strong>ed</li>
+</ul>
+</li>
+</ol>
+<h3 id="what-if-I-need-a-block-of-code-that-must-execute-no-matter-what">what if I need a block of code that must execute no matter what<a class="anchor-link" href="#what-if-I-need-a-block-of-code-that-must-execute-no-matter-what">&#182;</a></h3><h4 id="finally">finally<a class="anchor-link" href="#finally">&#182;</a></h4><ul>
+<li>finally executes<ol>
+<li>after a successful try (if no error occurs)</li>
+<li>after a successfull except (if error is raised and excepted)</li>
+<li>after a failed try and before exiting function<ul>
+<li>if exception is raised but not excepted</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[104]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">get_fortune</span><span class="p">(</span><span class="n">luckyNumber</span><span class="p">):</span>
+    <span class="n">message</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;Great Day&#39;</span><span class="p">,</span><span class="s1">&#39;Success Awaits You&#39;</span><span class="p">,</span><span class="s1">&#39;Be Careful Today&#39;</span>\
+             <span class="s1">&#39;God be with you&#39;</span><span class="p">,</span><span class="s1">&#39;Wonderful daily&#39;</span>\
+            <span class="p">]</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">luckyNumber</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="n">BadLuckError</span><span class="p">(</span><span class="n">luckyNumber</span><span class="p">,</span> <span class="s1">&#39;Lucky Number should be number&#39;</span><span class="p">)</span>
+    
+    <span class="k">if</span> <span class="n">luckyNumber</span><span class="o">&lt;=</span><span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">NegativeLuckError</span><span class="p">(</span><span class="n">luckyNumber</span><span class="p">)</span>
+        
+        
+    <span class="k">return</span> <span class="n">message</span><span class="p">[</span><span class="n">luckyNumber</span><span class="p">]</span> <span class="c1"># raise IndexError</span>
+    
+    
+<span class="k">def</span> <span class="nf">find_fortune</span><span class="p">(</span><span class="n">luckyNumber</span><span class="p">):</span>
+    <span class="n">result</span><span class="o">=</span><span class="kc">None</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">result</span><span class="o">=</span> <span class="n">get_fortune</span><span class="p">(</span><span class="n">luckyNumber</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">BadLuckError</span><span class="p">(</span><span class="n">luckyNumber</span><span class="p">,</span> <span class="s1">&#39;Lucky Number Should be between 1-5&#39;</span><span class="p">)</span>
+    <span class="k">finally</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;finally in finally of find_fortune&#39;</span><span class="p">)</span>
+        
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;find_fortune completed&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span>
+    
+
+<span class="k">def</span> <span class="nf">fortune_teller</span><span class="p">(</span><span class="n">luckyNumber</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">message</span><span class="o">=</span><span class="n">find_fortune</span><span class="p">(</span><span class="n">luckyNumber</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Prediction:&#39;</span><span class="p">,</span><span class="n">message</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">IndexError</span> <span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;error&#39;</span><span class="p">,</span><span class="s1">&#39;value should be between 1-5&#39;</span><span class="p">)</span>
+        
+    <span class="k">except</span> <span class="n">BadLuckError</span> <span class="k">as</span> <span class="n">bl</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;error&#39;</span><span class="p">,</span><span class="n">bl</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;due to&#39;</span><span class="p">,</span><span class="n">bl</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+    
+    <span class="k">except</span> <span class="n">LuckPredictionError</span> <span class="k">as</span> <span class="n">lp</span><span class="p">:</span>  <span class="c1"># handles NegativeLuckError as NegativeLuckError is a LuckPredictionError</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;error&#39;</span><span class="p">,</span><span class="n">lp</span><span class="p">,</span><span class="s1">&#39;due to&#39;</span><span class="p">,</span><span class="n">lp</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+        
+        
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;end of fortune teller!!!&#39;</span><span class="p">)</span>
+    
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[105]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fortune_teller</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>finally in finally of find_fortune
+find_fortune completed
+Prediction: Great Day
+end of fortune teller!!!
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[106]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fortune_teller</span><span class="p">(</span><span class="mi">51</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>finally in finally of find_fortune
+error Lucky Number Should be between 1-5	value:51
+due to 51
+end of fortune teller!!!
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[108]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fortune_teller</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>finally in finally of find_fortune
+error Negative Luck due to -1
+end of fortune teller!!!
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Exception-Handling-Ideas">Exception Handling Ideas<a class="anchor-link" href="#Exception-Handling-Ideas">&#182;</a></h2><ul>
+<li>Triangle <strong>__init__</strong> should raise <strong>InvalidDimensionError</strong> if sides are invalid</li>
+<li>Triangle perimeter() shoudl raise <strong>InvalidShapeError</strong> if triangle is not valid</li>
+<li>Employee set name should raise <strong>LastNameRequiredError</strong></li>
+<li><p>Empooyee set salary shoudl raise <strong>NegativeValueNotAllowedError</strong></p>
+</li>
+<li><p>Exception Hierarchy May Include</p>
+</li>
+<li>BadInputError<ul>
+<li>LastNameRequiredError</li>
+<li>NegativeValueNotAllowedError</li>
+</ul>
+</li>
+<li>GeometryError <ul>
+<li>InvalidDimensionError</li>
+<li>InvalidShapeError</li>
+</ul>
+</li>
 </ul>
 
 </div>
@@ -14789,7 +15057,7 @@ World		5 4 7
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span> 
+<div class=" highlight hl-ipython3"><pre><span></span> 
 </pre></div>
 
     </div>
